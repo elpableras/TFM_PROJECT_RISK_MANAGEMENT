@@ -1,0 +1,241 @@
+	div#steps {width:79%; max-width:690px;}
+	div#update,div#help {width:79%; max-width:690px; margin:0em 0em 0em -11.8em;}
+	div#info,div#anal {width:100%; text-align: center;}
+	
+	table {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:5% auto 0em 6em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}	
+	
+	table#help {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:5% auto 0em 10em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	table#tablaPlan {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin: 3em 0em 0em 4em;				
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	table#tablaVersion {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:5% auto 0em 6em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		text-align: center;
+	}
+	
+	table#tablaMatrix {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:-16.4em 0em 0em 3em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	table#tablaMatrixCorte {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:-5em 0em 0em 42.5em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}	
+	
+	table#tablaCambio {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:-1em 0em 0em 3em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}	
+	
+	table#tablaRangosMatriz {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:0em 0em 0em 37em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}	
+	
+	table#tablaPlanObjetive {		
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:7em 0em 0em -19em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}	
+	
+	table#objetivo {	
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:2em 0em 0em 21.8em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	table#riskM{	
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:5% auto 0em 3em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	table#tablaIden {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin: 0em 0em 0em -28.5em;				
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	table#tablaAnal{
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin: 7em 1em 0em 2em;				
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	table#adminIzq,table#managerIzq,table#memberIzq {
+		overflow:hidden;
+		border:1px solid #d3d3d3;
+		background:#fefefe;
+		margin:5% auto 0em 10em;
+		-moz-border-radius:5px; /* FF1+ */
+		-webkit-border-radius:5px; /* Saf3-4 */
+		border-radius:5px;
+		-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	}
+	
+	th, td {padding:2px;}
+	
+	th {padding-top:6px; text-shadow: 1px 1px 1px #fff; background:#e8eaeb;}
+	
+	tr#info td {background:#f6f6f6; font-weight: bold;}
+	
+	td.last {border-right:none;}
+	
+	td#bbdd{display:none;}
+	td#cabeza{font-weight:bold;font-size:18px;text-align:center;}
+	td#rotar{font-weight:bold;font-size:18px;text-align:center;width:50px;padding:0px;background:transparent;}
+	td#subcabeza,td#corte{font-weight:bold;text-align:center;}
+	td#verde{background:green;text-align:center;font-weight:bold;}
+	td#amarillo{background:yellow;text-align:center;font-weight:bold;}
+	td#rojo{background:red;text-align:center;font-weight:bold;}
+	td#idenRisk,td#center{text-align:center;font-weight:bold;}
+	td#izq{text-align:left;font-weight:bold;}
+	td.actual{
+	font-size: 13px;
+    font-weight: bold;
+    list-style: none;
+	background: url(../img/flecha.png) no-repeat scroll rgb(243, 255, 117) !important;
+	padding-left: 20px; 
+	}
+	
+	tr.secundario.odd-row, tr.secundario td{text-align:right;}
+	
+	/*
+	Background gradients are completely unnecessary but a neat effect.
+	*/
+	
+	td {
+		background: -moz-linear-gradient(100% 25% 90deg, #fefefe, #f9f9f9);
+		background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f9f9f9), to(#fefefe));
+		border-top:1px solid #e0e0e0; border-right:1px solid #e0e0e0;	
+	}
+	
+	tr.odd-row td {
+		background: -moz-linear-gradient(100% 25% 90deg, #f6f6f6, #f1f1f1);
+		background: -webkit-gradient(linear, 0% 0%, 0% 25%, from(#f1f1f1), to(#f6f6f6));
+	}
+	
+	th {
+		background: -moz-linear-gradient(100% 20% 90deg, #e8eaeb, #ededed);
+		background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
+	}
+	
+	
+	
+	tr:first-child th.first {
+		-moz-border-radius-topleft:5px;
+		-webkit-border-top-left-radius:5px; /* Saf3-4 */
+	}
+	
+	tr:first-child th.last {
+		-moz-border-radius-topright:5px;
+		-webkit-border-top-right-radius:5px; /* Saf3-4 */
+	}
+	
+	tr:last-child td.first {
+		-moz-border-radius-bottomleft:5px;
+		-webkit-border-bottom-left-radius:5px; /* Saf3-4 */
+	}
+	
+	tr:last-child td.last {
+		-moz-border-radius-bottomright:5px;
+		-webkit-border-bottom-right-radius:5px; /* Saf3-4 */
+	}

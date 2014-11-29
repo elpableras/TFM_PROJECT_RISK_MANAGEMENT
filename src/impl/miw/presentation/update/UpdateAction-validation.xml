@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>	
+
+	<field name="loginAccountUpdate">
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">80</param>			
+			<param name="trim">true</param>
+			<message key="name.length"/>
+		</field-validator>
+	</field>
+	
+	<field name="emailAccountUpdate">
+		<field-validator type="email">
+		   <message key="email"/>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">100</param>			
+			<param name="trim">true</param>
+			<message key="email.length"/>
+		</field-validator>
+	</field>
+	
+	<field name="passAccountUpdate">
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">80</param>
+			<param name="trim">true</param>
+			<message key="password.length"/>
+		</field-validator>
+	</field>	
+
+</validators>

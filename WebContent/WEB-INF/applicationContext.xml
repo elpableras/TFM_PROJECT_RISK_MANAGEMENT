@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+	<!--- Application context definition-->
+<beans>
+    <bean id="log" class="com.miw.infrastructure.log.MyLogService" >
+    	<property name="level" value="0" />
+    </bean>
+    
+    <bean id="projectDataService" class="impl.miw.persistence.project.ProjectDAO"/>
+    <bean id="userDataService" class="impl.miw.persistence.user.UserDAO" />  
+    <bean id="infoDataService" class="impl.miw.persistence.info.InfoDAO" />
+   
+   	<!--  Sin autowire, inyectamos explícitamente los beans -->
+   
+    <bean id="projectService" class="impl.miw.business.project.ProjectRisk" >
+    	<property name="log">
+    		<ref bean="log"/>
+    	</property>
+    	
+    	<property name="projectDataService">
+    		<ref bean="projectDataService"/>
+    	</property>
+    	
+    </bean>
+    
+    <bean id="userService" class="impl.miw.business.people.People" >
+    	<property name="log">
+    		<ref bean="log"/>
+    	</property>
+    	
+    	<property name="userDataService">
+    		<ref bean="userDataService"/>
+    	</property>
+    	
+    </bean>
+    
+    <bean id="infoService" class="impl.miw.business.plan.Plan" >
+    	<property name="log">
+    		<ref bean="log"/>
+    	</property>
+    	
+    	<property name="infoDataService">
+    		<ref bean="infoDataService"/>
+    	</property>
+    	
+    </bean>
+    
+</beans>

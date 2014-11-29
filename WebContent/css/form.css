@@ -1,0 +1,44 @@
+form#accountUpdate {width:60%; text-align:center;padding:0em 0em 0em 1em;}
+form#registerManager,form#registerProject,form#registerMember {width:60%; text-align:center;}
+form#newManager {width:60%; text-align:center;padding:0em 0em 0em 29em;}
+form#options {text-align:center;padding:0.5em 0em 0em 0em;}
+form#update {text-align:center;padding:0em 0em 0em 6em;}
+form#planObjetive {text-align:center;}
+form#planP {text-align:center;padding:4em 7em 0em 0em;}
+
+.wwFormTable {
+	box-shadow: 10px 10px 5px #888888;
+	overflow:hidden;
+	border:1px solid #d3d3d3;
+	background:#fefefe;
+	margin:0em -10em 0em -3em;
+	-moz-border-radius:5px; /* FF1+ */
+	-webkit-border-radius:5px; /* Saf3-4 */
+	border-radius:5px;
+	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+.wwFormTable tr:nth-child(odd){ background-color:#e5e5e5; }
+.wwFormTable tr:nth-child(even)    { background-color:#ffffff; }.wwFormTable td{
+	vertical-align:middle;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:11px;
+	font-size:12px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.wwFormTable tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.wwFormTable tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.wwFormTable tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.wwFormTable tr:hover td{
+	background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+	background-color:#cccccc;
+}

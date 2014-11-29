@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>	
+
+	<field name="nameProjectRegister">
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">80</param>			
+			<param name="trim">true</param>
+			<message key="name.length"/>
+		</field-validator>
+	</field>
+	
+	<field name="managerProjectRegister">
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">80</param>			
+			<param name="trim">true</param>
+			<message key="manager.length"/>
+		</field-validator>
+	</field>
+	
+	<field name="versionProjectRegister">
+		<field-validator type="stringlength">
+			<param name="minLength">3</param>
+			<param name="maxLength">10</param>
+			<param name="trim">true</param>
+			<message key="version.length"/>
+		</field-validator>
+	</field>	
+	
+	<field name="emailProjectRegister">
+		<field-validator type="email">
+		   <message key="email"/>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">4</param>
+			<param name="maxLength">100</param>			
+			<param name="trim">true</param>
+			<message key="email.length"/>
+		</field-validator>
+	</field>
+
+</validators>
