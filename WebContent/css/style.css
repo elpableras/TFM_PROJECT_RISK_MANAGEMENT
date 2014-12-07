@@ -204,7 +204,7 @@ div.mensajeError
 {	
 	color: #e91b2b;
 	font-weight: bold;
-	margin: -3.2em 0em 0em -1em;
+	margin: -1em 0em 0em 0em;
 	font-family: Georgia,Times,"Times New Roman",serif;
 	font-size: 1.16667rem;
 	border-radius: 10px;	
@@ -469,7 +469,7 @@ p#management
 	padding: 6em 0em 0em 7.5em;
 }
 
-#anal
+#resp
 {
 	padding: 4em 0em 0em 0em;
 }
@@ -604,7 +604,7 @@ input#buttonDelete{
 	padding: 0.7em 0.5em 0em 0.9em;
 }
 
-input#buttonDeleteAnali{
+input#buttonDeleteResp{
 	background: url(../img/delete.png) no-repeat scroll !important;
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
@@ -654,7 +654,7 @@ input#submitPDF
 	padding: 6px 8px;
 }
 
-input#submitAnali
+input#submitResp
 {
 	margin:17px 0px -6px 0px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
@@ -690,7 +690,7 @@ input#submitCorte
 
 input#submitRegister:hover, #submitLogin:hover, #submitForgotten:hover, #navigation ul li.noselected:hover, input#submitUpdate:hover, 
 input#submitOptions:hover, input#submitPlan:hover, input#submitPlanRisk:hover, input#buttonDelete:hover, input#buttonAdd:hover, 
-input#submitCorte:hover, input#submitIden:hover, input#buttonDeleteAnali:hover, input#submitAnali:hover, input#submitPDF:hover { 
+input#submitCorte:hover, input#submitIden:hover, input#buttonDeleteResp:hover, input#submitResp:hover, input#submitPDF:hover { 
 	background: #3373bb;
 }
 
@@ -715,7 +715,7 @@ input#register, input#check-1, select#register
 	margin:0px 5px 0px 10px;
 }
 
-input#updateLogin,input#updatePass,input#planObjetive,input#idenRisk,input#analiRisk,input#planCambio
+input#updateLogin,input#updatePass,input#planObjetive,input#idenRisk,input#respRisk,input#planCambio
 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
@@ -725,7 +725,7 @@ input#updateLogin,input#updatePass,input#planObjetive,input#idenRisk,input#anali
 	margin:0px 5px 0px 10px;
 }
 
-input#analiRiskPresu
+input#respRiskPresu
 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
@@ -745,7 +745,7 @@ input#idenRisk
 	margin:0px 0px 0px -2px;
 }
 
-textarea#analiPlanificacion{
+textarea#respPlanificacion{
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;	
@@ -753,7 +753,7 @@ textarea#analiPlanificacion{
 	height:60px;
 }
 
-select#idenRisk,select#analiRisk
+select#idenRisk,select#respRisk
 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
@@ -763,7 +763,7 @@ select#idenRisk,select#analiRisk
 	margin:0px 0px 0px -2px;
 }
 
-input#planImpact,input#analiRiskId,input#planCambioVersion
+input#planImpact,input#respRiskId,input#planCambioVersion
 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
@@ -793,7 +793,7 @@ textarea#planDefine1
 	margin:0px 5px 0px 10px;
 }
 
-input#analiRiskNombre
+input#respRiskNombre
 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
@@ -803,7 +803,7 @@ input#analiRiskNombre
 	margin:0px 5px 0px 10px;
 }
 
-textarea#analiRisk
+textarea#respRisk
 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
@@ -813,7 +813,7 @@ textarea#analiRisk
 	margin:0px 5px 0px 10px;
 }
 
-textarea#analiRisk2
+textarea#respRisk2
 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
@@ -889,8 +889,8 @@ input#email
 input#register:focus, #loginError:focus, #emailForgotten:focus, input#email:focus, select#updateLanguage:focus, input#updateEmail:focus, 
 input#updateLogin:focus, input#updatePass:focus, input#planNumber:focus, input#matrxNumber:focus, textarea:focus, textarea#planDefine1:focus, 
 input#planObjetive:focus, input#planImpact:focus, input#matrixNumberGreen:focus, input#matrixNumberRed:focus, input#matrixCorte:focus, 
-input#idenRisk:focus, input#idenRiskNumber:focus, select#idenRisk:focus, textarea#idenRisk:focus, input#analiRisk:focus,textarea#analiRisk:focus,
-textarea#analiPlanificacion:focus,input#analiRiskId:focus,input#analiRiskNombre:focus,textarea#analiRisk2:focus,select#analiRisk:focus
+input#idenRisk:focus, input#idenRiskNumber:focus, select#idenRisk:focus, textarea#idenRisk:focus, input#respRisk:focus,textarea#respRisk:focus,
+textarea#respPlanificacion:focus,input#respRiskId:focus,input#respRiskNombre:focus,textarea#respRisk2:focus,select#respRisk:focus
 {
 	border: 1px solid rgb(196, 196, 196);
 	background: none repeat scroll 0% 0% rgb(250, 250, 250);

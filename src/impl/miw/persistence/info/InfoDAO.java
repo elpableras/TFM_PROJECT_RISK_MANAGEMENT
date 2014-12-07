@@ -12,12 +12,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 
-import com.miw.model.Analisis;
 import com.miw.model.Cambio;
 import com.miw.model.Iden;
 import com.miw.model.Impacto;
 import com.miw.model.Info;
 import com.miw.model.Probabilidad;
+import com.miw.model.Respuesta;
 import com.miw.persistence.InfoDataService;
 
 /**
@@ -1086,14 +1086,14 @@ public class InfoDAO implements InfoDataService {
     }
 
     /**
-     * Setter para establecer los datos de los análisis de riesgos
+     * Setter para establecer los datos de la respuesta de riesgos
      * 
-     * @param anal
-     *            datos del análisis de riesgos
+     * @param resp
+     *            datos de la respuesta de riesgos
      * @throws Exception
      */
     @Override
-    public void setAnalisis(Analisis anal) throws Exception {
+    public void setRespuesta(Respuesta resp) throws Exception {
 	PreparedStatement ps = null;
 	Connection con = null;
 	ResultSet rs = null;
@@ -1101,16 +1101,16 @@ public class InfoDAO implements InfoDataService {
 	try {
 	    con = Jdbc.getConnection();
 
-	    if (uniqueAnilisis(ps, con, rs, anal.getIdU(), anal.getIdP(),
-		    anal.getOption())) {
-		insertAnali(anal, ps, con);
+	    if (uniqueRespuesta(ps, con, rs, resp.getIdU(), resp.getIdP(),
+		    resp.getOption())) {
+		insertResp(resp, ps, con);
 	    } else {
 		ps = con.prepareStatement("DELETE FROM analisis WHERE project_id=? and u_id=? and opcion=?;");
-		ps.setLong(1, anal.getIdP());
-		ps.setLong(2, anal.getIdU());
-		ps.setLong(3, anal.getOption());
+		ps.setLong(1, resp.getIdP());
+		ps.setLong(2, resp.getIdU());
+		ps.setLong(3, resp.getOption());
 		ps.executeUpdate();
-		insertAnali(anal, ps, con);
+		insertResp(resp, ps, con);
 	    }
 	} catch (Exception e) {
 	    e.printStackTrace();
@@ -1127,10 +1127,10 @@ public class InfoDAO implements InfoDataService {
     }
 
     /**
-     * Método para insertar los datos de los análisis de los riesgos
+     * Método para insertar los datos de las respuestas de los riesgos
      * 
-     * @param anal
-     *            información sobre el análisis
+     * @param resp
+     *            información sobre la respuesta
      * @param ps
      *            declaración de la qs
      * @param con
@@ -1138,52 +1138,52 @@ public class InfoDAO implements InfoDataService {
      * @throws SQLException
      * @throws ParseException
      */
-    private void insertAnali(Analisis anal, PreparedStatement ps, Connection con)
+    private void insertResp(Respuesta resp, PreparedStatement ps, Connection con)
 	    throws SQLException, ParseException {
 	ps = con.prepareStatement("INSERT INTO analisis (project_id,u_id,id,opcion,nombre,descripcion,categoria,status,causas,probabilidad,impacto,valor,response,fechaRevision,probabilidadRevisada,impactoRevisado,valorRevisado,responseRevisado,derivado,residual,contingencia,presupuesto,planificacion,comentarios,monitorizacion,indicador,evaluacion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
-	ps.setLong(1, anal.getIdP());
-	ps.setLong(2, anal.getIdU());
-	ps.setInt(3, anal.getId());
-	ps.setInt(4, anal.getOption());
-	ps.setString(5, anal.getNombre());
-	ps.setString(6, anal.getDescripcion());
-	ps.setString(7, anal.getCategoria());
-	ps.setString(8, anal.getStatus());
-	ps.setString(9, anal.getCausas());
-	ps.setInt(10, anal.getProbabilidad());
-	ps.setString(11, anal.getImpacto());
-	ps.setDouble(12, anal.getValor());
-	ps.setString(13, anal.getResponse());
+	ps.setLong(1, resp.getIdP());
+	ps.setLong(2, resp.getIdU());
+	ps.setInt(3, resp.getId());
+	ps.setInt(4, resp.getOption());
+	ps.setString(5, resp.getNombre());
+	ps.setString(6, resp.getDescripcion());
+	ps.setString(7, resp.getCategoria());
+	ps.setString(8, resp.getStatus());
+	ps.setString(9, resp.getCausas());
+	ps.setInt(10, resp.getProbabilidad());
+	ps.setString(11, resp.getImpacto());
+	ps.setDouble(12, resp.getValor());
+	ps.setString(13, resp.getResponse());
 
-	if (anal.getFechaRevisada().compareTo("") != 0) {
+	if (resp.getFechaRevisada().compareTo("") != 0) {
 	    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
-	    java.util.Date date = sdf1.parse(anal.getFechaRevisada());
+	    java.util.Date date = sdf1.parse(resp.getFechaRevisada());
 	    java.sql.Date sqlDate = new Date(date.getTime());
 	    ps.setDate(14, sqlDate);
 	} else {
 	    ps.setDate(14, null);
 	}
 
-	ps.setInt(15, anal.getProbabilidadRevisada());
-	ps.setString(16, anal.getImpactoRevisado());
-	ps.setDouble(17, anal.getValorRevisado());
-	ps.setString(18, anal.getResponseRevisado());
+	ps.setInt(15, resp.getProbabilidadRevisada());
+	ps.setString(16, resp.getImpactoRevisado());
+	ps.setDouble(17, resp.getValorRevisado());
+	ps.setString(18, resp.getResponseRevisado());
 
-	ps.setString(19, anal.getDerivado());
-	ps.setString(20, anal.getResidual());
-	ps.setString(21, anal.getContingencia());
-	ps.setString(22, anal.getPresupuesto());
-	ps.setString(23, anal.getPlanificacion());
-	ps.setString(24, anal.getComentarios());
-	ps.setString(25, anal.getMonitorizacion());
-	ps.setString(26, anal.getIndicador());
-	ps.setString(27, anal.getEvaluacion());
+	ps.setString(19, resp.getDerivado());
+	ps.setString(20, resp.getResidual());
+	ps.setString(21, resp.getContingencia());
+	ps.setString(22, resp.getPresupuesto());
+	ps.setString(23, resp.getPlanificacion());
+	ps.setString(24, resp.getComentarios());
+	ps.setString(25, resp.getMonitorizacion());
+	ps.setString(26, resp.getIndicador());
+	ps.setString(27, resp.getEvaluacion());
 
 	ps.executeUpdate();
     }
 
     /**
-     * Método para confirmación de existencia de mismo análisis de riesgo es
+     * Método para confirmación de existencia de mismas respuestas de riesgo es
      * único o no
      * 
      * @param ps
@@ -1199,7 +1199,7 @@ public class InfoDAO implements InfoDataService {
      * @return valor booleano si true si es único false si no
      * @throws SQLException
      */
-    private boolean uniqueAnilisis(PreparedStatement ps, Connection con,
+    private boolean uniqueRespuesta(PreparedStatement ps, Connection con,
 	    ResultSet rs, Long idU, Long idP, Integer option)
 	    throws SQLException {
 	boolean vacio = true;
@@ -1215,18 +1215,18 @@ public class InfoDAO implements InfoDataService {
     }
 
     /**
-     * Getter para la obtención de los análisis de los riesgos
+     * Getter para la obtención de las respuestas de los riesgos
      * 
      * @param id
      *            identificación del usuario
      * @param idP
      *            identificación del proyecto
-     * @return Analisis datos del análisis de los riesgos
+     * @return Respuesta datos de la respuesta de los riesgos
      * @throws Exception
      */
     @Override
-    public Analisis getAnal(Long id, Long idP, Integer op) throws Exception {
-	Analisis anali = new Analisis();
+    public Respuesta getResp(Long id, Long idP, Integer op) throws Exception {
+	Respuesta resp = new Respuesta();
 
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -1243,18 +1243,18 @@ public class InfoDAO implements InfoDataService {
 	    rs = ps.executeQuery();
 
 	    while (rs.next()) {
-		anali.setOption(rs.getInt("opcion"));
-		anali.setId(rs.getInt("id"));
-		anali.setIdP(rs.getLong("project_id"));
-		anali.setNombre(rs.getString("nombre"));
-		anali.setDescripcion(rs.getString("descripcion"));
-		anali.setCategoria(rs.getString("categoria"));
-		anali.setStatus(rs.getString("status"));
-		anali.setCausas(rs.getString("causas"));
-		anali.setProbabilidad(rs.getInt("probabilidad"));
-		anali.setImpacto(rs.getString("impacto"));
-		anali.setValor(rs.getDouble("valor"));
-		anali.setResponse(rs.getString("response"));
+		resp.setOption(rs.getInt("opcion"));
+		resp.setId(rs.getInt("id"));
+		resp.setIdP(rs.getLong("project_id"));
+		resp.setNombre(rs.getString("nombre"));
+		resp.setDescripcion(rs.getString("descripcion"));
+		resp.setCategoria(rs.getString("categoria"));
+		resp.setStatus(rs.getString("status"));
+		resp.setCausas(rs.getString("causas"));
+		resp.setProbabilidad(rs.getInt("probabilidad"));
+		resp.setImpacto(rs.getString("impacto"));
+		resp.setValor(rs.getDouble("valor"));
+		resp.setResponse(rs.getString("response"));
 		String f = "";
 		if (rs.getDate("fechaRevision") != null) {
 		    Date fecha = rs.getDate("fechaRevision");
@@ -1262,20 +1262,20 @@ public class InfoDAO implements InfoDataService {
 			    "dd/MM/yyyy");
 		    f = sdf.format(fecha);
 		}
-		anali.setFechaRevisada(f);
-		anali.setProbabilidadRevisada(rs.getInt("probabilidadRevisada"));
-		anali.setImpactoRevisado(rs.getString("impactoRevisado"));
-		anali.setValorRevisado(rs.getDouble("valorRevisado"));
-		anali.setResponseRevisado(rs.getString("responseRevisado"));
-		anali.setDerivado(rs.getString("derivado"));
-		anali.setResidual(rs.getString("residual"));
-		anali.setContingencia(rs.getString("contingencia"));
-		anali.setPresupuesto(rs.getString("presupuesto"));
-		anali.setPlanificacion(rs.getString("planificacion"));
-		anali.setComentarios(rs.getString("comentarios"));
-		anali.setMonitorizacion(rs.getString("monitorizacion"));
-		anali.setIndicador(rs.getString("indicador"));
-		anali.setEvaluacion(rs.getString("evaluacion"));
+		resp.setFechaRevisada(f);
+		resp.setProbabilidadRevisada(rs.getInt("probabilidadRevisada"));
+		resp.setImpactoRevisado(rs.getString("impactoRevisado"));
+		resp.setValorRevisado(rs.getDouble("valorRevisado"));
+		resp.setResponseRevisado(rs.getString("responseRevisado"));
+		resp.setDerivado(rs.getString("derivado"));
+		resp.setResidual(rs.getString("residual"));
+		resp.setContingencia(rs.getString("contingencia"));
+		resp.setPresupuesto(rs.getString("presupuesto"));
+		resp.setPlanificacion(rs.getString("planificacion"));
+		resp.setComentarios(rs.getString("comentarios"));
+		resp.setMonitorizacion(rs.getString("monitorizacion"));
+		resp.setIndicador(rs.getString("indicador"));
+		resp.setEvaluacion(rs.getString("evaluacion"));
 	    }
 
 	} catch (Exception e) {
@@ -1289,7 +1289,7 @@ public class InfoDAO implements InfoDataService {
 		e.printStackTrace();
 	    }
 	}
-	return anali;
+	return resp;
     }
 
     /**

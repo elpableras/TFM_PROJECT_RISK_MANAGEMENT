@@ -36,7 +36,7 @@
 
 		<action name="Login" class="impl.miw.presentation.login.LoginAction">
 			<result type="chain">Counter</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/index.jsp</result>			
 		</action>
 
 		<action name="Counter" class="impl.miw.presentation.counter.CounterAction">
@@ -85,7 +85,7 @@
 		
 		<action name="RiskPlan" class="impl.miw.presentation.plan.LoadAction">
 			<result name="success">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskanalmanagement.jsp</result>	
+			<result name="input">/WEB-INF/jsps/plans/riskrespmanagement.jsp</result>	
 		</action>		
 		
 		<action name="ChangeVersion" class="impl.miw.presentation.plan.ChangeAction">
@@ -103,19 +103,19 @@
 			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>					
 		</action>
 		
-		<action name="RiskAnal" class="impl.miw.presentation.anal.LoadAction">			
-			<result name="success">/WEB-INF/jsps/plans/riskanal.jsp</result>
+		<action name="RiskResp" class="impl.miw.presentation.resp.LoadAction">			
+			<result name="success">/WEB-INF/jsps/plans/riskresp.jsp</result>
 			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>					
 		</action>	
 		
-		<action name="RiskAnalManagement" class="impl.miw.presentation.anal.StudyAction">
-			<result name="success">/WEB-INF/jsps/plans/riskanalmanagement.jsp</result>
+		<action name="RiskRespManagement" class="impl.miw.presentation.resp.StudyAction">
+			<result name="success">/WEB-INF/jsps/plans/riskrespmanagement.jsp</result>
 			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
 		</action>
 			
-		<action name="SaveAnal" class="impl.miw.presentation.anal.SaveAction">
-			<result name="success">/WEB-INF/jsps/plans/riskanalmanagement.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskanal.jsp</result>
+		<action name="SaveResp" class="impl.miw.presentation.resp.SaveAction">
+			<result name="success">/WEB-INF/jsps/plans/riskrespmanagement.jsp</result>
+			<result name="input">/WEB-INF/jsps/plans/riskresp.jsp</result>
 		</action>					
 		
 		<action name="SaveIden" class="impl.miw.presentation.iden.SaveAction">

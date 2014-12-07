@@ -28,12 +28,12 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.miw.model.Analisis;
 import com.miw.model.Iden;
 import com.miw.model.Impacto;
 import com.miw.model.Info;
 import com.miw.model.Probabilidad;
 import com.miw.model.Project;
+import com.miw.model.Respuesta;
 import com.miw.model.User;
 
 /**
@@ -58,7 +58,7 @@ public class CreatePDF {
     private Vector<Impacto> impactos = null;
     private Vector<Probabilidad> probabilidad = null;
     private String corte;
-    private Analisis anali = null;
+    private Respuesta resp = null;
     private String file;
 
     /**
@@ -73,10 +73,8 @@ public class CreatePDF {
     private String createPdf() throws FileNotFoundException, DocumentException,
 	    IOException {
 	String archivo = createPath(file);
-	String lengua = "es";
-	if (lenguaje.compareToIgnoreCase("es") != 0) {
-	    lengua = "_" + lenguaje;
-	}
+	String lengua = "";
+	lengua = "_" + lenguaje;
 
 	if (archivo.compareToIgnoreCase("") != 0) {
 	    /*
@@ -88,7 +86,7 @@ public class CreatePDF {
 		documento = new Document(PageSize.A4, 80, 80, 75, 75);
 	    } else if (iden != null) {
 		documento = new Document(PageSize.A4.rotate(), 80, 80, 75, 75);
-	    } else if (anali != null) {
+	    } else if (resp != null) {
 		documento = new Document(PageSize.A4, 80, 80, 75, 75);
 	    }
 
@@ -290,10 +288,10 @@ public class CreatePDF {
 		documento.add(tablaIden(lengua, parrafo, titulo));
 	    }
 
-	    // ********** ANÁLISIS DE RIESGOS **********
-	    if (anali != null) {
+	    // ********** RESPUESTA DE RIESGOS **********
+	    if (resp != null) {
 		documento.add(new Paragraph(" "));
-		documento.add(tablaAnali(lengua, parrafo, titulo));
+		documento.add(tablaResp(lengua, parrafo, titulo));
 	    }
 
 	    documento.close(); // Cerramos el documento
@@ -303,7 +301,7 @@ public class CreatePDF {
     }
 
     /**
-     * Método para crear la tabla para los análisis de riesgos
+     * Método para crear la tabla para las respuestas de riesgos
      * 
      * @param lengua
      *            String para saber el idioma en que se escribira el contenido
@@ -314,7 +312,7 @@ public class CreatePDF {
      * @return PdfPTable con la tabla que se insertará en el documento pdf
      */
     @SuppressWarnings("static-access")
-    private PdfPTable tablaAnali(String lengua, Paragraph parrafo,
+    private PdfPTable tablaResp(String lengua, Paragraph parrafo,
 	    Paragraph titulo) throws DocumentException {
 
 	Paragraph parrafoTitulo = new Paragraph();
@@ -343,7 +341,7 @@ public class CreatePDF {
 
 	titulo.clear();
 	titulo.add(ResourceBundle.getBundle("global" + lengua).getString(
-		"pdf.anali"));
+		"pdf.resp"));
 	celda = new PdfPCell(new Phrase(titulo));
 	celda.setColspan(cols);
 	celda.setHorizontalAlignment(titulo.ALIGN_CENTER);
@@ -354,9 +352,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.id") + ": ");
+		.getString("resp.id") + ": ");
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getId()));
+	parrafo.add(String.valueOf(resp.getId()));
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -367,9 +365,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.nombre") + ": \n");
+		.getString("resp.nombre") + ": \n");
 	parrafo.clear();
-	parrafo.add(anali.getNombre());
+	parrafo.add(resp.getNombre());
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -381,14 +379,14 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.descripcion"));
+		.getString("resp.descripcion"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
 	parrafo.clear();
-	parrafo.add(anali.getDescripcion());
+	parrafo.add(resp.getDescripcion());
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setColspan(this.colIden + 2);
 	celda.setHorizontalAlignment(parrafo.ALIGN_LEFT);
@@ -397,14 +395,14 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.categoria"));
+		.getString("resp.categoria"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
 	parrafo.clear();
-	parrafo.add(anali.getCategoria());
+	parrafo.add(resp.getCategoria());
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setColspan(this.colIden + 2);
 	celda.setHorizontalAlignment(parrafo.ALIGN_LEFT);
@@ -413,9 +411,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.status") + ": ");
+		.getString("resp.status") + ": ");
 	parrafo.clear();
-	parrafo.add(anali.getStatus());
+	parrafo.add(resp.getStatus());
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -426,9 +424,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.causas") + ": \n");
+		.getString("resp.causas") + ": \n");
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getCausas()));
+	parrafo.add(String.valueOf(resp.getCausas()));
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -440,7 +438,7 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.probabilidad"));
+		.getString("resp.probabilidad"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
@@ -457,7 +455,7 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.impactoValor"));
+		.getString("resp.impactoValor"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
@@ -465,7 +463,7 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.response"));
+		.getString("resp.response"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
@@ -473,7 +471,7 @@ public class CreatePDF {
 
 	parrafo.clear();
 	for (int j = 0; j < probabilidad.size(); j++) {
-	    if (anali.getProbabilidad() == probabilidad.get(j).getPorcentaje()) {
+	    if (resp.getProbabilidad() == probabilidad.get(j).getPorcentaje()) {
 		parrafo.add(probabilidad.get(j).getProbabilidad());
 	    }
 	}
@@ -482,7 +480,7 @@ public class CreatePDF {
 	celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
-	String[] impts = anali.getImpacto().split(" ");
+	String[] impts = resp.getImpacto().split(" ");
 	for (int k = 0; k < impts.length; k++) {
 	    parrafo.clear();
 	    for (int j = 0; j < impactos.get(0).getProbabilidad().size(); j++) {
@@ -500,14 +498,14 @@ public class CreatePDF {
 	}
 
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getValor()));
+	parrafo.add(String.valueOf(resp.getValor()));
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setHorizontalAlignment(parrafo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getResponse()));
+	parrafo.add(String.valueOf(resp.getResponse()));
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setHorizontalAlignment(parrafo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
@@ -515,11 +513,11 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.probabilidad2") + "\n");
+		.getString("resp.probabilidad2") + "\n");
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.fecha") + ": ");
+		.getString("resp.fecha") + ": ");
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getFechaRevisada()));
+	parrafo.add(String.valueOf(resp.getFechaRevisada()));
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -539,7 +537,7 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.impactoValor"));
+		.getString("resp.impactoValor"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
@@ -547,7 +545,7 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.response"));
+		.getString("resp.response"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
@@ -555,7 +553,7 @@ public class CreatePDF {
 
 	parrafo.clear();
 	for (int j = 0; j < probabilidad.size(); j++) {
-	    if (anali.getProbabilidadRevisada() == probabilidad.get(j)
+	    if (resp.getProbabilidadRevisada() == probabilidad.get(j)
 		    .getPorcentaje()) {
 		parrafo.add(probabilidad.get(j).getProbabilidad());
 	    }
@@ -565,7 +563,7 @@ public class CreatePDF {
 	celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
-	String[] impts2 = anali.getImpactoRevisado().split(" ");
+	String[] impts2 = resp.getImpactoRevisado().split(" ");
 	for (int k = 0; k < impts.length; k++) {
 	    parrafo.clear();
 	    for (int j = 0; j < impactos.get(0).getProbabilidad().size(); j++) {
@@ -583,14 +581,14 @@ public class CreatePDF {
 	}
 
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getValorRevisado()));
+	parrafo.add(String.valueOf(resp.getValorRevisado()));
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setHorizontalAlignment(parrafo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getResponseRevisado()));
+	parrafo.add(String.valueOf(resp.getResponseRevisado()));
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setHorizontalAlignment(parrafo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
@@ -598,14 +596,14 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.derivados"));
+		.getString("resp.derivados"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
 	parrafo.clear();
-	parrafo.add(anali.getDerivado());
+	parrafo.add(resp.getDerivado());
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setColspan(this.colIden + 2);
 	celda.setHorizontalAlignment(parrafo.ALIGN_LEFT);
@@ -614,14 +612,14 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.residual"));
+		.getString("resp.residual"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
 	parrafo.clear();
-	parrafo.add(anali.getResidual());
+	parrafo.add(resp.getResidual());
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setColspan(this.colIden + 2);
 	celda.setHorizontalAlignment(parrafo.ALIGN_LEFT);
@@ -630,9 +628,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.contingencia") + ": \n");
+		.getString("resp.contingencia") + ": \n");
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getContingencia()));
+	parrafo.add(String.valueOf(resp.getContingencia()));
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -645,9 +643,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.presupuesto") + ": \n");
+		.getString("resp.presupuesto") + ": \n");
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getPresupuesto()));
+	parrafo.add(String.valueOf(resp.getPresupuesto()));
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -659,9 +657,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.planificacion") + ": \n");
+		.getString("resp.planificacion") + ": \n");
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getPlanificacion()));
+	parrafo.add(String.valueOf(resp.getPlanificacion()));
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -673,14 +671,14 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.comentarios") + ": ");
+		.getString("resp.comentarios") + ": ");
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
 	parrafo.clear();
-	parrafo.add(anali.getComentarios());
+	parrafo.add(resp.getComentarios());
 	celda = new PdfPCell(new Phrase(parrafo));
 	celda.setColspan(this.colIden + 2);
 	celda.setHorizontalAlignment(parrafo.ALIGN_LEFT);
@@ -689,9 +687,9 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.monitorizacion") + ": \n");
+		.getString("resp.monitorizacion") + ": \n");
 	parrafo.clear();
-	parrafo.add(String.valueOf(anali.getMonitorizacion()));
+	parrafo.add(String.valueOf(resp.getMonitorizacion()));
 	comb.clear();
 	comb.add(parrafoTitulo);
 	comb.add(parrafo);
@@ -703,19 +701,19 @@ public class CreatePDF {
 
 	parrafoTitulo.clear();
 	parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		.getString("anali.indicadores"));
+		.getString("resp.indicadores"));
 	celda = new PdfPCell(new Phrase(parrafoTitulo));
 	celda.setColspan(this.colIden + 3);
 	celda.setHorizontalAlignment(parrafoTitulo.ALIGN_CENTER);
 	celda.setVerticalAlignment(parrafoTitulo.ALIGN_MIDDLE);
 	tabla.addCell(celda);
 
-	String[] indi = anali.getIndicador().split("@");
-	String[] eval = anali.getEvaluacion().split("@");
+	String[] indi = resp.getIndicador().split("@");
+	String[] eval = resp.getEvaluacion().split("@");
 	for (int j = 0; j < indi.length; j++) {
 	    parrafoTitulo.clear();
 	    parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		    .getString("anali.indicador") + ": ");
+		    .getString("resp.indicador") + ": ");
 	    parrafo.clear();
 	    parrafo.add(indi[j]);
 	    comb.clear();
@@ -728,7 +726,7 @@ public class CreatePDF {
 
 	    parrafoTitulo.clear();
 	    parrafoTitulo.add(ResourceBundle.getBundle("global" + lengua)
-		    .getString("anali.evaluacion") + ": \n");
+		    .getString("resp.evaluacion") + ": \n");
 	    parrafo.clear();
 	    parrafo.add(eval[j]);
 	    comb.clear();
@@ -1439,9 +1437,9 @@ public class CreatePDF {
 	    } else if (iden != null) {
 		parrafoPie.add(ResourceBundle.getBundle("global" + lengua)
 			.getString("pdf.iden"));
-	    } else if (anali != null) {
+	    } else if (resp != null) {
 		parrafoPie.add(ResourceBundle.getBundle("global" + lengua)
-			.getString("pdf.anali"));
+			.getString("pdf.resp"));
 	    }
 	    tituloPie = new Phrase(parrafoPie);
 
@@ -1549,10 +1547,10 @@ public class CreatePDF {
     }
 
     /**
-     * Método para la creación de los pdf para los análisis de riesgos
+     * Método para la creación de los pdf para las respuestas de riesgos
      * 
-     * @param anali
-     *            objecto analisis donde se encuentra la información
+     * @param resp
+     *            objecto respuesta donde se encuentra la información
      * @param u
      *            objeto usuario
      * @param project
@@ -1572,7 +1570,7 @@ public class CreatePDF {
      * @throws DocumentException
      * @throws IOException
      */
-    public String createPDF(Analisis anali, User u, Project project,
+    public String createPDF(Respuesta resp, User u, Project project,
 	    String file, Double version, Vector<Impacto> impactos,
 	    Vector<Probabilidad> probabilidad, Double corte)
 	    throws FileNotFoundException, DocumentException, IOException {
@@ -1582,7 +1580,7 @@ public class CreatePDF {
 	this.version = String.valueOf(version);
 	this.autor = u.getLogin();
 	this.titulo = file;
-	this.anali = anali;
+	this.resp = resp;
 	this.colIden = impactos.size();
 	this.impactos = impactos;
 	this.probabilidad = probabilidad;

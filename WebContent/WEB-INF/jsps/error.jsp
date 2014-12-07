@@ -26,7 +26,19 @@
 					<div>						
 						<s:submit key="text.login.submit" id="submitLogin" name="submit" tabindex="4" />						
 					</div>
-				</form><!-- form -->				
+				</form><!-- form -->
+				
+				<s:if test="hasActionMessages()">
+				<div class="mensajePlan">
+					<s:actionmessage />
+				</div>
+				</s:if>
+				<s:if test="hasActionErrors()">
+					<div class="mensajeError">
+						<s:actionerror />
+					</div>
+				</s:if>
+							
 		</article>
 	</section>
 

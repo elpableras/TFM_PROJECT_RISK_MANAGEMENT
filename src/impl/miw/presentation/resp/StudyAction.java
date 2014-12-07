@@ -1,4 +1,4 @@
-package impl.miw.presentation.anal;
+package impl.miw.presentation.resp;
 
 import java.util.Map;
 import java.util.Vector;

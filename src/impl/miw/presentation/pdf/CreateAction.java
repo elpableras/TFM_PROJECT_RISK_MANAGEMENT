@@ -16,20 +16,20 @@ import com.itextpdf.text.DocumentException;
 import com.miw.business.InfoService;
 import com.miw.business.ProjectService;
 import com.miw.infrastructure.log.LogService;
-import com.miw.model.Analisis;
 import com.miw.model.Iden;
 import com.miw.model.Info;
 import com.miw.model.Project;
+import com.miw.model.Respuesta;
 import com.miw.model.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Clase de la capa de presentación para la acción de creación de PDF de los
- * planes, identificación y analisis de riesgos que se encuentran almacenados en
- * la base de datos para crear con ellos los informes, extiende de ActionSupport
- * que nos proporciona una implementación por defecto para las acciones más
- * comunes con implementación de dos interfaces “aware” para alojar objetos que
- * puedan estar a disposición en otras partes de la aplicación.
+ * planes, identificación/analisis y respuesta de riesgos que se encuentran
+ * almacenados en la base de datos para crear con ellos los informes, extiende
+ * de ActionSupport que nos proporciona una implementación por defecto para las
+ * acciones más comunes con implementación de dos interfaces “aware” para alojar
+ * objetos que puedan estar a disposición en otras partes de la aplicación.
  * 
  * @author Pablo
  * 
@@ -222,17 +222,17 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 	    }
 	    break;
 	case 3:
-	    Analisis a = null;
+	    Respuesta r = null;
 	    try {
-		a = infoService.getAnal(u.getId(), u.getIdProyecto(), num);
+		r = infoService.getResp(u.getId(), u.getIdProyecto(), num);
 	    } catch (Exception e) {
 		addActionError(getText("error"));
 		log.error(e.getClass() + " " + e.getMessage());
 	    }
 	    try {
-		Project project = projectService.getProject(a.getIdP());
+		Project project = projectService.getProject(r.getIdP());
 		try {
-		    String file = cPDF.createPDF(a, u, project, title,
+		    String file = cPDF.createPDF(r, u, project, title,
 			    info.getVersion(), info.getImpacto(),
 			    info.getProbabilidad(), info.getCorte());
 		    this.addActionMessage(getText("pdf.correcto") + file);

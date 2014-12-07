@@ -1,4 +1,4 @@
-package impl.miw.presentation.anal;
+package impl.miw.presentation.resp;
 
 import java.util.Map;
 import java.util.Vector;
@@ -10,17 +10,17 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.miw.business.InfoService;
 import com.miw.infrastructure.log.LogService;
-import com.miw.model.Analisis;
 import com.miw.model.Iden;
 import com.miw.model.Impacto;
 import com.miw.model.Info;
 import com.miw.model.Probabilidad;
+import com.miw.model.Respuesta;
 import com.miw.model.User;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Clase de la capa de presentación para la acción de carga de la información de
- * los riesgos analizados almacenados en la base de datos, extiende de
+ * las respuestas de riesgos almacenados en la base de datos, extiende de
  * ActionSupport que nos proporciona una implementación por defecto para las
  * acciones más comunes con implementación de dos interface “aware” para alojar
  * objetos que puedan estar a disposición en otras partes de la aplicación.
@@ -40,7 +40,7 @@ public class LoadAction extends ActionSupport implements ApplicationAware,
     private InfoService infoService;
     private LogService log;
 
-    // Analisis
+    // Respuesta
     private Integer option;
 
     /**
@@ -139,39 +139,38 @@ public class LoadAction extends ActionSupport implements ApplicationAware,
 	    Info info = infoService.getInfo(id, idP, version);
 	    Vector<Iden> iden = infoService.getIden(id, idP);
 
-	    Analisis anali = infoService.getAnal(id, idP, option);
+	    Respuesta resp = infoService.getResp(id, idP, option);
 
-	    if (anali.getId() > 0) {
-		application.put("analisis", anali);
+	    if (resp.getId() > 0) {
+		application.put("respuesta", resp);
 
-		String impactos = anali.getImpacto();
-		Vector<Integer> vimpactos = vImpactosAnali(anali, impactos);
-		application.put("impactosanalilist", vimpactos);
+		String impactos = resp.getImpacto();
+		Vector<Integer> vimpactos = vImpactosResp(resp, impactos);
+		application.put("impactosresplist", vimpactos);
 
-		String impactosR = anali.getImpactoRevisado();
-		Vector<Integer> vimpactosR = vImpactosAnali(anali, impactosR);
-		application.put("impactosRanalilist", vimpactosR);
+		String impactosR = resp.getImpactoRevisado();
+		Vector<Integer> vimpactosR = vImpactosResp(resp, impactosR);
+		application.put("impactosRresplist", vimpactosR);
 
-		String indicador = anali.getIndicador();
-		Vector<String> indi = indicadores(anali, indicador);
+		String indicador = resp.getIndicador();
+		Vector<String> indi = indicadores(resp, indicador);
 		application.put("indicadoreslist", indi);
 
-		String evaluacion = anali.getEvaluacion();
-		Vector<String> eval = indicadores(anali, evaluacion);
+		String evaluacion = resp.getEvaluacion();
+		Vector<String> eval = indicadores(resp, evaluacion);
 		application.put("evaluacioneslist", eval);
 
-		if (anali.getFechaRevisada() != null
-			&& anali.getFechaRevisada().compareTo("") != 0) {
-		    String f[] = anali.getFechaRevisada().split("/");
+		if (resp.getFechaRevisada() != null
+			&& resp.getFechaRevisada().compareTo("") != 0) {
+		    String f[] = resp.getFechaRevisada().split("/");
 		    String fecha = f[2] + "-" + f[1] + "-" + f[0];
-		    anali.setFechaRevisada(fecha);
+		    resp.setFechaRevisada(fecha);
 		}
 	    } else {
-		request.getServletContext().removeAttribute("analisis");
+		request.getServletContext().removeAttribute("respuesta");
+		request.getServletContext().removeAttribute("impactosresplist");
 		request.getServletContext()
-			.removeAttribute("impactosanalilist");
-		request.getServletContext().removeAttribute(
-			"impactosRanalilist");
+			.removeAttribute("impactosRresplist");
 		request.getServletContext().removeAttribute("indicadoreslist");
 		request.getServletContext().removeAttribute("evaluacioneslist");
 		Vector<Integer> vimpactos = vImpactosIden(iden);
@@ -209,13 +208,13 @@ public class LoadAction extends ActionSupport implements ApplicationAware,
     /**
      * Método para cargar el vector indicadores
      * 
-     * @param anali
-     *            objeto Analisis donde se encuentran los datos
+     * @param resp
+     *            objeto Respuesta donde se encuentran los datos
      * @param indiEva
      *            cadena con el indicador a evaluar
      * @return Vector vector con los indicadores
      */
-    private Vector<String> indicadores(Analisis anali, String indiEva) {
+    private Vector<String> indicadores(Respuesta resp, String indiEva) {
 	Vector<String> vIndicadores = new Vector<String>();
 	String[] array = indiEva.split("@");
 	for (int j = 0; j < array.length; j++) {
@@ -225,15 +224,15 @@ public class LoadAction extends ActionSupport implements ApplicationAware,
     }
 
     /**
-     * Método para obtener los impactos del analisis de los riesgos
+     * Método para obtener los impactos de la respuesta de los riesgos
      * 
-     * @param anali
-     *            objeto Analisis donde estan los datos
+     * @param resp
+     *            objeto Respuesta donde estan los datos
      * @param impactos
      *            cadena con los impactos
      * @return Vector vector con los impactos
      */
-    private Vector<Integer> vImpactosAnali(Analisis anali, String impactos) {
+    private Vector<Integer> vImpactosResp(Respuesta resp, String impactos) {
 	Vector<Integer> vimpactos = new Vector<Integer>();
 	String[] impacto = impactos.split(" ");
 	for (int j = 0; j < impacto.length; j++) {

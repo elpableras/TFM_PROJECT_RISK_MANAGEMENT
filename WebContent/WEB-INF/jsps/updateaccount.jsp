@@ -24,8 +24,7 @@
 				
 				<s:set var="id">${sessionScope.usuario.getId()}</s:set>
 				<s:set var="login">${sessionScope.usuario.getLogin()}</s:set>
-				<s:set var="email">${sessionScope.usuario.getEmail()}</s:set>
-				<s:set var="pass">${sessionScope.usuario.getPassword()}</s:set>
+				<s:set var="email">${sessionScope.usuario.getEmail()}</s:set>				
 				<s:set var="language">${sessionScope.usuario.getLanguage()}</s:set>
 				<s:set var="idProyecto">${sessionScope.usuario.getIdProyecto()}</s:set>
 				<s:set var="admin">${sessionScope.usuario.isAdmin()}</s:set>
@@ -46,9 +45,9 @@
 					<s:textfield id="updateEmail" key="update.account.email"
 						name="emailAccountUpdate" required="true" tabindex="7"
 						value="%{#email}" />
-					<s:textfield id="updatePass" key="update.account.pass"
+					<s:password id="updatePass" key="update.account.pass"
 						name="passAccountUpdate" required="true" tabindex="8"
-						value="%{#pass}" />
+						value="" />
 					<s:select id="updateLanguage" key="update.account.language"
 						name="languageAccountUpdate"
 						list="{'ES - Castellano', 'EN - English'}" value="%{#language}"

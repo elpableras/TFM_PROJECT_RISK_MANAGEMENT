@@ -14,7 +14,10 @@ public class Jdbc {
 
     // Variables para configuración de la conexión a MySQL
     private static String SQL_DRIVER = "com.mysql.jdbc.Driver";
+    // LOCAL
     private static String SQL_URL = "jdbc:mysql://localhost:3306/tfm";
+    // private static String SQL_URL =
+    // "jdbc:mysql://127.7.70.130:3306/masterproject";
     private static String SQL_USER = "root";
     private static String SQL_PASS = "tfm14";
 

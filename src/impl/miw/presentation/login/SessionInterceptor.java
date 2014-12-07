@@ -95,13 +95,12 @@ public class SessionInterceptor extends AbstractInterceptor implements
 		&& !uri.contains("counter") && !uri.contains("forgotten")
 		&& !uri.contains("passforgotten") && !uri.contains("index")) {
 	    if (request.getSession().getAttribute("usuario") != null) {
-		request.getSession().setAttribute("usuario", null);
-		request.getSession().setAttribute("play", null);
-		request.getSession().setAttribute("saveplan", null);
+		request.getSession().setAttribute("usuario", "");
+		request.getSession().setAttribute("play", "");
+		request.getSession().setAttribute("saveplan", "");
 	    }
 	    return "Login"; // session is empty/expired
 	}
-
 	return invocation.invoke();
     }
 }

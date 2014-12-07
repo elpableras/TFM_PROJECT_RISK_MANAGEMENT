@@ -229,7 +229,7 @@ $(function(){
 
 
 $(function(){ 
-	$("#analiRisk").live('change', function (){
+	$("#respRisk").live('change', function (){
 		var tr = $(this).closest('tr');        	
 			td = $(tr[0]).find("td#probabilidad");       		        	
 		select = $(td[0]).find("select");  
@@ -254,14 +254,14 @@ $(function(){
 
 function addRowIndicator(){
 	newtr = document.createElement("tr");	
-	tr = $("tbody#tbodyAnal").find("tr:last");	
+	tr = $("tbody#tbodyResp").find("tr:last");	
 	
 	td = $(tr[0]).find("td");
 	
 	td0 = document.createElement("td");
 	input = document.createElement("input");
 	input.setAttribute('type', 'text');
-	input.setAttribute('id', 'analiRisk');    		    		
+	input.setAttribute('id', 'respRisk');    		    		
 	input.setAttribute('name', 'indicador');
 	input.setAttribute('required', '');
 	ta = $(td[1]).find("textarea");
@@ -275,7 +275,7 @@ function addRowIndicator(){
 	input2 = $(document.getElementById('buttonAdd')).clone();
 	input2[0].setAttribute('value', " ");
 	input2[0].setAttribute('class', "eliminarFila");
-	input2[0].setAttribute('id', "buttonDeleteAnali");
+	input2[0].setAttribute('id', "buttonDeleteResp");
 	input2[0].removeAttribute('onclick');
 	input2[0].setAttribute('tabindex', parseInt(ta[0].getAttribute('tabindex'))+2);
 	
@@ -284,6 +284,6 @@ function addRowIndicator(){
 	newtr.appendChild(td0);
 	newtr.appendChild(td1[0]);
 
-	tbody = $("table").find("tbody#tbodyAnal");
+	tbody = $("table").find("tbody#tbodyResp");
 	tbody[0].appendChild(newtr);
 }

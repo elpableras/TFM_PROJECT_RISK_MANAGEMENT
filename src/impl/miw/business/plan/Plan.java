@@ -4,9 +4,9 @@ import java.util.Vector;
 
 import com.miw.business.InfoService;
 import com.miw.infrastructure.log.LogService;
-import com.miw.model.Analisis;
 import com.miw.model.Iden;
 import com.miw.model.Info;
+import com.miw.model.Respuesta;
 import com.miw.persistence.InfoDataService;
 
 /**
@@ -126,21 +126,21 @@ public class Plan implements InfoService {
 
     /**
      * Setter de la interfaz entre presentación y negocio para establecer los
-     * datos de análisis de riesgos
+     * datos de respuesta de riesgos
      * 
-     * @param anal
-     *            datos con el análisis
+     * @param resp
+     *            datos con la Respuesta
      * @throws Exception
      */
     @Override
-    public void setAnalisis(Analisis anal) throws Exception {
-	log.debug("Entrando en setAnalisis");
-	infoDataService.setAnalisis(anal);
+    public void setRespuesta(Respuesta resp) throws Exception {
+	log.debug("Entrando en setRespuesta");
+	infoDataService.setRespuesta(resp);
     }
 
     /**
      * Getter de la interfaz entre presentación y negocio para obtener los datos
-     * de análisis de riesgos
+     * de la respuesta de riesgos
      * 
      * @param id
      *            identificador usuario
@@ -148,13 +148,13 @@ public class Plan implements InfoService {
      *            identificador proyecto
      * @param op
      *            opción
-     * @return Analisis el analisis con información de los riesgos
+     * @return Respuesta la respuesta con información de los riesgos
      * @throws Exception
      */
     @Override
-    public Analisis getAnal(Long id, Long idP, Integer op) throws Exception {
-	log.debug("Entrando en getAnal");
-	return infoDataService.getAnal(id, idP, op);
+    public Respuesta getResp(Long id, Long idP, Integer op) throws Exception {
+	log.debug("Entrando en getResp");
+	return infoDataService.getResp(id, idP, op);
     }
 
     /**

@@ -1,6 +1,6 @@
 	div#steps {width:79%; max-width:690px;}
 	div#update,div#help {width:79%; max-width:690px; margin:0em 0em 0em -11.8em;}
-	div#info,div#anal {width:100%; text-align: center;}
+	div#info,div#resp {width:100%; text-align: center;}
 	
 	table {
 		overflow:hidden;
@@ -147,7 +147,7 @@
 		-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 	}
 	
-	table#tablaAnal{
+	table#tablaResp{
 		overflow:hidden;
 		border:1px solid #d3d3d3;
 		background:#fefefe;

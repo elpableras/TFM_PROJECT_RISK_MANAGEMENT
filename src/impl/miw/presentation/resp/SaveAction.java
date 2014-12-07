@@ -1,4 +1,4 @@
-package impl.miw.presentation.anal;
+package impl.miw.presentation.resp;
 
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -9,16 +9,16 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.miw.business.InfoService;
 import com.miw.infrastructure.log.LogService;
-import com.miw.model.Analisis;
+import com.miw.model.Respuesta;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Clase de la capa de presentación para la acción de almacenamiento de la
- * información del análisis de los riesgos estudiados escritos en la aplicación,
- * extiende de ActionSupport que nos proporciona una implementación por defecto
- * para las acciones más comunes con implementación de una interfaz “aware” para
- * alojar objetos que puedan estar a disposición en otras partes de la
- * aplicación.
+ * información de la respuesta de los riesgos estudiados escritos en la
+ * aplicación, extiende de ActionSupport que nos proporciona una implementación
+ * por defecto para las acciones más comunes con implementación de una interfaz
+ * “aware” para alojar objetos que puedan estar a disposición en otras partes de
+ * la aplicación.
  * 
  * @author Pablo
  * 
@@ -34,7 +34,7 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
     private Long idP;
     private Long idU;
 
-    // Anali
+    // Respuesta
     private Integer option;
     private Integer id;
     private String nombre;
@@ -90,7 +90,7 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
      * @return InfoService Objeto que hace referencia a la interfaz
      */
     public InfoService getInfoService() {
-	log.debug("Invocado el getInfoService de Save de Anali");
+	log.debug("Invocado el getInfoService de Save de respi");
 	return infoService;
     }
 
@@ -114,7 +114,7 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
      */
     @Override
     public void setServletRequest(HttpServletRequest httpServletRequest) {
-	log.debug("Invocado el setServletRequest de Save de Anali");
+	log.debug("Invocado el setServletRequest de Save de respi");
 	this.request = httpServletRequest;
     }
 
@@ -126,20 +126,20 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
      */
     @Override
     public String execute() {
-	log.debug("Procesando el execute de Save de Anali");
+	log.debug("Procesando el execute de Save de respi");
 
-	Analisis anal = new Analisis();
+	Respuesta resp = new Respuesta();
 
-	anal.setIdU(idU);
-	anal.setIdP(idP);
-	anal.setOption(option);
-	anal.setId(id);
-	anal.setNombre(nombre);
-	anal.setDescripcion(descripcion);
-	anal.setCategoria(categoria);
-	anal.setStatus(status);
-	anal.setCausas(causas);
-	anal.setProbabilidad(probabilidad);
+	resp.setIdU(idU);
+	resp.setIdP(idP);
+	resp.setOption(option);
+	resp.setId(id);
+	resp.setNombre(nombre);
+	resp.setDescripcion(descripcion);
+	resp.setCategoria(categoria);
+	resp.setStatus(status);
+	resp.setCausas(causas);
+	resp.setProbabilidad(probabilidad);
 
 	String vImpactos = "";
 	String[] impa = impacto.split(", ");
@@ -147,16 +147,16 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
 	    vImpactos += String.valueOf(impa[j]) + " ";
 	}
 
-	anal.setImpacto(vImpactos);
-	anal.setValor(Double.valueOf(valor));
-	anal.setResponse(response);
+	resp.setImpacto(vImpactos);
+	resp.setValor(Double.valueOf(valor));
+	resp.setResponse(response);
 
 	if (fechaRevision != null && fechaRevision.compareTo("") != 0) {
 	    String[] f = fechaRevision.split("-");
 	    String fecha = f[2] + "-" + f[1] + "-" + f[0];
-	    anal.setFechaRevisada(fecha);
+	    resp.setFechaRevisada(fecha);
 	}
-	anal.setProbabilidadRevisada(probabilidadRevisada);
+	resp.setProbabilidadRevisada(probabilidadRevisada);
 
 	String vImpactosRevisados = "";
 	String[] impaRevisado = impactoRevisado.split(", ");
@@ -164,20 +164,20 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
 	    vImpactosRevisados += String.valueOf(impaRevisado[j]) + " ";
 	}
 
-	anal.setImpactoRevisado(vImpactosRevisados);
+	resp.setImpactoRevisado(vImpactosRevisados);
 	if (valorRevisado.compareTo("") == 0) {
 	    valorRevisado = "0.0";
 	}
-	anal.setValorRevisado(Double.valueOf(valorRevisado));
-	anal.setResponseRevisado(responseRevisado);
+	resp.setValorRevisado(Double.valueOf(valorRevisado));
+	resp.setResponseRevisado(responseRevisado);
 
-	anal.setDerivado(derivados);
-	anal.setResidual(residual);
-	anal.setContingencia(contingencia);
-	anal.setPresupuesto(presupuesto);
-	anal.setPlanificacion(planificacion);
-	anal.setComentarios(comentarios);
-	anal.setMonitorizacion(monitorizacion);
+	resp.setDerivado(derivados);
+	resp.setResidual(residual);
+	resp.setContingencia(contingencia);
+	resp.setPresupuesto(presupuesto);
+	resp.setPlanificacion(planificacion);
+	resp.setComentarios(comentarios);
+	resp.setMonitorizacion(monitorizacion);
 
 	String indicador = "";
 	String evaluacion = "";
@@ -197,15 +197,15 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
 	    }
 	}
 
-	anal.setIndicador(indicador);
-	anal.setEvaluacion(evaluacion);
+	resp.setIndicador(indicador);
+	resp.setEvaluacion(evaluacion);
 
 	try {
-	    infoService.setAnalisis(anal);
-	    this.addActionMessage(getText("anali.correct"));
+	    infoService.setRespuesta(resp);
+	    this.addActionMessage(getText("respi.correct"));
 	    request.getSession().setAttribute("play", 3);
 	} catch (Exception e) {
-	    addActionError(getText("anali.error"));
+	    addActionError(getText("respi.error"));
 	    log.error(e.getClass() + " " + e.getMessage());
 	}
 

@@ -12,13 +12,13 @@ import java.util.Vector;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.miw.model.Analisis;
 import com.miw.model.Cambio;
 import com.miw.model.Iden;
 import com.miw.model.Impacto;
 import com.miw.model.Info;
 import com.miw.model.Probabilidad;
 import com.miw.model.Project;
+import com.miw.model.Respuesta;
 import com.miw.model.User;
 import com.miw.model.exception.BusinessException;
 
@@ -40,7 +40,7 @@ public class PersistenceTest {
     private Cambio cambio;
     private Vector<Cambio> vc;
     private Iden iden;
-    private Analisis anali;
+    private Respuesta resp;
     private final UserDAO userS = new UserDAO();
     private final ProjectDAO projectS = new ProjectDAO();
     private final InfoDAO infoS = new InfoDAO();
@@ -126,35 +126,35 @@ public class PersistenceTest {
 	iden.setVersion(1.0000);
 	iden.setCambio(vc);
 
-	// Analisis
-	anali = new Analisis();
-	anali.setIdU(0L);
-	anali.setIdP(0L);
-	anali.setOption(0);
-	anali.setId(0);
-	anali.setNombre("Anali");
-	anali.setDescripcion("Descripcion");
-	anali.setCategoria("Categoria");
-	anali.setStatus("Status");
-	anali.setCausas("Causas");
-	anali.setProbabilidad(90);
-	anali.setImpacto("10, 20, 30, 40");
-	anali.setValor(0.23);
-	anali.setResponse("Response");
-	anali.setFechaRevisada("21-12-2014");
-	anali.setProbabilidadRevisada(80);
-	anali.setImpactoRevisado("10, 20, 30, 40");
-	anali.setValorRevisado(0.63);
-	anali.setResponseRevisado("ResponseRevisado");
-	anali.setDerivado("Derivados");
-	anali.setResidual("Residual");
-	anali.setContingencia("Contingencia");
-	anali.setPresupuesto("Presupuesto");
-	anali.setPlanificacion("Planificacion");
-	anali.setComentarios("Comentarios");
-	anali.setMonitorizacion("Monitorizacion");
-	anali.setIndicador("1@2@3");
-	anali.setEvaluacion("evaluacion@evaluacion@evaluacion");
+	// Respuesta
+	resp = new Respuesta();
+	resp.setIdU(0L);
+	resp.setIdP(0L);
+	resp.setOption(0);
+	resp.setId(0);
+	resp.setNombre("resp");
+	resp.setDescripcion("Descripcion");
+	resp.setCategoria("Categoria");
+	resp.setStatus("Status");
+	resp.setCausas("Causas");
+	resp.setProbabilidad(90);
+	resp.setImpacto("10, 20, 30, 40");
+	resp.setValor(0.23);
+	resp.setResponse("Response");
+	resp.setFechaRevisada("21-12-2014");
+	resp.setProbabilidadRevisada(80);
+	resp.setImpactoRevisado("10, 20, 30, 40");
+	resp.setValorRevisado(0.63);
+	resp.setResponseRevisado("ResponseRevisado");
+	resp.setDerivado("Derivados");
+	resp.setResidual("Residual");
+	resp.setContingencia("Contingencia");
+	resp.setPresupuesto("Presupuesto");
+	resp.setPlanificacion("Planificacion");
+	resp.setComentarios("Comentarios");
+	resp.setMonitorizacion("Monitorizacion");
+	resp.setIndicador("1@2@3");
+	resp.setEvaluacion("evaluacion@evaluacion@evaluacion");
     }
 
     /**
@@ -268,35 +268,37 @@ public class PersistenceTest {
     }
 
     /**
-     * Método de Test para Anaálisis de Riesgos
+     * Método de Test para Respuesta de Riesgos
      * 
      * @throws Exception
      */
     @Test
-    public void testAnali() throws Exception {
+    public void testResp() throws Exception {
 
-	infoS.setAnalisis(anali);
-
-	assertSame(infoS.getAnal(anali.getIdU(), anali.getIdP(),
-		anali.getOption()), anali);
+	infoS.setRespuesta(resp);
 
 	assertSame(
-		infoS.getAnal(anali.getIdU(), anali.getIdP(), anali.getOption())
-			.getCategoria(), "Categoria");
+		infoS.getResp(resp.getIdU(), resp.getIdP(), resp.getOption()),
+		resp);
 
-	assertSame(
-		infoS.getAnal(anali.getIdU(), anali.getIdP(), anali.getOption())
-			.getComentarios(), "Comentarios");
+	assertSame(infoS
+		.getResp(resp.getIdU(), resp.getIdP(), resp.getOption())
+		.getCategoria(), "Categoria");
 
-	assertTrue(infoS.getAnal(anali.getIdU(), anali.getIdP(),
-		anali.getOption()).getProbabilidad() == 90);
+	assertSame(infoS
+		.getResp(resp.getIdU(), resp.getIdP(), resp.getOption())
+		.getComentarios(), "Comentarios");
 
 	assertTrue(infoS
-		.getAnal(anali.getIdU(), anali.getIdP(), anali.getOption())
+		.getResp(resp.getIdU(), resp.getIdP(), resp.getOption())
+		.getProbabilidad() == 90);
+
+	assertTrue(infoS
+		.getResp(resp.getIdU(), resp.getIdP(), resp.getOption())
 		.getImpacto().split(", ").length == 4);
 
 	assertTrue(infoS
-		.getAnal(anali.getIdU(), anali.getIdP(), anali.getOption())
+		.getResp(resp.getIdU(), resp.getIdP(), resp.getOption())
 		.getIndicador().split("@").length == 3);
     }
 }

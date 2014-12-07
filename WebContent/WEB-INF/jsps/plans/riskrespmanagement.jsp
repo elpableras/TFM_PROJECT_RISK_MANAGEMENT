@@ -44,19 +44,19 @@
 									<s:elseif test='%{#play == 4}'>
 										<li class="ok"> 1 <s:a action="RiskPlan" tabindex="5"><s:text name="text.index.left.4.1"/></s:a></li>								
 										<li class="ok"> 2 <s:a action="RiskIden" tabindex="6"><s:text name="text.index.left.4.3"/></s:a></li>
-										<li class="ok"> 3 <s:a action="RiskAnalManagement" tabindex="7"><s:text name="text.index.left.4.4"/></s:a></li>
+										<li class="ok"> 3 <s:a action="RiskRespManagement" tabindex="7"><s:text name="text.index.left.4.4"/></s:a></li>
 										<li class="actual"> 4 <s:text name="text.index.left.4.5"/></li>
 									</s:elseif>
 									<s:elseif test='%{#play == 5}'>
 										<li class="ok"> 1 <s:a action="RiskPlan" tabindex="5"><s:text name="text.index.left.4.1"/></s:a></li>										
 										<li class="ok"> 2 <s:a action="RiskIden" tabindex="6"><s:text name="text.index.left.4.3"/></s:a></li>
-										<li class="ok"> 3 <s:a action="RiskAnalManagement" tabindex="7"><s:text name="text.index.left.4.4"/></s:a></li>
+										<li class="ok"> 3 <s:a action="RiskRespManagement" tabindex="7"><s:text name="text.index.left.4.4"/></s:a></li>
 										<li class="steps"> 4 <s:a action="LoadPDF" tabindex="8"><s:text name="text.index.left.4.5"/></s:a></li>
 									</s:elseif>
 									<s:else>																				
 										<li class="actual"> 1 <s:a action="RiskPlan" tabindex="5"><s:text name="text.index.left.4.1"/></s:a></li>										
 										<li class="steps"> 2 <s:a action="RiskIden" tabindex="6"><s:text name="text.index.left.4.3"/></s:a></li>
-										<li class="steps"> 3 <s:a action="RiskAnalManagement" tabindex="7"><s:text name="text.index.left.4.4"/></s:a></li>
+										<li class="steps"> 3 <s:a action="RiskRespManagement" tabindex="7"><s:text name="text.index.left.4.4"/></s:a></li>
 										<li class="steps"> 4 <s:a action="LoadPDF" tabindex="8"><s:text name="text.index.left.4.5"/></s:a></li>
 									</s:else>      										  												 
 								</ul>
@@ -68,11 +68,11 @@
 		
 		<article id="rightMember" class="contenido">
 			<div id="member">
-				<h2 id="riskM"><s:text name="text.anali"/></h2>								
+				<h2 id="riskM"><s:text name="text.resp"/></h2>								
 								
     				<table id="riskM">
     					<tr>
-    						<th><s:text name="text.anali.right"/> ${sessionScope.corte}</th>
+    						<th><s:text name="text.resp.right"/> ${sessionScope.corte}</th>
     					</tr>
     					<tr>
     						<td>
@@ -80,7 +80,7 @@
     								<s:set var="numRisk">${0}</s:set>
     								
     								<s:iterator value="%{#application.study}">    									 
-				       					<li class="steps" id="analiRisk"><s:a action="RiskAnal" tabindex="7"><s:property value="nombre"/><s:param name="option" value="%{#numRisk}" /></s:a></li>
+				       					<li class="steps" id="respRisk"><s:a action="RiskResp" tabindex="7"><s:property value="nombre"/><s:param name="option" value="%{#numRisk}" /></s:a></li>
 				       					<s:set var="numRisk">${numRisk+1}</s:set>
 				       				</s:iterator>    									    							  									 					 															  																	
 								</ul>

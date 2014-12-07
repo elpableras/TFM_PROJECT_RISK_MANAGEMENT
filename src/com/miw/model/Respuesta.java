@@ -1,13 +1,13 @@
 package com.miw.model;
 
 /**
- * Modelo de datos para la información de los análisis de riesgos
+ * Modelo de datos para la información de la respuesta de los riesgos
  * 
  * @author Pablo
  * 
  */
 
-public class Analisis {
+public class Respuesta {
 
     private Long idP;
     private Long idU;

@@ -17,11 +17,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Clase de la capa de presentación para la acción de buscar todos los datos
- * tanto de los planes, identificaión y analisis de riesgos que se encuentran
- * almacenados en la base de datos y exponerlos en la aplicación, extiende de
- * ActionSupport que nos proporciona una implementación por defecto para las
- * acciones más comunes con implementación de dos interfaces “aware” para alojar
- * objetos que puedan estar a disposición en otras partes de la aplicación.
+ * tanto de los planes, identificaión/analisis y respuesta de riesgos que se
+ * encuentran almacenados en la base de datos y exponerlos en la aplicación,
+ * extiende de ActionSupport que nos proporciona una implementación por defecto
+ * para las acciones más comunes con implementación de dos interfaces “aware”
+ * para alojar objetos que puedan estar a disposición en otras partes de la
+ * aplicación.
  * 
  * @author Pablo
  * 
@@ -129,7 +130,7 @@ public class LoadAction extends ActionSupport implements ApplicationAware,
 	    Vector<Iden> iden = infoService.getIden(id, idP);
 	    application.put("iden", iden);
 
-	    // Anali
+	    // Resp
 	    Vector<Iden> study = new Vector<Iden>();
 	    for (int i = 0; i < iden.size(); i++) {
 		if (iden.get(i).getValor() >= corte) {

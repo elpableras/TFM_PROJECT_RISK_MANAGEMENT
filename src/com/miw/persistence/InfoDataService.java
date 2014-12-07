@@ -2,9 +2,9 @@ package com.miw.persistence;
 
 import java.util.Vector;
 
-import com.miw.model.Analisis;
 import com.miw.model.Iden;
 import com.miw.model.Info;
+import com.miw.model.Respuesta;
 
 /**
  * Facade. Interfaz entre la capa de Negocio y Persistencia para datos de
@@ -23,9 +23,9 @@ public interface InfoDataService {
 
     public Vector<Iden> getIden(Long id, Long idP) throws Exception;
 
-    public void setAnalisis(Analisis anal) throws Exception;
+    public void setRespuesta(Respuesta resp) throws Exception;
 
-    public Analisis getAnal(Long id, Long idP, Integer op) throws Exception;
+    public Respuesta getResp(Long id, Long idP, Integer op) throws Exception;
 
     public Vector<Double> getVersion(Long id, Long idP) throws Exception;
 
