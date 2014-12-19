@@ -20,9 +20,8 @@
 		<article id="iden">			
 			<div id="iden">
 				<h2 id="iden"><s:text name="iden.cabeza"/></h2>
-				<s:set var="impacto">${applicationScope.impactolist}</s:set>
-					<s:if test="%{#impacto != 'null'}">										
-						<s:set var="sizeO">${applicationScope.impactolist.size()}</s:set>	
+				<s:set var="sizeO">${applicationScope.impactolist.size()}</s:set>
+					<s:if test="%{#sizeO != 0}">																
 						<s:set var="cabezaCol">${sizeO+10}</s:set>
 						<s:set var="id">${sessionScope.usuario.getId()}</s:set>
 						<s:set var="idP">${sessionScope.usuario.getIdProyecto()}</s:set>									

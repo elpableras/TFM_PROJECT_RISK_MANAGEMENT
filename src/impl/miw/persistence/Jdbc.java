@@ -1,8 +1,12 @@
 package impl.miw.persistence;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
+
+import com.opensymphony.xwork2.config.Configuration;
 
 /**
  * Clase para la configuración de la conexión a MYSQL
@@ -13,40 +17,47 @@ import java.sql.SQLException;
 public class Jdbc {
 
     // Variables para configuración de la conexión a MySQL
-    private static String SQL_DRIVER = "com.mysql.jdbc.Driver";
-    // LOCAL
-    private static String SQL_URL = "jdbc:mysql://localhost:3306/tfm";
-    // private static String SQL_URL =
-    // "jdbc:mysql://127.7.70.130:3306/masterproject";
-    private static String SQL_USER = "root";
-    private static String SQL_PASS = "tfm14";
+//    private static String SQL_DRIVER = "com.mysql.jdbc.Driver";
+//    // LOCAL
+//    //private static String SQL_URL = "jdbc:mysql://localhost:3306/tfm";
+//    private static String SQL_URL = "jdbc:mysql://127.7.70.130:3306/masterproject";
+//    private static String SQL_USER = "root";
+//    private static String SQL_PASS = "tfm14";    
+      
 
     /**
      * Getter que devuelve la conexión
      * 
      * @return Connection conexión
      */
-    public static Connection getConnection() {
+    public static Connection getConnection() throws IOException {
+	
+	Properties dbProps = new Properties();  
+        try {  
+            dbProps.load(Configuration.class.getClassLoader().getResourceAsStream("db.properties"));   
+        } catch (Exception e) {  
+            throw new IOException("No se puede leer el archivo properties");  
+        }  
+        
+	loadDriver(dbProps); 
 
-	loadDriver();
-
-	try {
-
-	    return DriverManager.getConnection(SQL_URL, SQL_USER, SQL_PASS);
+	try {	    
+	    return DriverManager.getConnection(dbProps.getProperty("jdbc.url.server"),  
+                    dbProps.getProperty("jdbc.username"), dbProps.getProperty("jdbc.password"));
 
 	} catch (SQLException e) {
 	    throw new RuntimeException("No se puede abrir conexion a "
-		    + SQL_URL, e);
+		    + dbProps.getProperty("jdbc.url.server"), e);
 	}
     }
 
     /**
      * Método estático para caragr el driver
      */
-    private static void loadDriver() {
+    private static void loadDriver(Properties dbProps) {
 	try {
 
-	    Class.forName(SQL_DRIVER);
+	    Class.forName(dbProps.getProperty("jdbc.driverClass"));	    
 
 	} catch (ClassNotFoundException e) {
 	    throw new RuntimeException("Driver SQL no encontrado", e);

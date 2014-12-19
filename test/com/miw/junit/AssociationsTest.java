@@ -18,7 +18,7 @@ import com.miw.model.User;
 import com.miw.model.exception.BusinessException;
 
 /**
- * Clase para probar diferentes asociaciones dentro de cada módelo
+ * Clase para probar diferentes asociaciones dentro de cada modelo
  * 
  * @author Pablo
  * 

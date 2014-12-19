@@ -71,9 +71,9 @@ public class UnLoginAction extends ActionSupport implements ServletRequestAware 
 	log.debug("Password: " + usuario.getPassword());
 	// Quitamos el usuario de sesión.
 	if (request.getSession().getAttribute("usuario") != null) {
-	    request.getSession().setAttribute("usuario", null);
-	    request.getSession().setAttribute("play", null);
-	    request.getSession().setAttribute("saveplan", null);
+	    request.getSession().removeAttribute("usuario");
+	    request.getSession().removeAttribute("play");
+	    request.getSession().removeAttribute("saveplan");
 	    return SUCCESS;
 	} else {
 	    return ERROR;

@@ -98,20 +98,38 @@ public class UserDAO implements UserDataService {
 		ps = con.prepareStatement("SELECT @pass:='tfm14';");
 		ps.executeQuery();
 
-		ps = con.prepareStatement("INSERT INTO users (user,email,pass,language,admin,manager,p_id) VALUES (?,AES_ENCRYPT(?,@pass),AES_ENCRYPT(?,@pass),?,?,?,?);");
+		if (user.getIdProyecto() != null) {
+		    ps = con.prepareStatement("INSERT INTO users (user,email,pass,language,admin,manager,created,p_id) VALUES (?,AES_ENCRYPT(?,@pass),AES_ENCRYPT(?,@pass),?,?,?,?,?);");
 
-		ps.setString(1, user.getLogin());
-		ps.setString(2, user.getEmail());
-		ps.setString(3, user.getPassword());
-		String language = user.getLanguage();
-		String[] pieces = language.split(" ");
-		language = pieces[0];
-		ps.setString(4, language);
-		ps.setBoolean(5, user.isAdmin());
-		ps.setBoolean(6, user.isManager());
-		ps.setLong(7, user.getIdProyecto());
+		    ps.setString(1, user.getLogin());
+		    ps.setString(2, user.getEmail());
+		    ps.setString(3, user.getPassword());
+		    String language = user.getLanguage();
+		    String[] pieces = language.split(" ");
+		    language = pieces[0];
+		    ps.setString(4, language);
+		    ps.setBoolean(5, user.isAdmin());
+		    ps.setBoolean(6, user.isManager());
+		    ps.setTimestamp(7, null);
+		    ps.setLong(8, user.getIdProyecto());
 
-		ps.executeUpdate();
+		    ps.executeUpdate();
+		} else {
+		    ps = con.prepareStatement("INSERT INTO users (user,email,pass,language,admin,manager,created) VALUES (?,AES_ENCRYPT(?,@pass),AES_ENCRYPT(?,@pass),?,?,?,?);");
+
+		    ps.setString(1, user.getLogin());
+		    ps.setString(2, user.getEmail());
+		    ps.setString(3, user.getPassword());
+		    String language = user.getLanguage();
+		    String[] pieces = language.split(" ");
+		    language = pieces[0];
+		    ps.setString(4, language);
+		    ps.setBoolean(5, user.isAdmin());
+		    ps.setBoolean(6, user.isManager());
+		    ps.setTimestamp(7, null);
+
+		    ps.executeUpdate();
+		}
 
 		if (user.isManager() && user.getIdProyecto() != null) {
 		    updateStepProject(ps, con, user.getIdProyecto(), 1);

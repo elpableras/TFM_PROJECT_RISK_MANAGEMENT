@@ -75,12 +75,12 @@
 				</s:form>
 			</div>
 			<s:if test="hasActionMessages()">
-				<div class="mensajeUpdate">
+				<div class="mensajeProject">
 					<s:actionmessage />
 				</div>
 			</s:if>
 			<s:if test="hasActionErrors()">
-				<div class="mensajeNoUpdate">
+				<div class="mensajeErrorProject">
 					<s:actionerror />
 				</div>
 			</s:if>

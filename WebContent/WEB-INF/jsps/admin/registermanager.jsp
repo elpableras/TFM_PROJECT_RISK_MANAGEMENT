@@ -67,7 +67,7 @@
 				</s:form>
 				
 				<s:if test="hasActionErrors()">
-				  	<div class="mensajeError">				  		
+				  	<div class="mensajeErrorRegister">				  		
       					<s:actionerror/>
    					</div>
 				</s:if>

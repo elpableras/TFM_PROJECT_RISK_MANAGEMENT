@@ -55,10 +55,11 @@ public class InfoDAO implements InfoDataService {
 	    con = Jdbc.getConnection();
 
 	    if (uniquePlans(ps, con, rs, id, idP)) {
-		ps = con.prepareStatement("INSERT INTO plans (project_id,u_id,version) VALUES (?,?,?)");
+		ps = con.prepareStatement("INSERT INTO plans (project_id,u_id,version,created) VALUES (?,?,?,?)");
 		ps.setLong(1, idP);
 		ps.setLong(2, id);
 		ps.setDouble(3, version);
+		ps.setTimestamp(4, null);
 		ps.executeUpdate();
 
 		Long pgr_id = getId_pgr(ps, con, rs, idP, id, version);
@@ -70,7 +71,7 @@ public class InfoDAO implements InfoDataService {
 		int versionE = (int) Math.floor(version);
 		Double versionNew = (double) versionE + 1;
 		versionNew = (double) Math.round(versionNew * 10000) / 10000;
-		ps = con.prepareStatement("INSERT INTO plans (project_id,u_id,version,metodologia,herrotecno,roles,presu,calendario,riesgos,corte,rango,contingencia,formatos) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		ps = con.prepareStatement("INSERT INTO plans (project_id,u_id,version,metodologia,herrotecno,roles,presu,calendario,riesgos,corte,rango,contingencia,formatos,created) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		ps.setLong(1, idP);
 		ps.setLong(2, id);
 		ps.setDouble(3, versionNew);
@@ -84,6 +85,7 @@ public class InfoDAO implements InfoDataService {
 		ps.setString(11, data.getRango());
 		ps.setString(12, data.getContingencia());
 		ps.setString(13, data.getFormato());
+		ps.setTimestamp(14, null);
 		ps.executeUpdate();
 
 		Long pgr_id = getId_pgr(ps, con, rs, idP, id, versionNew);
@@ -305,7 +307,7 @@ public class InfoDAO implements InfoDataService {
      * @throws SQLException
      */
     private void inserProbabilidadImpactos(Info data, PreparedStatement ps,
-	    Connection con, ResultSet rs, Long pgr_id) throws SQLException {
+	    Connection con, ResultSet rs, Long pgr_id) throws Exception {
 	Vector<Long> id = new Vector<Long>();
 	ps = con.prepareStatement("select i_id from impactos where pgr_id=?;");
 	ps.setLong(1, pgr_id);
@@ -579,7 +581,7 @@ public class InfoDAO implements InfoDataService {
      *            identificación del plan de riesgos
      * @throws SQLException
      */
-    private void setCambio(Info data, Long pgr_id) throws SQLException {
+    private void setCambio(Info data, Long pgr_id) throws Exception {
 	PreparedStatement ps = null;
 	Connection con = null;
 
@@ -603,7 +605,7 @@ public class InfoDAO implements InfoDataService {
      * @throws SQLException
      */
     private Vector<Probabilidad> getProbabilidadImpactos(Long pgr_id, Long i_id)
-	    throws SQLException {
+	    throws Exception {
 	Vector<Probabilidad> vp = new Vector<Probabilidad>();
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -639,7 +641,7 @@ public class InfoDAO implements InfoDataService {
      * @throws SQLException
      */
     private void insertProbabilidades(Long pgr_id,
-	    Vector<Probabilidad> probabilidad, Long i_id) throws SQLException {
+	    Vector<Probabilidad> probabilidad, Long i_id) throws Exception {
 	PreparedStatement ps = null;
 	Connection con = null;
 	con = Jdbc.getConnection();
@@ -736,7 +738,7 @@ public class InfoDAO implements InfoDataService {
      * @throws SQLException
      */
     private Vector<Cambio> getCambio(Long pgr_id, Long iden_id)
-	    throws SQLException {
+	    throws Exception {
 	Vector<Cambio> vc = new Vector<Cambio>();
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -791,7 +793,7 @@ public class InfoDAO implements InfoDataService {
      * @throws SQLException
      */
     private Vector<Probabilidad> getProbabilidad(Long pgr_id)
-	    throws SQLException {
+	    throws Exception {
 	Vector<Probabilidad> vp = new Vector<Probabilidad>();
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -821,7 +823,7 @@ public class InfoDAO implements InfoDataService {
      * @return Vector vector con los datos de los impactos del plan
      * @throws SQLException
      */
-    private Vector<Impacto> getImpacto(Long pgr_id) throws SQLException {
+    private Vector<Impacto> getImpacto(Long pgr_id) throws Exception {
 	Vector<Impacto> vi = new Vector<Impacto>();
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -919,7 +921,7 @@ public class InfoDAO implements InfoDataService {
      *            identificación del identificador de riesgos
      * @throws SQLException
      */
-    private void setCambioIden(Iden iden, Long iden_id) throws SQLException {
+    private void setCambioIden(Iden iden, Long iden_id) throws Exception {
 	PreparedStatement ps = null;
 	Connection con = null;
 
@@ -981,7 +983,7 @@ public class InfoDAO implements InfoDataService {
     private void insertIden(Vector<Iden> vIden, PreparedStatement ps,
 	    Connection con) throws SQLException {
 	for (int i = 0; i < vIden.size(); i++) {
-	    ps = con.prepareStatement("INSERT INTO idens (project_id,u_id,id,nombre,descripcion,responsable,probabilidad,valorImpacto,vImpacto,response,notes,version) VALUES (?,?,?,?,?,?,?,?,?,?,?,?);");
+	    ps = con.prepareStatement("INSERT INTO idens (project_id,u_id,id,nombre,descripcion,responsable,probabilidad,valorImpacto,vImpacto,response,notes,version,created) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
 	    ps.setLong(1, vIden.get(i).getIdP());
 	    ps.setLong(2, vIden.get(i).getIdU());
 	    ps.setInt(3, vIden.get(i).getId());
@@ -994,6 +996,7 @@ public class InfoDAO implements InfoDataService {
 	    ps.setString(10, vIden.get(i).getResponse());
 	    ps.setString(11, vIden.get(i).getNotes());
 	    ps.setDouble(12, vIden.get(i).getVersion());
+	    ps.setTimestamp(13, null);
 	    ps.executeUpdate();
 	}
     }
@@ -1140,7 +1143,7 @@ public class InfoDAO implements InfoDataService {
      */
     private void insertResp(Respuesta resp, PreparedStatement ps, Connection con)
 	    throws SQLException, ParseException {
-	ps = con.prepareStatement("INSERT INTO analisis (project_id,u_id,id,opcion,nombre,descripcion,categoria,status,causas,probabilidad,impacto,valor,response,fechaRevision,probabilidadRevisada,impactoRevisado,valorRevisado,responseRevisado,derivado,residual,contingencia,presupuesto,planificacion,comentarios,monitorizacion,indicador,evaluacion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+	ps = con.prepareStatement("INSERT INTO analisis (project_id,u_id,id,opcion,nombre,descripcion,categoria,status,causas,probabilidad,impacto,valor,response,fechaRevision,probabilidadRevisada,impactoRevisado,valorRevisado,responseRevisado,derivado,residual,contingencia,presupuesto,planificacion,comentarios,monitorizacion,indicador,evaluacion,created) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
 	ps.setLong(1, resp.getIdP());
 	ps.setLong(2, resp.getIdU());
 	ps.setInt(3, resp.getId());
@@ -1178,6 +1181,7 @@ public class InfoDAO implements InfoDataService {
 	ps.setString(25, resp.getMonitorizacion());
 	ps.setString(26, resp.getIndicador());
 	ps.setString(27, resp.getEvaluacion());
+	ps.setTimestamp(28, null);
 
 	ps.executeUpdate();
     }

@@ -185,12 +185,12 @@
 			</s:elseif>
 			
 			<s:if test="hasActionMessages()">
-				<div class="mensajeUpdate">
+				<div class="mensajeInfo">
 					<s:actionmessage />
 				</div>
 			</s:if>
 			<s:if test="hasActionErrors()">
-				<div class="mensajeNoUpdate">
+				<div class="mensajeNoInfo">
 					<s:actionerror />
 				</div>
 			</s:if>

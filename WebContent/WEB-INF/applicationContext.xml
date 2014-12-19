@@ -24,7 +24,7 @@
     	
     </bean>
     
-    <bean id="userService" class="impl.miw.business.people.People" >
+    <bean id="userService" class="impl.miw.business.usuario.Usuario" >
     	<property name="log">
     		<ref bean="log"/>
     	</property>
@@ -35,7 +35,7 @@
     	
     </bean>
     
-    <bean id="infoService" class="impl.miw.business.plan.Plan" >
+    <bean id="infoService" class="impl.miw.business.gestion.Gestion" >
     	<property name="log">
     		<ref bean="log"/>
     	</property>

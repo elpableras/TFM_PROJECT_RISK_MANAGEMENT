@@ -13,8 +13,8 @@ import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 /**
  * Clase que crea un interceptor, cuando la sesión de la aplicación halla
- * caducado se pondrán las varibles a null con la implementación de una interfaz
- * "aware" para eliminar esas variables de sesión y extiende de
+ * caducado se pondrán las variables a null con la implementación de una
+ * interfaz "aware" para eliminar esas variables de sesión y extiende de
  * AbstractInterceptor
  * 
  * @author Pablo
@@ -88,19 +88,18 @@ public class SessionInterceptor extends AbstractInterceptor implements
     public String intercept(ActionInvocation invocation) throws Exception {
 	ActionContext ctx = invocation.getInvocationContext();
 	String uri = ctx.getName().toLowerCase();
-	Map<String, Object> session = invocation.getInvocationContext()
-		.getSession();
+	Map<String, Object> session = invocation.getInvocationContext().getSession();
 
-	if (session.isEmpty() && !uri.contains("login")
-		&& !uri.contains("counter") && !uri.contains("forgotten")
-		&& !uri.contains("passforgotten") && !uri.contains("index")) {
-	    if (request.getSession().getAttribute("usuario") != null) {
-		request.getSession().setAttribute("usuario", "");
-		request.getSession().setAttribute("play", "");
-		request.getSession().setAttribute("saveplan", "");
+	    if (session.isEmpty() && !uri.contains("login")
+		    && !uri.contains("counter") && !uri.contains("forgotten")
+		    && !uri.contains("passforgotten") && !uri.contains("index")) {		
+		if (session.containsKey("usuario") && request.getSession().getAttribute("usuario") != null) {
+		    request.getSession().setAttribute("usuario", "");
+		    request.getSession().setAttribute("play", "");
+		    request.getSession().setAttribute("saveplan", "");
+		}
+		return "login"; // session is empty/expired
 	    }
-	    return "Login"; // session is empty/expired
-	}
-	return invocation.invoke();
+	    return invocation.invoke();
     }
 }

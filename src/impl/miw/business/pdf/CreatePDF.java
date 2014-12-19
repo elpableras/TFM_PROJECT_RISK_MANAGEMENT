@@ -38,7 +38,7 @@ import com.miw.model.User;
 
 /**
  * Clase de la capa de negocio para la acción de creación de pdfs según los
- * datos facilitados y extraidos desde la bbdd de la aplicación, para la
+ * datos facilitados y extraídos desde la bbdd de la aplicación, para la
  * generación de los informes de los mismos.
  * 
  * @author Pablo
@@ -62,7 +62,7 @@ public class CreatePDF {
     private String file;
 
     /**
-     * Método principal para la creación de los docuemntos pdf para la
+     * Método principal para la creación de los documentos pdf para la
      * aplicación
      * 
      * @return String con la localización del path donde se almacena el pdf

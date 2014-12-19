@@ -73,7 +73,7 @@
 				</div>
 			</s:if>
 			<s:if test="hasActionErrors()">
-				<div class="mensajeError">
+				<div class="mensajeErrorMiembro">
 					<s:actionerror />
 				</div>
 			</s:if>

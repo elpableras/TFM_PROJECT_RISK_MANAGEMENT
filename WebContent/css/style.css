@@ -156,11 +156,55 @@ div.mensajeNoUpdateOptions
 	position: absolute;
 }
 
+div.mensajeNoInfo
+{	
+	color: #e91b2b;
+	font-weight: bold;
+	margin: 6em 0em 0em 9em;
+	font-family: Georgia,Times,"Times New Roman",serif;
+	font-size: 1.16667rem;
+	border-radius: 10px;	
+	position: absolute;
+}
+
+div.mensajeUpdate
+{	
+	color: #39C53F;
+	font-weight: bold;
+	margin: 6em 0em 0em 9em;
+	font-family: Georgia,Times,"Times New Roman",serif;
+	font-size: 1.16667rem;
+	border-radius: 10px;	
+	position: absolute;
+}
+
 div.mensajeNoUpdate
 {	
 	color: #e91b2b;
 	font-weight: bold;
 	margin: 0em 0em 0em 5em;
+	font-family: Georgia,Times,"Times New Roman",serif;
+	font-size: 1.16667rem;
+	border-radius: 10px;	
+	position: absolute;
+}
+
+div.mensajeProject
+{	
+	color: #39C53F;
+	font-weight: bold;
+	margin: 1em 0em 0em 2em;
+	font-family: Georgia,Times,"Times New Roman",serif;
+	font-size: 1.16667rem;
+	border-radius: 10px;	
+	position: absolute;
+}
+
+div.mensajeErrorProject
+{	
+	color: #e91b2b;
+	font-weight: bold;
+	margin: 1em 0em 0em 2em;
 	font-family: Georgia,Times,"Times New Roman",serif;
 	font-size: 1.16667rem;
 	border-radius: 10px;	
@@ -205,6 +249,28 @@ div.mensajeError
 	color: #e91b2b;
 	font-weight: bold;
 	margin: -1em 0em 0em 0em;
+	font-family: Georgia,Times,"Times New Roman",serif;
+	font-size: 1.16667rem;
+	border-radius: 10px;	
+	position: absolute;
+}
+
+div.mensajeErrorMiembro
+{	
+	color: #e91b2b;
+	font-weight: bold;
+	margin: -1em 0em 0em 0em;
+	font-family: Georgia,Times,"Times New Roman",serif;
+	font-size: 1.16667rem;
+	border-radius: 10px;	
+	position: absolute;
+}
+
+div.mensajeErrorRegister
+{	
+	color: #e91b2b;
+	font-weight: bold;
+	margin: 0em 0em 0em -1em;
 	font-family: Georgia,Times,"Times New Roman",serif;
 	font-size: 1.16667rem;
 	border-radius: 10px;	

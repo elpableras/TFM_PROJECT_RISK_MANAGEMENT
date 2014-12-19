@@ -101,7 +101,7 @@ public class ProjectDAO implements ProjectDataService {
 	    ps = con.prepareStatement("SELECT @pass:='tfm14';");
 	    ps.executeQuery();
 
-	    ps = con.prepareStatement("INSERT INTO projects (name,manager,email,fecha,paso) VALUES (?,?,AES_ENCRYPT(?,@pass),?,?)");
+	    ps = con.prepareStatement("INSERT INTO projects (name,manager,email,fecha,paso,created) VALUES (?,?,AES_ENCRYPT(?,@pass),?,?,?)");
 
 	    ps.setString(1, project.getNombre());
 	    ps.setString(2, project.getManager());
@@ -113,6 +113,7 @@ public class ProjectDAO implements ProjectDataService {
 
 	    ps.setDate(4, sqlDate);
 	    ps.setInt(5, project.getPaso());
+	    ps.setTimestamp(6, null);
 
 	    ps.executeUpdate();
 

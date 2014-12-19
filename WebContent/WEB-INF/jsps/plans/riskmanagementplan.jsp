@@ -363,7 +363,7 @@
 					<s:set var="probabilidad">${sessionScope.plan.getProbabilidad().size()}</s:set>
 					<s:set var="rangoSize">${sessionScope.rango.size()}</s:set>
 					<h2 id="matriz"><s:text name="plan.10"/></h2>
-					<s:if test="%{#probabilidad!='0'}">							
+					<s:if test="%{#probabilidad != 0}">							
 						<form id="corte" action="SavePlan" method="post">
 							<s:hidden name="id" value="%{#id}" />
 							<s:hidden name="idP" value="%{#idP}" />
