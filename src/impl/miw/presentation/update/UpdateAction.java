@@ -117,9 +117,12 @@ public class UpdateAction extends ActionSupport implements ServletRequestAware,
 
 	User updateUser = new User();
 	updateUser.setId(getIdAccountUpdate());
-	updateUser.setLogin(getLoginAccountUpdate());
-	updateUser.setEmail(getEmailAccountUpdate());
-	updateUser.setPassword(getPassAccountUpdate());
+	if(getLoginAccountUpdate().compareToIgnoreCase("")!=0)
+	    updateUser.setLogin(getLoginAccountUpdate());
+	if(getEmailAccountUpdate().compareToIgnoreCase("")!=0)
+	    updateUser.setEmail(getEmailAccountUpdate());
+	if(getPassAccountUpdate().compareToIgnoreCase("")!=0)
+	    updateUser.setPassword(getPassAccountUpdate());
 	updateUser.setLanguage(getLanguageAccountUpdate());
 	updateUser.setIdProyecto(getIdProyectoAccountUpdate());
 	updateUser.setAdmin(getAdminAccountUpdate());

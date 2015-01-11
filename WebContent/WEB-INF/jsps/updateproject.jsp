@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <jsp:include page="common/logo.jsp" />
 <jsp:include page="common/login.jsp" />
@@ -19,7 +19,7 @@
 		<article id="centerAccount">
 			<div id="account">
 				<h2 id="account">
-					<s:text name="userUpdate" />
+					<s:text name="projectUpdate" />
 				</h2>			
 				
 				<s:set var="id">${sessionScope.project.getId()}</s:set>
@@ -66,7 +66,7 @@
 	</section>
 	
 	<div id="back">
-		<s:a id="update" action="InfoProjects"><s:text name="back"/></s:a>
+		<s:a id="updateInfo" action="InfoProjects"><s:text name="back"/></s:a>
 	</div>
 
 	<jsp:include page="common/footer.jsp" />

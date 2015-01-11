@@ -4,5 +4,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <div id="logo">
-	<p><a href="index.jsp" tabindex="1"><img id="logo" alt="<s:text name="logo.alt"/>" src="img/uniovi.png"/></a></p>
+	<p><a href="index.jsp" tabindex="1"><img id="logoUni" alt="<s:text name="logo.alt"/>" src="img/uniovi.png"/></a></p>
 </div>

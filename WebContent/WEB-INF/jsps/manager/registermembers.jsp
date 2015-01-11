@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <jsp:include page="../common/logo.jsp" />
 <jsp:include page="../common/login.jsp" />
@@ -37,11 +37,10 @@
   										 3. <s:text name="text.index.left.3"/>
   									</li> 
   									<li> 4. <s:a action="RiskSystem" tabindex="5"><s:text name="text.index.left.4"/></s:a></li> 								  									    									
-    								<li class="cls"> 4.1 <s:text name="text.index.left.4.1"/></li>
-    								<li class="cls"> 4.2 <s:text name="text.index.left.4.2"/></li>
-    								<li class="cls"> 4.3 <s:text name="text.index.left.4.3"/></li>
-    								<li class="cls"> 4.4 <s:text name="text.index.left.4.4"/></li>
-    								<li class="cls"> 4.5 <s:text name="text.index.left.4.5"/></li>      										  												 
+    								<li class="cls"> 4.1 <s:text name="text.index.left.4.1"/></li>    							
+    								<li class="cls"> 4.2 <s:text name="text.index.left.4.3"/></li>
+    								<li class="cls"> 4.3 <s:text name="text.index.left.4.4"/></li>
+    								<li class="cls"> 4.4 <s:text name="text.index.left.4.5"/></li>      										  												 
 								</ul>
 							</td>    						
     					</tr>

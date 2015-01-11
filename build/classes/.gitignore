@@ -1,5 +1,5 @@
-/com/
+/com
 /global_en.properties
 /global_es.properties
-/impl/
-/db.properties
+/impl
+/struts.xml

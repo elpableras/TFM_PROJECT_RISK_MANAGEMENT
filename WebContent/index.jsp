@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <jsp:include page="WEB-INF/jsps/common/logoIndex.jsp" />
 <jsp:include page="WEB-INF/jsps/common/head.jsp" />
@@ -31,7 +31,7 @@
 				<s:password key="text.login.password" id="password" name="password" required="true" tabindex="2" />
 			</div>
 			<div>
-				<s:submit key="text.login.submit" id="submitLogin" name="submit" tabindex="3" />
+				<s:submit key="text.login.submit" id="submitLogin" name="submit" tabindex="3" theme="simple" />
 				<s:a id="forgotten" action="Forgotten" tabindex="4"><s:text name="login.forget"/></s:a>
 			</div>
 		</form><!-- form -->

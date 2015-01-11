@@ -1,14 +1,17 @@
 package impl.miw.business.pdf;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 import java.util.Vector;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
@@ -44,8 +47,12 @@ import com.miw.model.User;
  * @author Pablo
  * 
  */
-public class CreatePDF {
+public class CreatePDF extends HttpServlet{
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private String nProyecto;
     private String fecha;
     private String lenguaje;
@@ -60,6 +67,8 @@ public class CreatePDF {
     private String corte;
     private Respuesta resp = null;
     private String file;
+    private HttpServletResponse response;
+    
 
     /**
      * Método principal para la creación de los documentos pdf para la
@@ -70,7 +79,7 @@ public class CreatePDF {
      * @throws DocumentException
      * @throws IOException
      */
-    private String createPdf() throws FileNotFoundException, DocumentException,
+    public void createPdf() throws DocumentException,
 	    IOException {
 	String archivo = createPath(file);
 	String lengua = "";
@@ -94,9 +103,10 @@ public class CreatePDF {
 	    // archivo
 	    PdfWriter writer = null;
 
-	    // Obtenemos la instancia del archivo a utilizar
-	    writer = PdfWriter.getInstance(documento, new FileOutputStream(
-		    archivo));
+	    // Obtenemos la instancia del archivo a utilizar y lo creamos en memoria
+	    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	    writer = PdfWriter.getInstance(documento, baos);
+	    //writer = PdfWriter.getInstance(documento, new FileOutputStream(archivo));
 	    HeaderFooter event = new HeaderFooter(lengua, autor, version);
 	    writer.setPageEvent(event);
 
@@ -295,9 +305,24 @@ public class CreatePDF {
 	    }
 
 	    documento.close(); // Cerramos el documento
-	    writer.close(); // Cerramos writer
+
+	    // setting some response headers
+            response.setHeader("Expires", "0");
+            response.setHeader("Cache-Control",
+                "must-revalidate, post-check=0, pre-check=0");
+            response.setHeader("Pragma", "public");
+            // setting the content type
+            response.setContentType("application/pdf");
+            // the contentlength
+            response.setContentLength(baos.size());
+            // Download
+            response.setHeader("Content-disposition", "attachment; filename=\""+archivo+"\"");
+            // write ByteArrayOutputStream to the ServletOutputStream
+            OutputStream os = response.getOutputStream();
+            baos.writeTo(os);
+            os.flush();
+            os.close();           
 	}
-	return archivo;
     }
 
     /**
@@ -1207,21 +1232,18 @@ public class CreatePDF {
     }
 
     /**
-     * Método para crear el path donde se almacenará el pdf
+     * Método para crear el filename del pdf
      * 
      * @param filename
-     *            String con el nombre del fiechero a crear
-     * @return String con el path de donde se almacenará el docuemnto pdf
+     *            String con el nombre del fichero a crear
+     * @return String con el nombre del fichero pdf
      */
-    private String createPath(String filename)
-	    throws UnsupportedEncodingException {
-	String workingDirectory = System.getProperty("user.home");
-	filename = convertFromUTF8(filename);
+    private String createPath(String filename){
+	
 	filename = filename.replace(" ", "_");
-
 	filename = filename + "_" + fecha() + ".pdf";
-	File file = new File(workingDirectory, filename);
-	return file.getAbsolutePath();
+	
+	return filename;	
     }
 
     /**
@@ -1475,7 +1497,7 @@ public class CreatePDF {
     }
 
     /**
-     * Método para la creación de los pdf para los planes de riesgos
+     * Constructor para la creación de los pdf para los planes de riesgos
      * 
      * @param info
      *            objecto Info donde se encuentra la información del plan de
@@ -1491,7 +1513,7 @@ public class CreatePDF {
      * @throws DocumentException
      * @throws IOException
      */
-    public String createPDF(Info info, User u, Project project, String file)
+    public CreatePDF(Info info, User u, Project project, String file, HttpServletResponse response)
 	    throws FileNotFoundException, DocumentException, IOException {
 	this.nProyecto = project.getNombre();
 	this.fecha = project.getFecha();
@@ -1501,11 +1523,11 @@ public class CreatePDF {
 	this.titulo = file;
 	this.info = info;
 	this.file = file;
-	return createPdf();
+	this.response = response;
     }
 
     /**
-     * Método para la creación de los pdf para los riesgos identificados
+     * Constructor para la creación de los pdf para los riesgos identificados
      * 
      * @param iden
      *            objecto Iden donde se encuentra la información de la
@@ -1527,9 +1549,9 @@ public class CreatePDF {
      * @throws DocumentException
      * @throws IOException
      */
-    public String createPDF(Vector<Iden> iden, User u, Project project,
+    public CreatePDF(Vector<Iden> iden, User u, Project project,
 	    String file, Vector<Impacto> impactos,
-	    Vector<Probabilidad> probabilidad, Double corte)
+	    Vector<Probabilidad> probabilidad, Double corte, HttpServletResponse response)
 	    throws FileNotFoundException, DocumentException, IOException {
 	this.nProyecto = project.getNombre();
 	this.fecha = project.getFecha();
@@ -1543,11 +1565,11 @@ public class CreatePDF {
 	this.probabilidad = probabilidad;
 	this.corte = String.valueOf(corte);
 	this.file = file;
-	return createPdf();
+	this.response = response;
     }
 
     /**
-     * Método para la creación de los pdf para las respuestas de riesgos
+     * Constructor para la creación de los pdf para las respuestas de riesgos
      * 
      * @param resp
      *            objecto respuesta donde se encuentra la información
@@ -1570,9 +1592,9 @@ public class CreatePDF {
      * @throws DocumentException
      * @throws IOException
      */
-    public String createPDF(Respuesta resp, User u, Project project,
+    public CreatePDF(Respuesta resp, User u, Project project,
 	    String file, Double version, Vector<Impacto> impactos,
-	    Vector<Probabilidad> probabilidad, Double corte)
+	    Vector<Probabilidad> probabilidad, Double corte, HttpServletResponse response)
 	    throws FileNotFoundException, DocumentException, IOException {
 	this.nProyecto = project.getNombre();
 	this.fecha = project.getFecha();
@@ -1586,6 +1608,7 @@ public class CreatePDF {
 	this.probabilidad = probabilidad;
 	this.corte = String.valueOf(corte);
 	this.file = file;
-	return createPdf();
+	this.response = response;
     }
 }
+

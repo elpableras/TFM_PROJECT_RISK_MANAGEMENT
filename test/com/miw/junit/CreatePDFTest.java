@@ -69,13 +69,10 @@ public class CreatePDFTest {
 	    document.close();
 	    assertTrue(true);
 	} catch (FileNotFoundException e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	} catch (DocumentException e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	} catch (Exception e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
 

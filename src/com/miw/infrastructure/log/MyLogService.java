@@ -15,8 +15,8 @@ public class MyLogService implements LogService {
 
     private int level = 0;
     String message = "";
-    private final File directory = new File("C:\\tmp");
-    private final String fichero = "C:\\tmp\\fichero.log";
+    private final File directory = new File(System.getProperty("user.dir"));
+    private final String fichero = directory+File.separator+"fichero.log";
     private FileWriter archivo;
 
     public int getLevel() {
@@ -107,7 +107,7 @@ public class MyLogService implements LogService {
      */
     public void crearLog(String message) throws IOException {
 	if (!directory.exists()) {
-	    System.out.println("creating directory: " + "C:\\tmp");
+	    //System.out.println("creating directory: " + "C:\\tmp");
 	    boolean result = false;
 
 	    try {

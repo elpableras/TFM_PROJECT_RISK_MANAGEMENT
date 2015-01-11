@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <jsp:include page="../common/logo.jsp" />
 <jsp:include page="../common/login.jsp" />

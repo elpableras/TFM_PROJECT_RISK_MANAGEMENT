@@ -27,7 +27,7 @@
 			</s:form>
 		</s:if>
 		<s:else>
-			<li><img alt="<s:text name="nav_login.photo.alt"/>" src="img/user.png"><li>
+			<li><img alt="<s:text name="nav.login.photo.alt"/>" src="img/user.png"><li>
 			<li>${sessionScope.usuario.getLogin()}</li>
 			<li> | </li>
 		 	<li><s:a action="UnLogin" tabindex="2"><s:text name="out"/></s:a><br/></li>

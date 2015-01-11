@@ -253,7 +253,7 @@ public class InfoDAO implements InfoDataService {
 		ps.setLong(2, data.getIdU());
 		ps.executeUpdate();
 	    }
-	    if (data.getRango() != null) {
+	    if (data.getRango().compareToIgnoreCase("")!=0) {
 		ps = con.prepareStatement("UPDATE plans SET rango=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getRango());
 		ps.setLong(2, data.getIdU());

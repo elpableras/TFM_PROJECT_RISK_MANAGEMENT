@@ -6,10 +6,9 @@
    
 body {
 font-family: arial, sans-serif;
-font-size: 100%;
+font-size: 80%;
 padding:0; 
 margin:0;
-font-size: 0.8em;
 max-width: 1024px; 
 margin: 0 auto;
 color: #000;
@@ -24,7 +23,7 @@ color: #000;
 /*----- Estilos visual de encabezados --------*/
 
 h1 {
-	font-size: 1.5rem;
+	font-size: 150%;
 	margin: 0em 0 1em;
 	font-weight: bold;
 	border-top: 1px solid #a5a5a5;
@@ -35,7 +34,7 @@ h1 {
 }
 
 h2{
-	font-size: 1.4rem;
+	font-size: 160%;
 }
 
 h2#adminIzq,h2#managerIzq,h2#memberIzq
@@ -65,7 +64,7 @@ h2#info2
 
 h2#account
 {
-	margin: 4em 0em 1em -1em;
+	margin: 5em 0em 1em -1em;
 }
 
 h2#forgotten
@@ -75,16 +74,16 @@ h2#forgotten
 
 h2#matriz,h2#version,h2#iden
 {
-	padding: 4em 0em 0em 0em;
+	padding: 5em 0em 0em 0em;
 }
 
 h2#plan,iden{
-	margin:-2em 0em -3em -7em;
+	margin:-1em 0em -3em -7em;
 }
 
 h3
 {
-	font-size: 1.2rem;
+	font-size: 120%;
 	text-align:center;
 	margin: 0em 0 1em;
 }
@@ -107,7 +106,7 @@ div.mensajeUpdate
 	font-weight: bold;
 	margin: -3.2em 0em 0em -0.2em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -118,7 +117,7 @@ div.mensajePlan
 	font-weight: bold;
 	margin: 0em 0em 0em 2.5em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -127,9 +126,9 @@ div.mensajePDF
 {	
 	color: #39C53F;
 	font-weight: bold;
-	margin: -1em 0em 0em -32.5em;
+	margin: 0em 0em 0em -41em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -140,7 +139,7 @@ div.mensajeUpdateOptions
 	font-weight: bold;
 	margin: -3.2em 0em 0em 3em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -151,7 +150,7 @@ div.mensajeNoUpdateOptions
 	font-weight: bold;
 	margin: -3.2em 0em 0em 3em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -162,7 +161,7 @@ div.mensajeNoInfo
 	font-weight: bold;
 	margin: 6em 0em 0em 9em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -173,7 +172,7 @@ div.mensajeUpdate
 	font-weight: bold;
 	margin: 6em 0em 0em 9em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -184,7 +183,7 @@ div.mensajeNoUpdate
 	font-weight: bold;
 	margin: 0em 0em 0em 5em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -195,7 +194,7 @@ div.mensajeProject
 	font-weight: bold;
 	margin: 1em 0em 0em 2em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -206,7 +205,7 @@ div.mensajeErrorProject
 	font-weight: bold;
 	margin: 1em 0em 0em 2em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -217,7 +216,7 @@ div.mensajeNoPlan
 	font-weight: bold;
 	margin: 0em 0em 0em 2.5em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -228,7 +227,7 @@ div.mensajeNoPDF
 	font-weight: bold;
 	margin: 0em 0em 0em -25.5em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -239,7 +238,7 @@ div.mensajeNuevoMiembro
 	font-weight: bold;
 	margin: -3.2em 0em 0em -1em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -250,7 +249,7 @@ div.mensajeError
 	font-weight: bold;
 	margin: -1em 0em 0em 0em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -261,7 +260,7 @@ div.mensajeErrorMiembro
 	font-weight: bold;
 	margin: -1em 0em 0em 0em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -272,7 +271,7 @@ div.mensajeErrorRegister
 	font-weight: bold;
 	margin: 0em 0em 0em -1em;
 	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	border-radius: 10px;	
 	position: absolute;
 }
@@ -286,7 +285,7 @@ div.errors, div.sendEmail
 	position: absolute;
 	font-family: Georgia,Times,"Times New Roman",serif;
 	background: url("../img/loginError.png") no-repeat scroll 0.5em 0.7em rgb(243, 255, 117) !important;
-	font-size: 1.16667rem;
+	font-size: 116%;
 	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;	
 }
@@ -310,7 +309,7 @@ ul.subnavegador,ul.enlace
 
 li.actual
 {
-	font-size: 13px;
+	font-size: 100%;
     font-weight: bold;
     list-style: none;
 	background: url(../img/flecha.png) no-repeat scroll rgb(243, 255, 117) !important;
@@ -358,15 +357,22 @@ form#loginForgotten
 {
 	margin: 9em 23em 0em;
 	padding: 0em 3em;
-	align: center;
+	text-align: center;
 }
 
 /*----- estilos visual de <header> --------*/
 header {
+	font-size: 200%;
 	padding: 0em 0;
-	margin: 0px;
 	float: left;
 	width: 100%;
+	margin: 0em 0 1em;
+	font-weight: bold;
+	border-top: 1px solid #a5a5a5;
+	border-bottom: 1px solid #a5a5a5;
+	padding-top: 0.875em;
+	padding-bottom: 0.225em;
+	text-align:center;
 }
 
 /*----- Estilos visual de login head --------*/
@@ -391,7 +397,7 @@ div#login
 
 a#forgotten
 {
-	font-size: 0.01rem;
+	font-size: 100%;
 }
 
 #logo img
@@ -582,8 +588,6 @@ width: 40%;
     -o-transform: rotate(-90deg);
     /* IE 9 */
     -ms-transform: rotate(-90deg);
-    /* IE 8 */
-    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 /*----- estilos visual de <input> para submit --------*/
@@ -720,7 +724,7 @@ input#submitPDF
 	padding: 6px 8px;
 }
 
-input#submitResp
+input#submitRespi
 {
 	margin:17px 0px -6px 0px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
@@ -756,7 +760,7 @@ input#submitCorte
 
 input#submitRegister:hover, #submitLogin:hover, #submitForgotten:hover, #navigation ul li.noselected:hover, input#submitUpdate:hover, 
 input#submitOptions:hover, input#submitPlan:hover, input#submitPlanRisk:hover, input#buttonDelete:hover, input#buttonAdd:hover, 
-input#submitCorte:hover, input#submitIden:hover, input#buttonDeleteResp:hover, input#submitResp:hover, input#submitPDF:hover { 
+input#submitCorte:hover, input#submitIden:hover, input#buttonDeleteResp:hover, input#submitRespi:hover, input#submitPDF:hover { 
 	background: #3373bb;
 }
 
@@ -963,6 +967,11 @@ textarea#respPlanificacion:focus,input#respRiskId:focus,input#respRiskNombre:foc
 	transition: all 0.15s linear 0s;	
 }
 
+a#updateInfo
+{
+	padding:0em 0em 0em 46em;
+}
+
 a#update
 {
 	padding:0em 0em 0em 35em;
@@ -984,4 +993,8 @@ footer {
 	background: #000;
 	margin-top: 2em;
 	text-align:center;
+}
+
+p#small{
+	font-size: smaller;
 }

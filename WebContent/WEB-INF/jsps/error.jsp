@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <jsp:include page="common/head.jsp" />
 <jsp:include page="common/logo.jsp" />
@@ -32,11 +32,6 @@
 				<div class="mensajePlan">
 					<s:actionmessage />
 				</div>
-				</s:if>
-				<s:if test="hasActionErrors()">
-					<div class="mensajeError">
-						<s:actionerror />
-					</div>
 				</s:if>
 							
 		</article>

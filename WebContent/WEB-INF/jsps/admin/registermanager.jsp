@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <jsp:include page="../common/logo.jsp" />
 <jsp:include page="../common/login.jsp" />
@@ -39,10 +39,9 @@
   									<li> 4. <s:text name="text.index.left.4"/>
     									<ul class="subnavegador">
       										<li class="steps"> 4.1 <s:text name="text.index.left.4.1"/></li>
-      										<li class="steps"> 4.2 <s:text name="text.index.left.4.2"/></li>
-      										<li class="steps"> 4.3 <s:text name="text.index.left.4.3"/></li>
-      										<li class="steps"> 4.4 <s:text name="text.index.left.4.4"/></li>
-      										<li class="steps"> 4.5 <s:text name="text.index.left.4.5"/></li>      										
+      										<li class="steps"> 4.2 <s:text name="text.index.left.4.3"/></li>
+      										<li class="steps"> 4.3 <s:text name="text.index.left.4.4"/></li>
+      										<li class="steps"> 4.4 <s:text name="text.index.left.4.5"/></li>      										
     									</ul>
   									</li>			  
 								</ul>

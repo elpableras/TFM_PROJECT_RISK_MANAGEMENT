@@ -35,10 +35,10 @@ form#planP {text-align:center;padding:4em 7em 0em 0em;}
 	border-width:0px 0px 1px 0px;
 }.wwFormTable tr:last-child td:last-child{
 	border-width:0px 0px 0px 0px;
-}
-.wwFormTable tr:hover td{
-	background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
-	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+}.wwFormTable tr:hover td{
+	background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );	
+	background: -o-linear-gradient(top,#cccccc,b2b2b2);
 	background-color:#cccccc;
 }

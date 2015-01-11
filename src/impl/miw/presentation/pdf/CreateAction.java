@@ -1,16 +1,16 @@
 package impl.miw.presentation.pdf;
 
 import impl.miw.business.pdf.CreatePDF;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.ServletResponseAware;
 
 import com.itextpdf.text.DocumentException;
 import com.miw.business.InfoService;
@@ -28,20 +28,20 @@ import com.opensymphony.xwork2.ActionSupport;
  * planes, identificación/analisis y respuesta de riesgos que se encuentran
  * almacenados en la base de datos para crear con ellos los informes, extiende
  * de ActionSupport que nos proporciona una implementación por defecto para las
- * acciones más comunes con implementación de dos interfaces “aware” para alojar
+ * acciones más comunes con implementación de tres interfaces “aware” para alojar
  * objetos que puedan estar a disposición en otras partes de la aplicación.
  * 
  * @author Pablo
  * 
  */
 public class CreateAction extends ActionSupport implements ApplicationAware,
-	ServletRequestAware {
+	ServletRequestAware, ServletResponseAware {
 
     private static final long serialVersionUID = 1L;
 
     private Map<String, Object> application;
     private HttpServletRequest request;
-    private final CreatePDF cPDF = new CreatePDF();
+    private HttpServletResponse response;    
     private ProjectService projectService;
     private InfoService infoService;
     private LogService log;
@@ -137,6 +137,19 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 	log.debug("Invocado el setServletRequest de Create");
 	this.request = httpServletRequest;
     }
+    
+    /**
+     * Setter que establece la respuesta al objeto HTTP en las clases de la
+     * aplicación
+     * 
+     * @param httpServletResponse
+     *            respuesta al Servlet
+     */
+    @Override
+    public void setServletResponse(HttpServletResponse httpServletResponse) {
+	log.debug("Invocado el setServletResponse de Create");
+	this.response = httpServletResponse;
+    }
 
     /**
      * Método que implementa la ejecución del action de Struts con los datos del
@@ -168,11 +181,9 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 	    try {
 		Project project = projectService.getProject(info.getIdP());
 		try {
-		    String file = cPDF.createPDF(info, u, project, title);
-		    this.addActionMessage(getText("pdf.correcto") + file);
-		} catch (FileNotFoundException e) {
-		    addActionError(getText("pdf.error.open"));
-		    log.error(e.getClass() + " " + e.getMessage());
+		    CreatePDF create = new CreatePDF(info, u, project, title, response);
+		    create.createPdf();
+		    this.addActionMessage(getText("pdf.correcto"));
 		} catch (DocumentException e) {
 		    addActionError(getText("error"));
 		    log.error(e.getClass() + " " + e.getMessage());
@@ -201,13 +212,11 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 			.getIdP());
 
 		try {
-		    String file = cPDF.createPDF(iden, u, project, title,
+		    CreatePDF create = new CreatePDF(iden, u, project, title,
 			    info.getImpacto(), info.getProbabilidad(),
-			    info.getCorte());
-		    this.addActionMessage(getText("pdf.correcto") + file);
-		} catch (FileNotFoundException e) {
-		    addActionError(getText("pdf.error.open"));
-		    log.error(e.getClass() + " " + e.getMessage());
+			    info.getCorte(), response);
+		    create.createPdf();
+		    this.addActionMessage(getText("pdf.correcto"));
 		} catch (DocumentException e) {
 		    addActionError(getText("error"));
 		    log.error(e.getClass() + " " + e.getMessage());
@@ -232,13 +241,11 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 	    try {
 		Project project = projectService.getProject(r.getIdP());
 		try {
-		    String file = cPDF.createPDF(r, u, project, title,
+		    CreatePDF create = new CreatePDF(r, u, project, title,
 			    info.getVersion(), info.getImpacto(),
-			    info.getProbabilidad(), info.getCorte());
-		    this.addActionMessage(getText("pdf.correcto") + file);
-		} catch (FileNotFoundException e) {
-		    addActionError(getText("pdf.error.open"));
-		    log.error(e.getClass() + " " + e.getMessage());
+			    info.getProbabilidad(), info.getCorte(), response);
+		    create.createPdf();
+		    this.addActionMessage(getText("pdf.correcto"));
 		} catch (DocumentException e) {
 		    addActionError(getText("error"));
 		    log.error(e.getClass() + " " + e.getMessage());

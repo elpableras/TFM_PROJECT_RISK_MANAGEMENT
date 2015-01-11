@@ -8,12 +8,11 @@ form:after {
 .container { margin: 4px auto; position: relative; width: 900px; float: left; padding: 0em 0em 0em 5em; }
 #content{
 	background: #f9f9f9;
-	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
+	background: -moz-linear-gradient(rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
+	background: -webkit-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -o-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -ms-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
 	-webkit-box-shadow: 0 1px 0 #fff inset;
 	-moz-box-shadow: 0 1px 0 #fff inset;
 	-ms-box-shadow: 0 1px 0 #fff inset;
@@ -29,12 +28,12 @@ form:after {
 
 #content2 {
 	background: #f9f9f9;
-	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
+	background: -moz-linear-gradient(rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
+	background: -webkit-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -o-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -ms-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	
 	-webkit-box-shadow: 0 1px 0 #fff inset;
 	-moz-box-shadow: 0 1px 0 #fff inset;
 	-ms-box-shadow: 0 1px 0 #fff inset;
@@ -68,31 +67,30 @@ form:after {
 }
 #content h1:after, #content2 h1:after {
 	background: rgb(126,126,126);
-	background: -moz-linear-gradient(left,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-	background: -webkit-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -o-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -ms-linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: linear-gradient(left,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -moz-linear-gradient(rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     right: 0;
 }
 #content h1:before, #content2 h1:before {
 	background: rgb(126,126,126);
-	background: -moz-linear-gradient(right,  rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
-	background: -webkit-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -o-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: -ms-linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
-	background: linear-gradient(right,  rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -moz-linear-gradient(rgba(126,126,126,1) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
+	background: linear-gradient(rgba(126,126,126,1) 0%,rgba(255,255,255,1) 100%);
     left: 0;
 }
 #content:after,
 #content:before {
 	background: #f9f9f9;
-	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
-	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f9f9f9',GradientType=0 );
+	background: -moz-linear-gradient(rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);
+	background: -webkit-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -o-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: -ms-linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);
+	background: linear-gradient(rgba(248,248,248,1) 0%,rgba(249,249,249,1) 100%);	
 	border: 1px solid #c4c6ca;
 	content: "";
 	display: block;
