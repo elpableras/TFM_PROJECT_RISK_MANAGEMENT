@@ -20,34 +20,26 @@
 			<div id="account">
 				<h2 id="account">
 					<s:text name="projectUpdate" />
-				</h2>			
-				
+				</h2>
+
 				<s:set var="id">${sessionScope.project.getId()}</s:set>
 				<s:set var="nombre">${sessionScope.project.getNombre()}</s:set>
-				<s:set var="manager">${sessionScope.project.getManager()}</s:set>
-				<s:set var="email">${sessionScope.project.getEmail()}</s:set>
-				<s:set var="fecha">${sessionScope.project.getFecha()}</s:set>				
-				<s:set var="paso">${sessionScope.project.getPaso()}</s:set>					
+				<s:set var="fecha">${sessionScope.project.getFecha()}</s:set>
+				<s:set var="paso">${sessionScope.project.getPaso()}</s:set>
 
 				<s:form id="update" action="UpdateProject" method="post">
 					<s:hidden name="idProjectUpdate" value="%{#id}" />
 					<s:textfield id="register" key="project.update.nombre"
 						name="nombreProjectUpdate" required="true" tabindex="6"
 						value="%{#nombre}" />
-					<s:textfield id="register" key="project.update.manager"
-						name="managerProjectUpdate" required="true" tabindex="7"
-						value="%{#manager}" />
-					<s:textfield id="register" key="project.update.email"
-						name="emailProjectUpdate" required="true" tabindex="8"
-						value="%{#email}" />
 					<s:textfield id="register" key="project.update.fecha"
-						name="fechaProjectUpdate" required="true" tabindex="9"
-						value="%{#fecha}" />					
+						name="fechaProjectUpdate" required="true" tabindex="7"
+						value="%{#fecha}" />
 					<s:textfield id="register" key="project.update.paso"
-						name="pasoProjectUpdate" required="true" tabindex="11"
+						name="pasoProjectUpdate" required="true" tabindex="8"
 						value="%{#paso}" />
 					<s:submit id="submitUpdate" key="project.update.submit"
-						name="submitUpdate" tabindex="12" />
+						name="submitUpdate" tabindex="9" />
 				</s:form>
 			</div>
 
@@ -64,9 +56,11 @@
 		</article>
 
 	</section>
-	
+
 	<div id="back">
-		<s:a id="updateInfo" action="InfoProjects"><s:text name="back"/></s:a>
+		<s:a id="updateInfo" action="InfoProjects">
+			<s:text name="back" />
+		</s:a>
 	</div>
 
 	<jsp:include page="common/footer.jsp" />

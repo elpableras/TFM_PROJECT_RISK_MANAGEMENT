@@ -13,20 +13,20 @@
 
 			<interceptor-stack name="LoginStack">
 				<interceptor-ref name="defaultStack" />
-				<interceptor-ref name="login" /> <!-- el nuestro -->				
+				<interceptor-ref name="login" /> <!-- el nuestro -->
 			</interceptor-stack>
-		
-  
-			<interceptor name="session" 
+
+
+			<interceptor name="session"
 				class="impl.miw.presentation.login.SessionInterceptor" />
-			
+
 			<interceptor-stack name="sessionExpirayStack">
 				<interceptor-ref name="defaultStack" />
 				<interceptor-ref name="session" />
 			</interceptor-stack>
-			
-			</interceptors>
-		
+
+		</interceptors>
+
 		<default-interceptor-ref name="sessionExpirayStack" />
 
 		<global-results>
@@ -36,7 +36,7 @@
 
 		<action name="Login" class="impl.miw.presentation.login.LoginAction">
 			<result type="chain">Counter</result>
-			<result name="input">/index.jsp</result>			
+			<result name="input">/index.jsp</result>
 		</action>
 
 		<action name="Counter" class="impl.miw.presentation.counter.CounterAction">
@@ -56,8 +56,9 @@
 			<result name="input">/WEB-INF/jsps/admin/registermanager.jsp</result>
 			<result name="error">/WEB-INF/jsps/admin/registermanager.jsp</result>
 		</action>
-		
-		<action name="RegisterMember" class="impl.miw.presentation.register.RegisterMemberAction">
+
+		<action name="RegisterMember"
+			class="impl.miw.presentation.register.RegisterMemberAction">
 			<result name="success">/WEB-INF/jsps/manager/registermembers.jsp</result>
 			<result name="input">/WEB-INF/jsps/manager/registermembers.jsp</result>
 			<result name="error">/WEB-INF/jsps/manager/registermembers.jsp</result>
@@ -78,96 +79,98 @@
 		<action name="Account">
 			<result>/WEB-INF/jsps/updateaccount.jsp</result>
 		</action>
-		
+
 		<action name="RiskSystem">
 			<result>/WEB-INF/jsps/plans/riskmanagement.jsp</result>
 		</action>
-		
+
 		<action name="RiskPlan" class="impl.miw.presentation.plan.LoadAction">
 			<result name="success">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskrespmanagement.jsp</result>	
-		</action>		
-		
+			<result name="input">/WEB-INF/jsps/plans/riskrespmanagement.jsp</result>
+		</action>
+
 		<action name="ChangeVersion" class="impl.miw.presentation.plan.ChangeAction">
 			<result name="success">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskmanagementplan.jsp</result>	
-		</action>			
-		
-		<action name="RiskManagement" class="impl.miw.presentation.plan.LoadAction">			
+			<result name="input">/WEB-INF/jsps/plans/riskmanagementplan.jsp</result>
+		</action>
+
+		<action name="RiskManagement" class="impl.miw.presentation.plan.LoadAction">
 			<result name="success">/WEB-INF/jsps/plans/riskmanagementplan.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>					
+			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
 		</action>
-		
-		<action name="RiskIden" class="impl.miw.presentation.iden.LoadAction">			
+
+		<action name="RiskIden" class="impl.miw.presentation.iden.LoadAction">
 			<result name="success">/WEB-INF/jsps/plans/riskiden.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>					
+			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
 		</action>
-		
-		<action name="RiskResp" class="impl.miw.presentation.resp.LoadAction">			
+
+		<action name="RiskResp" class="impl.miw.presentation.resp.LoadAction">
 			<result name="success">/WEB-INF/jsps/plans/riskresp.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>					
-		</action>	
-		
+			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
+		</action>
+
 		<action name="RiskRespManagement" class="impl.miw.presentation.resp.StudyAction">
 			<result name="success">/WEB-INF/jsps/plans/riskrespmanagement.jsp</result>
 			<result name="input">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
 		</action>
-			
+
 		<action name="SaveResp" class="impl.miw.presentation.resp.SaveAction">
 			<result name="success">/WEB-INF/jsps/plans/riskrespmanagement.jsp</result>
 			<result name="input">/WEB-INF/jsps/plans/riskresp.jsp</result>
-		</action>					
-		
+		</action>
+
 		<action name="SaveIden" class="impl.miw.presentation.iden.SaveAction">
 			<result name="success">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
 			<result name="input">/WEB-INF/jsps/plans/riskiden.jsp</result>
 		</action>
-				
+
 		<action name="SavePlan" class="impl.miw.presentation.plan.SaveAction">
 			<result name="success">/WEB-INF/jsps/plans/riskmanagement.jsp</result>
 			<result name="input">/WEB-INF/jsps/plans/riskmanagementplan.jsp</result>
 		</action>
-		
+
 		<action name="LoadPDF" class="impl.miw.presentation.pdf.LoadAction">
-			<result name="success">/WEB-INF/jsps/plans/riskmanagementpdf.jsp</result>			
+			<result name="success">/WEB-INF/jsps/plans/riskmanagementpdf.jsp</result>
 		</action>
-		
+
 		<action name="CreatePDF" class="impl.miw.presentation.pdf.CreateAction">
 			<result name="success">/WEB-INF/jsps/plans/riskmanagementpdf.jsp</result>
-			<result name="input">/WEB-INF/jsps/plans/riskmanagementpdf.jsp</result>			
-		</action>		
-		
+			<result name="input">/WEB-INF/jsps/plans/riskmanagementpdf.jsp</result>
+		</action>
+
 		<action name="Help">
 			<result>/WEB-INF/jsps/help.jsp</result>
-		</action>		
+		</action>
 
 		<action name="UpdateAccount" class="impl.miw.presentation.update.UpdateAction">
 			<result name="success">/WEB-INF/jsps/updateaccount.jsp</result>
 			<result name="input">/WEB-INF/jsps/updateaccount.jsp</result>
 		</action>
-				
-		<action name="OptionProject" class="impl.miw.presentation.creation.OptionProjectAction">			
+
+		<action name="OptionProject"
+			class="impl.miw.presentation.creation.OptionProjectAction">
 			<result name="home" type="chain">InfoProjects</result>
 			<result name="success">/WEB-INF/jsps/updateproject.jsp</result>
 			<result name="input">/WEB-INF/jsps/infoprojects.jsp</result>
-		</action>	
-		
+		</action>
+
 		<action name="UpdateProject" class="impl.miw.presentation.update.UpdateProjectAction">
 			<result name="success">/WEB-INF/jsps/updateproject.jsp</result>
 			<result name="input">/WEB-INF/jsps/updateproject.jsp</result>
 		</action>
-		
-		<action name="OptionManager" class="impl.miw.presentation.register.OptionManagerAction">
+
+		<action name="OptionManager"
+			class="impl.miw.presentation.register.OptionManagerAction">
 			<result name="home" type="chain">InfoProjects</result>
 			<result name="success">/WEB-INF/jsps/updateuser.jsp</result>
 			<result name="input">/WEB-INF/jsps/infoprojects.jsp</result>
 		</action>
-		
+
 		<action name="UpdateUser" class="impl.miw.presentation.update.UpdateUserAction">
 			<result name="success">/WEB-INF/jsps/updateuser.jsp</result>
 			<result name="input">/WEB-INF/jsps/updateuser.jsp</result>
-		</action>		
-					
+		</action>
+
 		<action name="SeekManagerFree"
 			class="impl.miw.presentation.register.SeekManagerFreeAction">
 			<result name="success">/WEB-INF/jsps/admin/registerproject.jsp</result>
@@ -178,7 +181,7 @@
 			<result>/WEB-INF/jsps/help.jsp</result>
 		</action>
 
-		<action name="UnLogin" class="impl.miw.presentation.unlogin.UnLoginAction">			
+		<action name="UnLogin" class="impl.miw.presentation.unlogin.UnLoginAction">
 			<result type="redirect">Index</result>
 		</action>
 

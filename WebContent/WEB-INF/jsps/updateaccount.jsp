@@ -20,22 +20,22 @@
 			<div id="account">
 				<h2 id="account">
 					<s:text name="update.account" />
-				</h2>			
-				
+				</h2>
+
 				<s:set var="id">${sessionScope.usuario.getId()}</s:set>
 				<s:set var="login">${sessionScope.usuario.getLogin()}</s:set>
-				<s:set var="email">${sessionScope.usuario.getEmail()}</s:set>				
+				<s:set var="email">${sessionScope.usuario.getEmail()}</s:set>
 				<s:set var="language">${sessionScope.usuario.getLanguage()}</s:set>
 				<s:set var="idProyecto">${sessionScope.usuario.getIdProyecto()}</s:set>
 				<s:set var="admin">${sessionScope.usuario.isAdmin()}</s:set>
 				<s:set var="manager">${sessionScope.usuario.isManager()}</s:set>
-				
+
 				<s:if test="%{#language=='EN'}">
-					<s:set var="language">EN - English</s:set>       				
+					<s:set var="language">EN - English</s:set>
 				</s:if>
 				<s:else>
-				    <s:set var="language">ES - Castellano</s:set>
-				</s:else>				
+					<s:set var="language">ES - Castellano</s:set>
+				</s:else>
 
 				<s:form id="accountUpdate" action="UpdateAccount" method="post">
 					<s:hidden name="idAccountUpdate" value="%{#id}" />
@@ -46,13 +46,12 @@
 						name="emailAccountUpdate" required="true" tabindex="7"
 						value="%{#email}" />
 					<s:password id="updatePass" key="update.account.pass"
-						name="passAccountUpdate" required="true" tabindex="8"
-						value="" />
+						name="passAccountUpdate" required="true" tabindex="8" value="" />
 					<s:select id="updateLanguage" key="update.account.language"
 						name="languageAccountUpdate"
 						list="{'ES - Castellano', 'EN - English'}" value="%{#language}"
 						tabindex="9" required="true" />
-					<s:hidden name="idProyectoAccountUpdate" value="%{#idProyecto}" />						
+					<s:hidden name="idProyectoAccountUpdate" value="%{#idProyecto}" />
 					<s:hidden name="adminAccountUpdate" value="%{#admin}" />
 					<s:hidden name="managerAccountUpdate" value="%{#manager}" />
 					<s:submit id="submitUpdate" key="update.account.submit"
@@ -73,9 +72,11 @@
 		</article>
 
 	</section>
-	
+
 	<div id="back">
-		<s:a id="update" action="Interceptor"><s:text name="back"/></s:a>
+		<s:a id="update" action="Interceptor">
+			<s:text name="back" />
+		</s:a>
 	</div>
 
 	<jsp:include page="common/footer.jsp" />

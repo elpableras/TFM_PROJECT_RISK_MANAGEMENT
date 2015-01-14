@@ -3,25 +3,22 @@
 /* ==========================================================================
    CSS DE LOS ELEMENTOS DE LAS PÃ�GINAS
    ========================================================================== */
-   
 body {
-font-family: arial, sans-serif;
-font-size: 80%;
-padding:0; 
-margin:0;
-max-width: 1024px; 
-margin: 0 auto;
-color: #000;
+	font-family: arial, sans-serif;
+	font-size: 80%;
+	padding: 0;
+	margin: 0;
+	max-width: 1024px;
+	margin: 0 auto;
+	color: #000;
 }
 
-*, html 
-{
+*, html {
 	margin: 0em 0 1em;
-	padding:0;
+	padding: 0;
 }
 
 /*----- Estilos visual de encabezados --------*/
-
 h1 {
 	font-size: 150%;
 	margin: 0em 0 1em;
@@ -30,331 +27,310 @@ h1 {
 	border-bottom: 1px solid #a5a5a5;
 	padding-top: 0.875em;
 	padding-bottom: 0.225em;
-	text-align:center;
+	text-align: center;
 }
 
-h2{
+h2 {
 	font-size: 160%;
 }
 
-h2#adminIzq,h2#managerIzq,h2#memberIzq
-{
+h2#adminIzq, h2#managerIzq, h2#memberIzq {
 	margin: 1em 0em 1em 4em;
 }
 
-h2#adminDch,h2#managerDch,h2#memberDch
-{
-	margin: 1em 0em 1em -7em;	
+h2#adminDch, h2#managerDch, h2#memberDch {
+	margin: 1em 0em 1em -7em;
 }
 
-h2#riskM
-{
-	margin: 1em -1em 1em -1em;	
+h2#riskM {
+	margin: 1em -1em 1em -1em;
 }
 
-h2#info
-{
+h2#info {
 	margin: 1em 0em -1em -24em;
 }
 
-h2#info2
-{
+h2#info2 {
 	margin: 1em 0em -1em 4em;
 }
 
-h2#account
-{
+h2#account {
 	margin: 5em 0em 1em -1em;
 }
 
-h2#forgotten
-{
+h2#forgotten {
 	margin: 1em 1em 1em 1em;
 }
 
-h2#matriz,h2#version,h2#iden
-{
+h2#matriz, h2#version, h2#iden {
 	padding: 5em 0em 0em 0em;
 }
 
-h2#plan,iden{
-	margin:-1em 0em -3em -7em;
+h2#plan, iden {
+	margin: -1em 0em -3em -7em;
 }
 
-h3
-{
+h3 {
 	font-size: 120%;
-	text-align:center;
+	text-align: center;
 	margin: 0em 0 1em;
 }
 
 /*----- Estilos visual de links --------*/
+.sidebar a:hover, article a:hover, header a:hover, footer a:hover {
+	color: #d0d0d0;
+}
 
-.sidebar a:hover, article a:hover, header a:hover, footer a:hover { color: #d0d0d0; }
-
-a:link { color: #999;}
+a:link {
+	color: #999;
+}
 
 a:visited {
-color: #BF9412;
+	color: #BF9412;
 }
 
 /*----- Estilos visual de errores --------*/
-
-div.mensajeUpdate
-{	
+div.mensajeInfo{
 	color: #39C53F;
 	font-weight: bold;
-	margin: -3.2em 0em 0em -0.2em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	margin: 8em 0em 0em 28.5em;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajePlan
-{	
+div.mensajeNoInfo{
+	color: #e91b2b;
+	font-weight: bold;
+	margin: 8em 0em 0em 28.5em;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 116%;
+	border-radius: 10px;
+	position: absolute;
+}
+
+div.mensajeUpdate {
+	color: #39C53F;
+	font-weight: bold;
+	margin: -3.5em 0em 0em 0em;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 116%;
+	border-radius: 10px;
+	position: absolute;
+}
+
+div.mensajeNoUpdate {
+	color: #e91b2b;
+	font-weight: bold;
+	margin: -3.5em 0em 0em 0em;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 116%;
+	border-radius: 10px;
+	position: absolute;
+}
+
+div.mensajePlan {
 	color: #39C53F;
 	font-weight: bold;
 	margin: 0em 0em 0em 2.5em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajePDF
-{	
+div.mensajePDF {
 	color: #39C53F;
 	font-weight: bold;
 	margin: 0em 0em 0em -41em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeUpdateOptions
-{	
+div.mensajeUpdateOptions {
 	color: #39C53F;
 	font-weight: bold;
 	margin: -3.2em 0em 0em 3em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeNoUpdateOptions
-{	
+div.mensajeNoUpdateOptions {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: -3.2em 0em 0em 3em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeNoInfo
-{	
+div.mensajeNoInfo {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: 6em 0em 0em 9em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeUpdate
-{	
+div.mensajeProject {
 	color: #39C53F;
 	font-weight: bold;
-	margin: 6em 0em 0em 9em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	margin: -3.5em 0em 0em -1em;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeNoUpdate
-{	
+div.mensajeErrorProject {
 	color: #e91b2b;
 	font-weight: bold;
-	margin: 0em 0em 0em 5em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	margin: -3.5em 0em 0em -1em;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeProject
-{	
-	color: #39C53F;
-	font-weight: bold;
-	margin: 1em 0em 0em 2em;
-	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 116%;
-	border-radius: 10px;	
-	position: absolute;
-}
-
-div.mensajeErrorProject
-{	
-	color: #e91b2b;
-	font-weight: bold;
-	margin: 1em 0em 0em 2em;
-	font-family: Georgia,Times,"Times New Roman",serif;
-	font-size: 116%;
-	border-radius: 10px;	
-	position: absolute;
-}
-
-div.mensajeNoPlan
-{	
+div.mensajeNoPlan {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: 0em 0em 0em 2.5em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeNoPDF
-{	
+div.mensajeNoPDF {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: 0em 0em 0em -25.5em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeNuevoMiembro
-{	
+div.mensajeNuevoMiembro {
 	color: #39C53F;
 	font-weight: bold;
 	margin: -3.2em 0em 0em -1em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeError
-{	
+div.mensajeError {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: -1em 0em 0em 0em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeErrorMiembro
-{	
+div.mensajeErrorMiembro {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: -1em 0em 0em 0em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.mensajeErrorRegister
-{	
+div.mensajeErrorRegister {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: 0em 0em 0em -1em;
-	font-family: Georgia,Times,"Times New Roman",serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
-	border-radius: 10px;	
+	border-radius: 10px;
 	position: absolute;
 }
 
-div.errors, div.sendEmail
-{	
+div.errors, div.sendEmail {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: 14em -2em 0em 9em;
 	padding: 1em 0.5em 0.5em 3em;
 	position: absolute;
-	font-family: Georgia,Times,"Times New Roman",serif;
-	background: url("../img/loginError.png") no-repeat scroll 0.5em 0.7em rgb(243, 255, 117) !important;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	background: url("../img/loginError.png") no-repeat scroll 0.5em 0.7em
+		rgb(243, 255, 117) !important;
 	font-size: 116%;
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 10px;	
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px
+		rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
 }
 
-span.errorMessage
-{
+span.errorMessage {
 	color: #e91b2b;
 	font-weight: bold;
 }
 
 /*----- Estilos visual de lsita desplegable --------*/
-div ul
-{
-	list-style: none;	
+div ul {
+	list-style: none;
 }
 
-ul.subnavegador,ul.enlace
-{
-	margin: 1em 0em 0em 3em;	
+ul.subnavegador, ul.enlace {
+	margin: 1em 0em 0em 3em;
 }
 
-li.actual
-{
+li.actual {
 	font-size: 100%;
-    font-weight: bold;
-    list-style: none;
-	background: url(../img/flecha.png) no-repeat scroll rgb(243, 255, 117) !important;
-	padding-left: 20px; 
+	font-weight: bold;
+	list-style: none;
+	background: url(../img/flecha.png) no-repeat scroll rgb(243, 255, 117)
+		!important;
+	padding-left: 20px;
 }
 
-li.steps
-{
-	list-style: none;	
+li.steps {
+	list-style: none;
 	background: url(../img/flecha.png) no-repeat scroll !important;
-	padding-left: 20px;	
+	padding-left: 20px;
 }
 
-li.cls
-{
+li.cls {
 	list-style: none;
 	display: none;
 	background: url(../img/flecha.png) no-repeat scroll !important;
-	padding-left: 20px;	
+	padding-left: 20px;
 }
 
-li.desplegable 
-{
+li.desplegable {
 	cursor: pointer;
 	list-style: none;
 	background: url(../img/flecha.png) no-repeat scroll !important;
-	padding-left: 20px;	
+	padding-left: 20px;
 }
 
-li.ok
-{
-	text-decoration:line-through;
+li.ok {
+	text-decoration: line-through;
 	list-style: none;
 	background: url(../img/flecha.png) no-repeat scroll !important;
-	padding-left: 20px;	
+	padding-left: 20px;
 }
 
-form#loginError
-{
+form#loginError {
 	margin: 0em 22em;
 	padding: 7em 0em 0em 3em;
 }
 
-form#loginForgotten
-{
+form#loginForgotten {
 	margin: 9em 23em 0em;
 	padding: 0em 3em;
 	text-align: center;
@@ -372,99 +348,85 @@ header {
 	border-bottom: 1px solid #a5a5a5;
 	padding-top: 0.875em;
 	padding-bottom: 0.225em;
-	text-align:center;
+	text-align: center;
 }
 
 /*----- Estilos visual de login head --------*/
-
-#login li
-{
+#login li {
 	padding-top: 3em;
 	float: left;
 	display: block;
 }
 
-form#Login
-{
+form#Login {
 	margin: 0em -1em 0em -31.5em;
 }
 
-div#login
-{
+div#login {
 	float: right;
 	margin: 0em;
 }
 
-a#forgotten
-{
+a#forgotten {
 	font-size: 100%;
 }
 
-#logo img
-{
-	float: left;	
+#logo img {
+	float: left;
 }
 
-img#info{
+img#info {
 	margin: 0em 21px -4em;
 }
 
 label.label {
-    color: #555555;
-    display: inline-block;
-    float: left;
-    font-family: sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    margin:0px 5px 0px 10px
+	color: #555555;
+	display: inline-block;
+	float: left;
+	font-family: sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0px 5px 0px 10px
 }
 
-label.errorLabel
-{
+label.errorLabel {
 	color: #e91b2b;
 	font-weight: bold;
 }
 
 /*----- estilos visual de <nav> --------*/
-
-nav#navigation
-{
-    width: 460px; 
-    margin: 0 auto;
-    padding: 0em 0em 0em 0.5em;
+nav#navigation {
+	width: 460px;
+	margin: 0 auto;
+	padding: 0em 0em 0em 0.5em;
 }
 
-ul#navigation 
-{
+ul#navigation {
 	list-style: disc outside;
 	text-align: center;
 }
 
-#navigation ul li.selected
-{
+#navigation ul li.selected {
 	background: #c6c6c6;
 	padding: 1em 1em 1em;
 }
 
-#navigation ul li 
-{
+#navigation ul li {
 	float: left;
 	list-style: none;
 	background: #151515;
 	border-left: 1px solid #fff;
-	padding: 1em 0em 1em 0em;	
+	padding: 1em 0em 1em 0em;
 }
 
-#navigation h2 
-{
+#navigation h2 {
 	margin: 0em;
 	display: block;
 	font-size: 1.1667em;
 	font-weight: normal;
 }
 
-#navigation a 
-{
+#navigation a {
 	text-decoration: none;
 	color: #fff;
 	font-size: 1em;
@@ -477,129 +439,117 @@ ul#navigation
 }
 
 /*----- estilos visual de <article> --------*/
-
 article.contenido {
 	/*poner columnas a la izquierda*/
 	float: left;
 }
 
-article.contenido > div#steps, div#registerManager, div#member {
+article.contenido>div#steps, div#registerManager, div#member {
 	padding-right: 4em;
 }
 
-div#submitPlanRiskProbability{
-  	left: 50%;
-  	transform: translate(-6.8%, 50%);
+div#submitPlanRiskProbability {
+	left: 50%;
+	transform: translate(-6.8%, 50%);
 }
 
-div#submitPlanRiskImpact{
-  	left: 50%;
-  	transform: translate(-11%, 50%);
-} 
-
-div#risksystem
-{
-  	position: absolute;
-  	left: 50%;
-  	transform: translate(-50%, 20%);
+div#submitPlanRiskImpact {
+	left: 50%;
+	transform: translate(-11%, 50%);
 }
 
-div#back
-{
+div#risksystem {
 	position: absolute;
-  	left: 20%;
-  	transform: translate(-50%, -20%);
+	left: 50%;
+	transform: translate(-50%, 20%);
 }
 
-div#backHelp
-{
-  	float:left;
-  	padding: 0em 0em 0em 18.5em;
-  	margin: 0em 0em -1em 0em;
+div#back {
+	position: absolute;
+	left: 20%;
+	transform: translate(-50%, -20%);
 }
 
-div#backInfo
-{
-  	float:left;
-  	padding: 0em 0em 0em 6.5em;
-  	margin: 0em 0em -1em 0em;
+div#backHelp {
+	float: left;
+	padding: 0em 0em 0em 18.5em;
+	margin: 0em 0em -1em 0em;
 }
 
-p#management
-{	
-	
-	margin:0px 0px 10px 40px;
+div#backInfo {
+	float: left;
+	padding: 0em 0em 0em 6.5em;
+	margin: 0em 0em -1em 0em;
+}
+
+p#management {
+	margin: 0px 0px 10px 40px;
 }
 
 #center {
 	width: 100%;
-	padding: 0em 0em 0em 2em;			
+	padding: 0em 0em 0em 2em;
 }
 
-#plan,#iden
-{
+#plan, #iden {
 	padding: 6em 0em 0em 7.5em;
 }
 
-#resp
-{
+#resp {
 	padding: 4em 0em 0em 0em;
 }
 
-#centerHelp{
+#centerHelp {
 	width: 100%;
-	padding: 0em 0em 0em 20em;			
+	padding: 0em 0em 0em 20em;
 }
 
 #centerAccount {
 	width: 100%;
-	padding: 12em 0em 0em 24em;		
+	padding: 12em 0em 0em 24em;
 }
 
-article#forgotten
-{
+article#forgotten {
 	width: 100%;
 }
 
-p#forgotten
-{
-	text-align:center;
+p#forgotten {
+	text-align: center;
 }
 
-#left 	{ 
-width: 60%;
+#left {
+	width: 60%;
 }
 
-#right	{ 
-width: 40%;
-text-align:center;
+#right {
+	width: 40%;
+	text-align: center;
 }
 
-#rightMember { 
-width: 40%;
+#rightMember {
+	width: 40%;
 }
 
 .rotar {
-    /* Chrome y Safari */
-    -webkit-transform: rotate(-90deg);
-    /* Firefox */
-    -moz-transform: rotate(-90deg);
-    /* Opera */
-    -o-transform: rotate(-90deg);
-    /* IE 9 */
-    -ms-transform: rotate(-90deg);
+	/* Chrome y Safari */
+	-webkit-transform: rotate(-90deg);
+	/* Firefox */
+	-moz-transform: rotate(-90deg);
+	/* Opera */
+	-o-transform: rotate(-90deg);
+	/* IE 9 */
+	-ms-transform: rotate(-90deg);
 }
 
 /*----- estilos visual de <input> para submit --------*/
-
-input#submitRegister, #submitForgotten, input#submitUpdate, #submitLogin, #submitPlan
-{
-	margin:0px 0px -10px 40px;
+input#submitRegister, #submitForgotten, input#submitUpdate, #submitLogin,
+	#submitPlan {
+	margin: 0px 0px -10px 40px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -609,14 +559,13 @@ input#submitRegister, #submitForgotten, input#submitUpdate, #submitLogin, #submi
 	padding: 6px 8px;
 }
 
-input#submitOptions
-{
-	margin:0px 0px -6px 0px;
+input#submitOptions {
+	margin: 0px 0px -6px 0px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -626,14 +575,13 @@ input#submitOptions
 	padding: 6px 8px;
 }
 
-input#submitPlanRisk,input#buttonAdd
-{
-	margin:0px 0px 0px 0px;
+input#submitPlanRisk, input#buttonAdd {
+	margin: 0px 0px 0px 0px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -643,13 +591,13 @@ input#submitPlanRisk,input#buttonAdd
 	padding: 6px 8px;
 }
 
-input#buttonDeleteIden{
+input#buttonDeleteIden {
 	margin: 0em 0em 0em 2em;
 	background: url(../img/delete.png) no-repeat scroll !important;
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -659,12 +607,12 @@ input#buttonDeleteIden{
 	padding: 0.7em 0.5em 0em 0.9em;
 }
 
-input#buttonDelete{
+input#buttonDelete {
 	background: url(../img/delete.png) no-repeat scroll !important;
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -674,12 +622,12 @@ input#buttonDelete{
 	padding: 0.7em 0.5em 0em 0.9em;
 }
 
-input#buttonDeleteResp{
+input#buttonDeleteResp {
 	background: url(../img/delete.png) no-repeat scroll !important;
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -688,16 +636,15 @@ input#buttonDeleteResp{
 	transition: all 0.4s linear 0s;
 	padding: 0.7em 0.5em 0em 0.9em;
 	margin: 0em -1.7em 0em 0em;
-}	
+}
 
-input#submitIden
-{
-	margin:17px 0px -6px 280px;
+input#submitIden {
+	margin: 17px 0px -6px 280px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -707,14 +654,13 @@ input#submitIden
 	padding: 6px 8px;
 }
 
-input#submitPDF
-{
-	margin:0px 0px 0px 77px;
+input#submitPDF {
+	margin: 0px 0px 0px 77px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -724,14 +670,13 @@ input#submitPDF
 	padding: 6px 8px;
 }
 
-input#submitRespi
-{
-	margin:17px 0px -6px 0px;
+input#submitRespi {
+	margin: 17px 0px -6px 0px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -741,14 +686,13 @@ input#submitRespi
 	padding: 6px 8px;
 }
 
-input#submitCorte
-{
-	margin:0px 0px 0px 0px;
+input#submitCorte {
+	margin: 0px 0px 0px 0px;
 	background: none repeat scroll 0% 0% rgb(0, 0, 0);
 	color: rgb(255, 255, 255);
 	text-transform: uppercase;
 	font-weight: normal;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1em;
 	border: 0px none;
 	cursor: pointer;
@@ -758,133 +702,124 @@ input#submitCorte
 	padding: 6px 15px;
 }
 
-input#submitRegister:hover, #submitLogin:hover, #submitForgotten:hover, #navigation ul li.noselected:hover, input#submitUpdate:hover, 
-input#submitOptions:hover, input#submitPlan:hover, input#submitPlanRisk:hover, input#buttonDelete:hover, input#buttonAdd:hover, 
-input#submitCorte:hover, input#submitIden:hover, input#buttonDeleteResp:hover, input#submitRespi:hover, input#submitPDF:hover { 
+input#submitRegister:hover, #submitLogin:hover, #submitForgotten:hover,
+	#navigation ul li.noselected:hover, input#submitUpdate:hover, input#submitOptions:hover,
+	input#submitPlan:hover, input#submitPlanRisk:hover, input#buttonDelete:hover,
+	input#buttonAdd:hover, input#submitCorte:hover, input#submitIden:hover,
+	input#buttonDeleteResp:hover, input#submitRespi:hover, input#submitPDF:hover
+	{
 	background: #3373bb;
 }
 
 /*----- estilos visual de <input> para los textfield --------*/
-
-input#loginError, input#emailForgotten
-{
+input#loginError, input#emailForgotten {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 250px;
-	margin:0px 5px 0px 10px;
+	margin: 0px 5px 0px 10px;
 }
 
-input#register, input#check-1, select#register
-{
+input#register, input#check-1, select#register {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 200px;
-	height:20px;
-	margin:0px 5px 0px 10px;
+	height: 20px;
+	margin: 0px 5px 0px 10px;
 }
 
-input#updateLogin,input#updatePass,input#planObjetive,input#idenRisk,input#respRisk,input#planCambio
-{
+input#updateLogin, input#updatePass, input#planObjetive, input#idenRisk,
+	input#respRisk, input#planCambio {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 100px;
-	height:20px;
-	margin:0px 5px 0px 10px;
+	height: 20px;
+	margin: 0px 5px 0px 10px;
 }
 
-input#respRiskPresu
-{
+input#respRiskPresu {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 100px;
-	height:20px;
-	margin:0px 5px 0px -24px;
+	height: 20px;
+	margin: 0px 5px 0px -24px;
 }
 
-input#idenRisk
-{
+input#idenRisk {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 100px;
-	height:20px;
-	margin:0px 0px 0px -2px;
+	height: 20px;
+	margin: 0px 0px 0px -2px;
 }
 
-textarea#respPlanificacion{
+textarea#respPlanificacion {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
-	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;	
-	margin:0px 5px 0px -15px;
-	height:60px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
+	margin: 0px 5px 0px -15px;
+	height: 60px;
 }
 
-select#idenRisk,select#respRisk
-{
+select#idenRisk, select#respRisk {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 85px;
-	height:20px;
-	margin:0px 0px 0px -2px;
+	height: 20px;
+	margin: 0px 0px 0px -2px;
 }
 
-input#planImpact,input#respRiskId,input#planCambioVersion
-{
+input#planImpact, input#respRiskId, input#planCambioVersion {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 70px;
-	height:20px;
-	margin:0px 5px 0px 10px;
+	height: 20px;
+	margin: 0px 5px 0px 10px;
 }
 
-input#updateEmail
-{
+input#updateEmail {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 300px;
-	height:20px;
-	margin:0px 5px 0px 10px;
+	height: 20px;
+	margin: 0px 5px 0px 10px;
 }
 
-textarea#planDefine1
-{
+textarea#planDefine1 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 400px;
-	height:50px;
-	margin:0px 5px 0px 10px;
+	height: 50px;
+	margin: 0px 5px 0px 10px;
 }
 
-input#respRiskNombre
-{
+input#respRiskNombre {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 500px;
-	height:20px;
-	margin:0px 5px 0px 10px;
+	height: 20px;
+	margin: 0px 5px 0px 10px;
 }
 
-textarea#respRisk
-{
+textarea#respRisk {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 574px;
-	height:50px;
-	margin:0px 5px 0px 10px;
+	height: 50px;
+	margin: 0px 5px 0px 10px;
 }
 
-textarea#respRisk2
-{
+textarea#respRisk2 {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
@@ -893,93 +828,88 @@ textarea#respRisk2
 	margin: 0px -20px 0px -38px;
 }
 
-textarea#idenRisk
-{
+textarea#idenRisk {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
-	height:50px;
-	margin:0px 0px 0px -2px;
+	height: 50px;
+	margin: 0px 0px 0px -2px;
 }
 
-textarea
-{
+textarea {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
-	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;	
-	margin:0px 5px 0px 10px;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
+	margin: 0px 5px 0px 10px;
 }
 
-input#planNumber,input#matrixNumberGreen,input#matrixNumberRed,input#matrixCorte
-{
+input#planNumber, input#matrixNumberGreen, input#matrixNumberRed, input#matrixCorte
+	{
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 40px;
-	height:20px;
-	margin:0px 5px 0px 10px;
+	height: 20px;
+	margin: 0px 5px 0px 10px;
 }
 
-input#idenRiskNumber
-{
+input#idenRiskNumber {
 	border: none;
-	background-color:rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
 	width: 40px;
-	height:20px;
-	margin:0px 0px 0px 9px;
+	height: 20px;
+	margin: 0px 0px 0px 9px;
 }
 
-input#idenRiskId
-{
-	background-color:rgba(0, 0, 0, 0);
-    color:black;
-    border: none;
+input#idenRiskId {
+	background-color: rgba(0, 0, 0, 0);
+	color: black;
+	border: none;
 	width: 30px;
 	margin: 0px -18px 0px 0.9px;
 }
 
-select#updateLanguage
-{
+select#updateLanguage {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 125px;
-	height:20px;
-	margin:0px 5px 0px 10px;
+	height: 20px;
+	margin: 0px 5px 0px 10px;
 }
 
-input#email
-{
+input#email {
 	border: 1px solid rgb(221, 221, 221);
 	background: none repeat scroll 0% 0% rgb(244, 244, 244);
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2) inset;
 	width: 145px;
 }
 
-input#register:focus, #loginError:focus, #emailForgotten:focus, input#email:focus, select#updateLanguage:focus, input#updateEmail:focus, 
-input#updateLogin:focus, input#updatePass:focus, input#planNumber:focus, input#matrxNumber:focus, textarea:focus, textarea#planDefine1:focus, 
-input#planObjetive:focus, input#planImpact:focus, input#matrixNumberGreen:focus, input#matrixNumberRed:focus, input#matrixCorte:focus, 
-input#idenRisk:focus, input#idenRiskNumber:focus, select#idenRisk:focus, textarea#idenRisk:focus, input#respRisk:focus,textarea#respRisk:focus,
-textarea#respPlanificacion:focus,input#respRiskId:focus,input#respRiskNombre:focus,textarea#respRisk2:focus,select#respRisk:focus
-{
+input#register:focus, #loginError:focus, #emailForgotten:focus, input#email:focus,
+	select#updateLanguage:focus, input#updateEmail:focus, input#updateLogin:focus,
+	input#updatePass:focus, input#planNumber:focus, input#matrxNumber:focus,
+	textarea:focus, textarea#planDefine1:focus, input#planObjetive:focus,
+	input#planImpact:focus, input#matrixNumberGreen:focus, input#matrixNumberRed:focus,
+	input#matrixCorte:focus, input#idenRisk:focus, input#idenRiskNumber:focus,
+	select#idenRisk:focus, textarea#idenRisk:focus, input#respRisk:focus,
+	textarea#respRisk:focus, textarea#respPlanificacion:focus, input#respRiskId:focus,
+	input#respRiskNombre:focus, textarea#respRisk2:focus, select#respRisk:focus
+	{
 	border: 1px solid rgb(196, 196, 196);
 	background: none repeat scroll 0% 0% rgb(250, 250, 250);
-	transition: all 0.15s linear 0s;	
+	transition: all 0.15s linear 0s;
 }
 
-a#updateInfo
-{
-	padding:0em 0em 0em 46em;
+a#updateInfo {
+	padding: 0em 0em 0em 46em;
 }
 
-a#update
-{
-	padding:0em 0em 0em 35em;
+a#update {
+	padding: 0em 0em 0em 35em;
 }
 
-a#newmanager
-{
-	padding:0em 9em 0em 0em;
+a#newmanager {
+	padding: 0em 9em 0em 0em;
 }
 
 /*----- estilos visual de <footer> --------*/
@@ -987,14 +917,14 @@ footer {
 	padding-bottom: 3em;
 	line-height: 100%;
 	width: 100%;
-	float:left;
+	float: left;
 	padding: 1em 0em 0em 0em;
 	color: #999;
 	background: #000;
 	margin-top: 2em;
-	text-align:center;
+	text-align: center;
 }
 
-p#small{
+p#small {
 	font-size: smaller;
 }

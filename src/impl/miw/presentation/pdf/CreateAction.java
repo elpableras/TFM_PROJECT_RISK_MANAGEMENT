@@ -1,6 +1,7 @@
 package impl.miw.presentation.pdf;
 
 import impl.miw.business.pdf.CreatePDF;
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.Vector;
@@ -28,8 +29,9 @@ import com.opensymphony.xwork2.ActionSupport;
  * planes, identificación/analisis y respuesta de riesgos que se encuentran
  * almacenados en la base de datos para crear con ellos los informes, extiende
  * de ActionSupport que nos proporciona una implementación por defecto para las
- * acciones más comunes con implementación de tres interfaces “aware” para alojar
- * objetos que puedan estar a disposición en otras partes de la aplicación.
+ * acciones más comunes con implementación de tres interfaces “aware” para
+ * alojar objetos que puedan estar a disposición en otras partes de la
+ * aplicación.
  * 
  * @author Pablo
  * 
@@ -41,7 +43,7 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 
     private Map<String, Object> application;
     private HttpServletRequest request;
-    private HttpServletResponse response;    
+    private HttpServletResponse response;
     private ProjectService projectService;
     private InfoService infoService;
     private LogService log;
@@ -137,7 +139,7 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 	log.debug("Invocado el setServletRequest de Create");
 	this.request = httpServletRequest;
     }
-    
+
     /**
      * Setter que establece la respuesta al objeto HTTP en las clases de la
      * aplicación
@@ -181,7 +183,8 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 	    try {
 		Project project = projectService.getProject(info.getIdP());
 		try {
-		    CreatePDF create = new CreatePDF(info, u, project, title, response);
+		    CreatePDF create = new CreatePDF(info, u, project, title,
+			    response);
 		    create.createPdf();
 		    this.addActionMessage(getText("pdf.correcto"));
 		} catch (DocumentException e) {

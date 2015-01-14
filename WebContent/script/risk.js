@@ -22,12 +22,12 @@ $(function(){
     		textarea3 = document.createElement("textarea");
     		textarea4 = document.createElement("textarea");
     		textarea5 = document.createElement("textarea");         	      	
-    		td2.innerHTML = '<s:text name="plan.9.3"/>: ';
-    		td3.innerHTML = '<s:text name="plan.9.4"/>: ';
-    		td4.innerHTML = '<s:text name="plan.9.4"/>: ';
-    		td5.innerHTML = '<s:text name="plan.9.4"/>: ';
-    		td6.innerHTML = '<s:text name="plan.9.4"/>: ';
-    		td7.innerHTML = '<s:text name="plan.9.4"/>: ';
+    		td2.innerHTML = '';
+    		td3.innerHTML = '';
+    		td4.innerHTML = '';
+    		td5.innerHTML = '';
+    		td6.innerHTML = '';
+    		td7.innerHTML = '';
     		input1.setAttribute('type', 'button');        	
     		input1.setAttribute('id', 'buttonDelete');
     		input1.setAttribute('value', ' ');

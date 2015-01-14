@@ -174,7 +174,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET metodologia=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getMetodologia());
 		ps.setLong(2, data.getIdU());
-		ps.setDouble(3, data.getVersion());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 1);
@@ -183,6 +183,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET herrotecno=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getHtecno());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 2);
@@ -191,6 +192,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET roles=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getRoles());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 3);
@@ -199,6 +201,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET presu=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getPresu());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 4);
@@ -208,6 +211,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET calendario=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getCalendar());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 5);
@@ -216,6 +220,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET riesgos=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getRiesgo());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 6);
@@ -251,12 +256,14 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET corte=? WHERE u_id=? and pgr_id=?");
 		ps.setDouble(1, data.getCorte());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 	    }
-	    if (data.getRango().compareToIgnoreCase("")!=0) {
+	    if (data.getRango().compareToIgnoreCase("") != 0) {
 		ps = con.prepareStatement("UPDATE plans SET rango=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getRango());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 	    }
 	    if (data.getContingencia() != null
@@ -264,6 +271,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET contingencia=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getContingencia());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 9);
@@ -273,6 +281,7 @@ public class InfoDAO implements InfoDataService {
 		ps = con.prepareStatement("UPDATE plans SET formatos=? WHERE u_id=? and pgr_id=?");
 		ps.setString(1, data.getFormato());
 		ps.setLong(2, data.getIdU());
+		ps.setLong(3, pgr_id);
 		ps.executeUpdate();
 		setVersion(data.getIdU(), data.getIdP(), pgr_id,
 			data.getVersion(), 10);
@@ -483,7 +492,7 @@ public class InfoDAO implements InfoDataService {
 	    ps.executeUpdate();
 	    break;
 	default:
-	    ps = con.prepareStatement("INSERT INTO versiones (version,u_id,project_id,pgr_id) VALUES (?,?,?,?);");
+	    ps = con.prepareStatement("INSERT INTO versiones (version,u_id,project_id,pgr_id,total) VALUES (?,?,?,?,0);");
 	    ps.setDouble(1, version);
 	    ps.setLong(2, idU);
 	    ps.setLong(3, idP);
@@ -512,10 +521,11 @@ public class InfoDAO implements InfoDataService {
 	ResultSet rs = null;
 	int total = 0;
 	Double version = 0.0;
+	int nuevo = 0;
 
 	con = Jdbc.getConnection();
 
-	ps = con.prepareStatement("select version, metodologia, herrotecno, roles, presu, calendario, riesgos, probabilidad, impacto, contingencia, formatos from versiones where project_id=? and u_id=? and pgr_id=?;");
+	ps = con.prepareStatement("select version, metodologia, herrotecno, roles, presu, calendario, riesgos, probabilidad, impacto, contingencia, formatos, total from versiones where project_id=? and u_id=? and pgr_id=?;");
 	ps.setLong(1, idP);
 	ps.setLong(2, idU);
 	ps.setLong(3, pgr_id);
@@ -529,11 +539,19 @@ public class InfoDAO implements InfoDataService {
 		    + rs.getInt("contingencia") + rs.getInt("formatos");
 
 	    version = rs.getDouble("version");
+	    
+	    nuevo = rs.getInt("total");
 	}
 
-	if (total == 10) {
+	if (total == 10 && nuevo != 1) {
 	    Info data = getInfo(idU, idP, version);
-	    setInfo(idU, idP, version, data);
+	    setInfo(idU, idP, version, data);	   
+	    ps = con.prepareStatement("UPDATE versiones SET total=1 WHERE version=? and u_id=? and project_id=? and pgr_id=?;");
+	    ps.setDouble(1, version);
+	    ps.setLong(2, idU);
+	    ps.setLong(3, idP);
+	    ps.setLong(4, pgr_id);
+	    ps.executeUpdate();
 	}
     }
 
@@ -792,8 +810,7 @@ public class InfoDAO implements InfoDataService {
      * @return Vector vector con los datos de las probabilidades del plan
      * @throws SQLException
      */
-    private Vector<Probabilidad> getProbabilidad(Long pgr_id)
-	    throws Exception {
+    private Vector<Probabilidad> getProbabilidad(Long pgr_id) throws Exception {
 	Vector<Probabilidad> vp = new Vector<Probabilidad>();
 	PreparedStatement ps = null;
 	ResultSet rs = null;

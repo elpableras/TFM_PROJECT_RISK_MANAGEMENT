@@ -2,6 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<header>	
-		<s:text name="welcome.title"/>
+<header>
+	<s:text name="welcome.title" />
 </header>

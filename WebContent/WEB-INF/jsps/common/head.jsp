@@ -9,8 +9,9 @@
 <link href="css/table.css" rel="stylesheet" type="text/css">
 <link href="css/form.css" rel="stylesheet" type="text/css">
 <link href="css/login.css" rel="stylesheet" type="text/css">
-<title><s:text name="welcome.title"/></title>
+<title><s:text name="welcome.title" /></title>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 <script type="text/javascript" src="script/zebra_deploy.js"></script>
 </head>

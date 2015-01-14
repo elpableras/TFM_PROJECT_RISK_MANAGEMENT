@@ -119,10 +119,7 @@ public class UpdateUserAction extends ActionSupport implements
 
 	String ms;
 	try {
-	    if (projectService.seekProject(getIdProjectUserUpdate()).compareTo(
-		    " ") != 0) {
-		if (projectService.seekProject(getIdProjectUserUpdate())
-			.compareTo("") == 0) {
+	    if (userService.getManager(getIdUserUpdate(),getIdProjectUserUpdate())) {
 		    ms = userService.setUpdateUserAdmin(updateUser);
 		    log.debug(ms);
 		    if (ms.compareToIgnoreCase("Actualizado") == 0) {
@@ -130,14 +127,7 @@ public class UpdateUserAction extends ActionSupport implements
 		    } else {
 			addActionError(getText("noUpdate"));
 		    }
-		} else {
-		    addActionError(getText("manager"));
-		    log.error("Ya existe un Manager");
 		}
-	    } else {
-		addActionError(getText("project"));
-		log.error("No existe Proyecto");
-	    }
 	} catch (Exception e) {
 	    addActionError(getText("noUpdate"));
 	    log.error(e.getClass() + " " + e.getMessage());

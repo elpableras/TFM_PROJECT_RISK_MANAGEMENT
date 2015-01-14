@@ -2,7 +2,6 @@ package impl.miw.business.pdf;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Calendar;
@@ -47,7 +46,7 @@ import com.miw.model.User;
  * @author Pablo
  * 
  */
-public class CreatePDF extends HttpServlet{
+public class CreatePDF extends HttpServlet {
 
     /**
      * 
@@ -68,19 +67,15 @@ public class CreatePDF extends HttpServlet{
     private Respuesta resp = null;
     private String file;
     private HttpServletResponse response;
-    
 
     /**
      * Método principal para la creación de los documentos pdf para la
      * aplicación
      * 
-     * @return String con la localización del path donde se almacena el pdf
-     * @throws FileNotFoundException
      * @throws DocumentException
      * @throws IOException
      */
-    public void createPdf() throws DocumentException,
-	    IOException {
+    public void createPdf() throws DocumentException, IOException {
 	String archivo = createPath(file);
 	String lengua = "";
 	lengua = "_" + lenguaje;
@@ -103,10 +98,12 @@ public class CreatePDF extends HttpServlet{
 	    // archivo
 	    PdfWriter writer = null;
 
-	    // Obtenemos la instancia del archivo a utilizar y lo creamos en memoria
+	    // Obtenemos la instancia del archivo a utilizar y lo creamos en
+	    // memoria
 	    ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	    writer = PdfWriter.getInstance(documento, baos);
-	    //writer = PdfWriter.getInstance(documento, new FileOutputStream(archivo));
+	    // writer = PdfWriter.getInstance(documento, new
+	    // FileOutputStream(archivo));
 	    HeaderFooter event = new HeaderFooter(lengua, autor, version);
 	    writer.setPageEvent(event);
 
@@ -307,21 +304,22 @@ public class CreatePDF extends HttpServlet{
 	    documento.close(); // Cerramos el documento
 
 	    // setting some response headers
-            response.setHeader("Expires", "0");
-            response.setHeader("Cache-Control",
-                "must-revalidate, post-check=0, pre-check=0");
-            response.setHeader("Pragma", "public");
-            // setting the content type
-            response.setContentType("application/pdf");
-            // the contentlength
-            response.setContentLength(baos.size());
-            // Download
-            response.setHeader("Content-disposition", "attachment; filename=\""+archivo+"\"");
-            // write ByteArrayOutputStream to the ServletOutputStream
-            OutputStream os = response.getOutputStream();
-            baos.writeTo(os);
-            os.flush();
-            os.close();           
+	    response.setHeader("Expires", "0");
+	    response.setHeader("Cache-Control",
+		    "must-revalidate, post-check=0, pre-check=0");
+	    response.setHeader("Pragma", "public");
+	    // setting the content type
+	    response.setContentType("application/pdf");
+	    // the contentlength
+	    response.setContentLength(baos.size());
+	    // Download
+	    response.setHeader("Content-disposition", "attachment; filename=\""
+		    + archivo + "\"");
+	    // write ByteArrayOutputStream to the ServletOutputStream
+	    OutputStream os = response.getOutputStream();
+	    baos.writeTo(os);
+	    os.flush();
+	    os.close();
 	}
     }
 
@@ -1238,12 +1236,12 @@ public class CreatePDF extends HttpServlet{
      *            String con el nombre del fichero a crear
      * @return String con el nombre del fichero pdf
      */
-    private String createPath(String filename){
-	
+    private String createPath(String filename) {
+
 	filename = filename.replace(" ", "_");
 	filename = filename + "_" + fecha() + ".pdf";
-	
-	return filename;	
+
+	return filename;
     }
 
     /**
@@ -1508,13 +1506,13 @@ public class CreatePDF extends HttpServlet{
      *            objeto proyecto
      * @param file
      *            cadena con el nombre del fichero
-     * @return String con el path del fichero creado
-     * @throws FileNotFoundException
+     * @param response
+     *            respuesta al servlet de HTTP
      * @throws DocumentException
      * @throws IOException
      */
-    public CreatePDF(Info info, User u, Project project, String file, HttpServletResponse response)
-	    throws FileNotFoundException, DocumentException, IOException {
+    public CreatePDF(Info info, User u, Project project, String file,
+	    HttpServletResponse response) throws DocumentException, IOException {
 	this.nProyecto = project.getNombre();
 	this.fecha = project.getFecha();
 	this.lenguaje = u.getLanguage().toLowerCase();
@@ -1544,15 +1542,15 @@ public class CreatePDF extends HttpServlet{
      *            vector con las probabilidades
      * @param corte
      *            entero con el número de corte de los riesgos
-     * @return String con el path del fichero creado
-     * @throws FileNotFoundException
+     * @param response
+     *            respuesta al servlet de HTTP
      * @throws DocumentException
      * @throws IOException
      */
-    public CreatePDF(Vector<Iden> iden, User u, Project project,
-	    String file, Vector<Impacto> impactos,
-	    Vector<Probabilidad> probabilidad, Double corte, HttpServletResponse response)
-	    throws FileNotFoundException, DocumentException, IOException {
+    public CreatePDF(Vector<Iden> iden, User u, Project project, String file,
+	    Vector<Impacto> impactos, Vector<Probabilidad> probabilidad,
+	    Double corte, HttpServletResponse response)
+	    throws DocumentException, IOException {
 	this.nProyecto = project.getNombre();
 	this.fecha = project.getFecha();
 	this.lenguaje = u.getLanguage().toLowerCase();
@@ -1587,15 +1585,15 @@ public class CreatePDF extends HttpServlet{
      *            vector con las probabilidades
      * @param corte
      *            entero con el número de corte de los riesgos
-     * @return String con el path del fichero creado
-     * @throws FileNotFoundException
+     * @param response
+     *            respuesta al servlet de HTTP
      * @throws DocumentException
      * @throws IOException
      */
-    public CreatePDF(Respuesta resp, User u, Project project,
-	    String file, Double version, Vector<Impacto> impactos,
-	    Vector<Probabilidad> probabilidad, Double corte, HttpServletResponse response)
-	    throws FileNotFoundException, DocumentException, IOException {
+    public CreatePDF(Respuesta resp, User u, Project project, String file,
+	    Double version, Vector<Impacto> impactos,
+	    Vector<Probabilidad> probabilidad, Double corte,
+	    HttpServletResponse response) throws DocumentException, IOException {
 	this.nProyecto = project.getNombre();
 	this.fecha = project.getFecha();
 	this.lenguaje = u.getLanguage().toLowerCase();
@@ -1611,4 +1609,3 @@ public class CreatePDF extends HttpServlet{
 	this.response = response;
     }
 }
-

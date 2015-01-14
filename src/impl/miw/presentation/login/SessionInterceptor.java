@@ -88,18 +88,20 @@ public class SessionInterceptor extends AbstractInterceptor implements
     public String intercept(ActionInvocation invocation) throws Exception {
 	ActionContext ctx = invocation.getInvocationContext();
 	String uri = ctx.getName().toLowerCase();
-	Map<String, Object> session = invocation.getInvocationContext().getSession();
+	Map<String, Object> session = invocation.getInvocationContext()
+		.getSession();
 
-	    if (session.isEmpty() && !uri.contains("login")
-		    && !uri.contains("counter") && !uri.contains("forgotten")
-		    && !uri.contains("passforgotten") && !uri.contains("index")) {		
-		if (session.containsKey("usuario") && request.getSession().getAttribute("usuario") != null) {
-		    request.getSession().setAttribute("usuario", "");
-		    request.getSession().setAttribute("play", "");
-		    request.getSession().setAttribute("saveplan", "");
-		}
-		return "login"; // session is empty/expired
+	if (session.isEmpty() && !uri.contains("login")
+		&& !uri.contains("counter") && !uri.contains("forgotten")
+		&& !uri.contains("passforgotten") && !uri.contains("index")) {
+	    if (session.containsKey("usuario")
+		    && request.getSession().getAttribute("usuario") != null) {
+		request.getSession().setAttribute("usuario", "");
+		request.getSession().setAttribute("play", "");
+		request.getSession().setAttribute("saveplan", "");
 	    }
-	    return invocation.invoke();
+	    return "login"; // session is empty/expired
+	}
+	return invocation.invoke();
     }
 }

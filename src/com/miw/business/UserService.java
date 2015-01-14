@@ -38,4 +38,6 @@ public interface UserService {
     public Boolean deleteUser(Long idUser) throws Exception;
 
     public String setUpdateUserAdmin(User updateUser) throws Exception;
+
+    public boolean getManager(Long idUserUpdate, Long idProject) throws Exception;
 }

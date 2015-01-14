@@ -311,28 +311,17 @@ public class ProjectDAO implements ProjectDataService {
 	try {
 
 	    con = Jdbc.getConnection();
-	    ps = con.prepareStatement("SELECT @pass:='tfm14';");
-	    ps.executeQuery();
 
-	    ps = con.prepareStatement("UPDATE projects SET name=?, manager=?, email=AES_ENCRYPT(?,@pass), fecha=?, paso=? WHERE p_id=?");
+	    ps = con.prepareStatement("UPDATE projects SET name=?, fecha=?, paso=? WHERE p_id=?");
 
-	    ps.setString(1, updateProject.getNombre());
-	    ps.setString(2, updateProject.getManager());
-	    ps.setString(3, updateProject.getEmail());
+	    ps.setString(1, updateProject.getNombre());	
 	    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 	    java.util.Date date = sdf1.parse(updateProject.getFecha());
 	    java.sql.Date sqlDate = new Date(date.getTime());
-	    ps.setDate(4, sqlDate);
-	    ps.setInt(5, updateProject.getPaso());
+	    ps.setDate(2, sqlDate);
+	    ps.setInt(3, updateProject.getPaso());
 
-	    ps.setLong(6, updateProject.getId());
-	    ps.executeUpdate();
-
-	    ps = con.prepareStatement("UPDATE users SET p_id=? where email=AES_ENCRYPT(?,@pass);");
-
-	    ps.setLong(1, updateProject.getId());
-	    ps.setString(2, updateProject.getEmail());
-
+	    ps.setLong(4, updateProject.getId());
 	    ps.executeUpdate();
 
 	    resultado = "Actualizado";

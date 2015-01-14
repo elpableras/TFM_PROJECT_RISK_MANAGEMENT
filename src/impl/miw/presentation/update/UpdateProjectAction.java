@@ -27,8 +27,6 @@ public class UpdateProjectAction extends ActionSupport implements
     private UserService userService;
     private Long idProjectUpdate;
     private String nombreProjectUpdate;
-    private String managerProjectUpdate;
-    private String emailProjectUpdate;
     private String fechaProjectUpdate;
     private Integer pasoProjectUpdate;
 
@@ -110,22 +108,18 @@ public class UpdateProjectAction extends ActionSupport implements
 	log.debug("Update Project ");
 	log.debug("Id: " + getIdProjectUpdate());
 	log.debug("Nombre: " + getNombreProjectUpdate());
-	log.debug("Manager: " + getManagerProjectUpdate());
-	log.debug("Email: " + getEmailProjectUpdate());
 	log.debug("Fecha: " + getFechaProjectUpdate());
 	log.debug("Paso: " + getPasoProjectUpdate());
 
 	Project updateProject = new Project();
 	updateProject.setId(getIdProjectUpdate());
 	updateProject.setNombre(getNombreProjectUpdate());
-	updateProject.setManager(getManagerProjectUpdate());
-	updateProject.setEmail(getEmailProjectUpdate());
 	updateProject.setFecha(getFechaProjectUpdate());
 	updateProject.setPaso(getPasoProjectUpdate());
 
 	String ms;
 	try {
-	    if (userService.seekUser(getEmailProjectUpdate()) != null) {
+	    if (projectService.getProject(getIdProjectUpdate()) != null) {
 		ms = projectService.setUpdateProject(updateProject);
 
 		log.debug(ms);
@@ -163,22 +157,6 @@ public class UpdateProjectAction extends ActionSupport implements
 
     public void setNombreProjectUpdate(String nombreProjectUpdate) {
 	this.nombreProjectUpdate = nombreProjectUpdate;
-    }
-
-    public String getManagerProjectUpdate() {
-	return managerProjectUpdate;
-    }
-
-    public void setManagerProjectUpdate(String managerProjectUpdate) {
-	this.managerProjectUpdate = managerProjectUpdate;
-    }
-
-    public String getEmailProjectUpdate() {
-	return emailProjectUpdate;
-    }
-
-    public void setEmailProjectUpdate(String emailProjectUpdate) {
-	this.emailProjectUpdate = emailProjectUpdate;
     }
 
     public String getFechaProjectUpdate() {

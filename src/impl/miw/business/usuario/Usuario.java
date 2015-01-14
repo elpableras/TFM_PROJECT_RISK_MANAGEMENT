@@ -319,8 +319,8 @@ public class Usuario implements UserService {
 	properties.put("mail.smtp.starttls.enable", "true");
 	properties.put("mail.smtp.port", 587);
 	properties.put("mail.smtp.mail.sender",
-		"gestionriesgosproyectos@gmail.com");
-	properties.put("mail.smtp.user", "gestionriesgosproyectos");
+		"riskmanagementtfm@gmail.com");
+	properties.put("mail.smtp.user", "riskmanagementtfm");
 	properties.put("mail.smtp.auth", "true");
 
 	session = Session.getDefaultInstance(properties);
@@ -412,5 +412,22 @@ public class Usuario implements UserService {
     public String setUpdateUserAdmin(User updateUser) throws Exception {
 	log.debug("Entrando en setUpdateUserAdmin");
 	return userDataService.setUpdateUserAdmin(updateUser);
+    }
+
+    /**
+     * Método de la interfaz entre presentación y negocio para la busqueda de
+     * usuarios por medio del id
+     * 
+     * @param idUserUpdate
+     *            identificador del usuario
+     * @param idProject
+     *            identificador del proyecto
+     * @return Boolean true si existe o false sino no
+     * @throws Exception
+     */
+    @Override
+    public boolean getManager(Long idUserUpdate, Long idProject) throws Exception {
+	log.debug("Entrando en getManager");
+	return userDataService.getManager(idUserUpdate,idProject);
     }
 }

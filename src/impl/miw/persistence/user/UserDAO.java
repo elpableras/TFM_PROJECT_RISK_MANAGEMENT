@@ -595,4 +595,50 @@ public class UserDAO implements UserDataService {
 	}
 	return resultado;
     }
+
+    /**
+     * Getter para la obtención de un usuario por su id
+     * 
+     * @param idUserUpdate
+     *            identificador del usuario
+     * 
+     * @return Boolean true si existe false sino no
+     * @throws Exception
+     */
+    @Override
+    public boolean getManager(Long idUserUpdate, Long idProject) throws Exception {
+	boolean resultado = false;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	Connection con = null;
+
+	try {
+	    con = Jdbc.getConnection();
+
+	    ps = con.prepareStatement("SELECT @pass:='tfm14';");
+	    ps.executeQuery();
+
+	    ps = con.prepareStatement("select user from users where u_id=? and p_id=?");
+
+	    ps.setLong(1, idUserUpdate);
+	    ps.setLong(2, idProject);
+	    rs = ps.executeQuery();
+
+	    if (rs.next()) {
+		resultado = true;
+	    }
+
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    throw (e);
+	} finally {
+	    try {
+		ps.close();
+		con.close();
+	    } catch (Exception e) {
+		e.printStackTrace();
+	    }
+	}
+	return resultado;
+    }
 }
