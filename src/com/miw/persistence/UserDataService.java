@@ -33,5 +33,6 @@ public interface UserDataService {
 
     public String setUpdateUserAdmin(User updateUser) throws Exception;
 
-    public boolean getManager(Long idUserUpdate, Long idProject) throws Exception;
+    public boolean getManager(Long idUserUpdate, Long idProject)
+	    throws Exception;
 }

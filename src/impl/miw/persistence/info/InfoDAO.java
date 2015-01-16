@@ -539,13 +539,13 @@ public class InfoDAO implements InfoDataService {
 		    + rs.getInt("contingencia") + rs.getInt("formatos");
 
 	    version = rs.getDouble("version");
-	    
+
 	    nuevo = rs.getInt("total");
 	}
 
 	if (total == 10 && nuevo != 1) {
 	    Info data = getInfo(idU, idP, version);
-	    setInfo(idU, idP, version, data);	   
+	    setInfo(idU, idP, version, data);
 	    ps = con.prepareStatement("UPDATE versiones SET total=1 WHERE version=? and u_id=? and project_id=? and pgr_id=?;");
 	    ps.setDouble(1, version);
 	    ps.setLong(2, idU);
@@ -875,23 +875,12 @@ public class InfoDAO implements InfoDataService {
 	Connection con = null;
 	ResultSet rs = null;
 
-	try {
-	    con = Jdbc.getConnection();
-
-	    Double version = vIden.get(0).getVersion() - 0.0001;
+	try {	    
 	    Vector<Long> idens = new Vector<Long>();
-	    for (int i = 0; i < vIden.size(); i++) {
-		Long iden_id = getId_iden(ps, con, rs, vIden.get(i).getIdP(),
-			vIden.get(0).getIdU(), version);
-		idens.add(iden_id);
-		setCambioIden(vIden.get(i), iden_id);
-		ps = con.prepareStatement("UPDATE idens SET version=? WHERE u_id=? and iden_id=?");
-		ps.setDouble(1, vIden.get(i).getVersion());
-		ps.setLong(2, vIden.get(i).getIdU());
-		ps.setLong(3, iden_id);
-		ps.executeUpdate();
-	    }
-
+	    Double version = vIden.get(0).getVersion();
+	    version = (double) Math.round(version * 10000) / 10000;
+	    con = Jdbc.getConnection();
+	    
 	    if (uniqueIdens(ps, con, rs, vIden.get(0).getIdU(), vIden.get(0)
 		    .getIdP())) {
 		insertIden(vIden, ps, con);
@@ -914,7 +903,21 @@ public class InfoDAO implements InfoDataService {
 		    ps.setDouble(14, vIden.get(j).getVersion());
 		    ps.executeUpdate();
 		}
+		version = version - 0.0001;
+		version = (double) Math.round(version * 10000) / 10000;
 	    }
+	    
+	    for (int i = 0; i < vIden.size(); i++) {		
+		Long iden_id = getId_iden(ps, con, rs, vIden.get(i).getIdP(),
+			vIden.get(0).getIdU(), version);
+		idens.add(iden_id);
+		setCambioIden(vIden.get(i), iden_id);
+		ps = con.prepareStatement("UPDATE idens SET version=? WHERE u_id=? and iden_id=?");
+		ps.setDouble(1, vIden.get(i).getVersion());
+		ps.setLong(2, vIden.get(i).getIdU());
+		ps.setLong(3, iden_id);
+		ps.executeUpdate();
+	    }	    
 	} catch (Exception e) {
 	    e.printStackTrace();
 	    throw (e);
@@ -1070,7 +1073,7 @@ public class InfoDAO implements InfoDataService {
 	try {
 	    con = Jdbc.getConnection();
 
-	    ps = con.prepareStatement("select iden_id,id,project_id,nombre,descripcion,responsable,probabilidad,valorImpacto,vImpacto,response,notes from idens where project_id=? and u_id=?;");
+	    ps = con.prepareStatement("select iden_id,id,project_id,nombre,descripcion,responsable,probabilidad,valorImpacto,vImpacto,response,notes,version from idens where project_id=? and u_id=?;");
 	    ps.setLong(1, idP);
 	    ps.setLong(2, id);
 
@@ -1089,6 +1092,7 @@ public class InfoDAO implements InfoDataService {
 		iden.setResponse(rs.getString("response"));
 		iden.setNotes(rs.getString("notes"));
 		iden.setCambio(getCambio(0L, rs.getLong("iden_id")));
+		iden.setVersion(rs.getDouble("version"));
 		vIden.add(iden);
 	    }
 	} catch (Exception e) {

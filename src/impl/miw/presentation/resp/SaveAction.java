@@ -202,10 +202,10 @@ public class SaveAction extends ActionSupport implements ServletRequestAware {
 
 	try {
 	    infoService.setRespuesta(resp);
-	    this.addActionMessage(getText("respi.correct"));
+	    this.addActionMessage(getText("resp.correct"));
 	    request.getSession().setAttribute("play", 3);
 	} catch (Exception e) {
-	    addActionError(getText("respi.error"));
+	    addActionError(getText("resp.error"));
 	    log.error(e.getClass() + " " + e.getMessage());
 	}
 

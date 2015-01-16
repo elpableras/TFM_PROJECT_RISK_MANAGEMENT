@@ -184,7 +184,7 @@ public class SaveAction extends ActionSupport implements ServletRequestAware,
 	    notes2[0] = notes;
 	}
 
-	if (versiones != null) {
+	if (versiones.size() > 0) {
 	    v = versiones.get(0) + 0.0001;
 	}
 

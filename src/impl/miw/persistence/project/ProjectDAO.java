@@ -314,7 +314,7 @@ public class ProjectDAO implements ProjectDataService {
 
 	    ps = con.prepareStatement("UPDATE projects SET name=?, fecha=?, paso=? WHERE p_id=?");
 
-	    ps.setString(1, updateProject.getNombre());	
+	    ps.setString(1, updateProject.getNombre());
 	    SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 	    java.util.Date date = sdf1.parse(updateProject.getFecha());
 	    java.sql.Date sqlDate = new Date(date.getTime());

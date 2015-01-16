@@ -119,15 +119,16 @@ public class UpdateUserAction extends ActionSupport implements
 
 	String ms;
 	try {
-	    if (userService.getManager(getIdUserUpdate(),getIdProjectUserUpdate())) {
-		    ms = userService.setUpdateUserAdmin(updateUser);
-		    log.debug(ms);
-		    if (ms.compareToIgnoreCase("Actualizado") == 0) {
-			addActionMessage(getText("update"));
-		    } else {
-			addActionError(getText("noUpdate"));
-		    }
+	    if (userService.getManager(getIdUserUpdate(),
+		    getIdProjectUserUpdate())) {
+		ms = userService.setUpdateUserAdmin(updateUser);
+		log.debug(ms);
+		if (ms.compareToIgnoreCase("Actualizado") == 0) {
+		    addActionMessage(getText("update"));
+		} else {
+		    addActionError(getText("noUpdate"));
 		}
+	    }
 	} catch (Exception e) {
 	    addActionError(getText("noUpdate"));
 	    log.error(e.getClass() + " " + e.getMessage());

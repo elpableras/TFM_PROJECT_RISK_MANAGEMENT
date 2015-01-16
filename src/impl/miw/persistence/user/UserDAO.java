@@ -606,7 +606,8 @@ public class UserDAO implements UserDataService {
      * @throws Exception
      */
     @Override
-    public boolean getManager(Long idUserUpdate, Long idProject) throws Exception {
+    public boolean getManager(Long idUserUpdate, Long idProject)
+	    throws Exception {
 	boolean resultado = false;
 	PreparedStatement ps = null;
 	ResultSet rs = null;

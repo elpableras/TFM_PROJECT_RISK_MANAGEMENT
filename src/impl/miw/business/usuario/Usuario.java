@@ -318,8 +318,7 @@ public class Usuario implements UserService {
 	properties.put("mail.smtp.host", "smtp.gmail.com");
 	properties.put("mail.smtp.starttls.enable", "true");
 	properties.put("mail.smtp.port", 587);
-	properties.put("mail.smtp.mail.sender",
-		"riskmanagementtfm@gmail.com");
+	properties.put("mail.smtp.mail.sender", "riskmanagementtfm@gmail.com");
 	properties.put("mail.smtp.user", "riskmanagementtfm");
 	properties.put("mail.smtp.auth", "true");
 
@@ -426,8 +425,9 @@ public class Usuario implements UserService {
      * @throws Exception
      */
     @Override
-    public boolean getManager(Long idUserUpdate, Long idProject) throws Exception {
+    public boolean getManager(Long idUserUpdate, Long idProject)
+	    throws Exception {
 	log.debug("Entrando en getManager");
-	return userDataService.getManager(idUserUpdate,idProject);
+	return userDataService.getManager(idUserUpdate, idProject);
     }
 }

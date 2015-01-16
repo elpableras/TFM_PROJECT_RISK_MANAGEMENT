@@ -125,6 +125,9 @@ function addRow(){
 	
 	td = $(tr[0]).find("td");
 	
+	impactos = $(tr[0]).find("td#impacto");	
+	tdimpactolength = $(impactos).length;
+	
 	td0 = $(td[0]).clone();
 	inputDelete = $(td0[0]).find("input");
 	inputDelete[0].setAttribute('value', ' ');
@@ -181,7 +184,7 @@ function addRow(){
 	newtr.appendChild(td3[0]);
 	newtr.appendChild(td4);
 	newtr.appendChild(td5[0]);
-	for(var i=0; i<4; i++){		
+	for(var i=0; i<tdimpactolength; i++){		
 		newtr.appendChild(td6[i]);	
 	}	
 	newtr.appendChild(td7[0]);

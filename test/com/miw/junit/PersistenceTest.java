@@ -190,8 +190,8 @@ public class PersistenceTest {
 	assertEquals(projectS.setProject(proyecto),
 		"Datos Guardados Correctamente");
 
-	//assertEquals(projectS.getProject(usuario),
-		//"Datos Guardados Correctamente");
+	// assertEquals(projectS.getProject(usuario),
+	// "Datos Guardados Correctamente");
 
 	assertSame(projectS.getProject(usuario), proyecto);
 	assertEquals(projectS.getProject(usuario).getNombre(), "proyecto");
