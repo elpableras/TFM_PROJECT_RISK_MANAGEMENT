@@ -35,7 +35,7 @@ public class Jdbc {
 
 	try {
 	    return DriverManager.getConnection(
-		    dbProps.getProperty("jdbc.url.localhost"),
+		    dbProps.getProperty("jdbc.url.server"),
 		    dbProps.getProperty("jdbc.username"),
 		    dbProps.getProperty("jdbc.password"));
 

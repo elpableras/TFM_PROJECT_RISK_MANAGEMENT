@@ -166,106 +166,118 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 
 	User u = (User) request.getSession().getAttribute("usuario");
 	Double version = (Double) application.get("version");
-	Info info = new Info();
-	switch (option) {
-	case 1:
-	    try {
-		if (version != null
-			&& infoService.getVersion(u.getId(), u.getIdProyecto())
-				.size() > 1) {
-		    try {
-			info = infoService.getInfo(u.getId(),
-				u.getIdProyecto(), version);
-			if (info != null) {
-			    Project project = projectService.getProject(info
-				    .getIdP());
-			    try {
-				CreatePDF create = new CreatePDF(info, u,
-					project, title, response);
-				create.createPdf();
-				this.addActionMessage(getText("pdf.correcto"));
-			    } catch (DocumentException e) {
-				addActionError(getText("error"));
-				log.error(e.getClass() + " " + e.getMessage());
-			    } catch (IOException e) {
-				addActionError(getText("error"));
-				log.error(e.getClass() + " " + e.getMessage());
+	Info info;
+	try {
+	    if (version == null) {
+		version = infoService.getVersion(u.getId(), u.getIdProyecto())
+			.lastElement();
+	    }
+	    info = infoService.getInfo(u.getId(), u.getIdProyecto(), version);
+	    switch (option) {
+	    case 1:
+		try {
+		    if (infoService.getVersion(u.getId(), u.getIdProyecto())
+			    .size() > 1) {
+			try {
+			    if (info != null) {
+				Project project = projectService
+					.getProject(info.getIdP());
+				try {
+				    CreatePDF create = new CreatePDF(info, u,
+					    project, title, response);
+				    create.createPdf();
+				    this.addActionMessage(getText("pdf.correcto"));
+				} catch (DocumentException e) {
+				    addActionError(getText("error"));
+				    log.error(e.getClass() + " "
+					    + e.getMessage());
+				} catch (IOException e) {
+				    addActionError(getText("error"));
+				    log.error(e.getClass() + " "
+					    + e.getMessage());
+				}
 			    }
+			} catch (Exception e) {
+			    addActionError(getText("error"));
+			    log.error(e.getClass() + " " + e.getMessage());
 			}
+		    }
+		} catch (Exception e) {
+		    addActionError(getText("error"));
+		    log.error(e.getClass() + " " + e.getMessage());
+		}
+		break;
+	    case 2:
+		Vector<Iden> iden = (Vector<Iden>) application.get("iden");
+		if (iden.size() == 0) {
+		    try {
+			iden = infoService
+				.getIden(u.getId(), u.getIdProyecto());
 		    } catch (Exception e) {
 			addActionError(getText("error"));
 			log.error(e.getClass() + " " + e.getMessage());
 		    }
 		}
-	    } catch (Exception e) {
-		addActionError(getText("error"));
-		log.error(e.getClass() + " " + e.getMessage());
-	    }
-	    break;
-	case 2:
-	    Vector<Iden> iden = (Vector<Iden>) application.get("iden");
-	    if (iden.size() == 0) {
 		try {
-		    iden = infoService.getIden(u.getId(), u.getIdProyecto());
+		    Project project = projectService.getProject(iden.get(0)
+			    .getIdP());
+
+		    try {
+			CreatePDF create = new CreatePDF(iden, u, project,
+				title, info.getImpacto(),
+				info.getProbabilidad(), info.getCorte(),
+				response);
+			create.createPdf();
+			this.addActionMessage(getText("pdf.correcto"));
+		    } catch (DocumentException e) {
+			addActionError(getText("error"));
+			log.error(e.getClass() + " " + e.getMessage());
+		    } catch (IOException e) {
+			addActionError(getText("error"));
+			log.error(e.getClass() + " " + e.getMessage());
+		    }
+
 		} catch (Exception e) {
 		    addActionError(getText("error"));
 		    log.error(e.getClass() + " " + e.getMessage());
 		}
-	    }
-	    try {
-		Project project = projectService.getProject(iden.get(0)
-			.getIdP());
-
+		break;
+	    case 3:
+		Respuesta r = null;
 		try {
-		    CreatePDF create = new CreatePDF(iden, u, project, title,
-			    info.getImpacto(), info.getProbabilidad(),
-			    info.getCorte(), response);
-		    create.createPdf();
-		    this.addActionMessage(getText("pdf.correcto"));
-		} catch (DocumentException e) {
-		    addActionError(getText("error"));
-		    log.error(e.getClass() + " " + e.getMessage());
-		} catch (IOException e) {
+		    r = infoService.getResp(u.getId(), u.getIdProyecto(), num);
+		} catch (Exception e) {
 		    addActionError(getText("error"));
 		    log.error(e.getClass() + " " + e.getMessage());
 		}
-
-	    } catch (Exception e) {
-		addActionError(getText("error"));
-		log.error(e.getClass() + " " + e.getMessage());
-	    }
-	    break;
-	case 3:
-	    Respuesta r = null;
-	    try {
-		r = infoService.getResp(u.getId(), u.getIdProyecto(), num);
-	    } catch (Exception e) {
-		addActionError(getText("error"));
-		log.error(e.getClass() + " " + e.getMessage());
-	    }
-	    try {
-		Project project = projectService.getProject(r.getIdP());
 		try {
-		    CreatePDF create = new CreatePDF(r, u, project, title,
-			    info.getVersion(), info.getImpacto(),
-			    info.getProbabilidad(), info.getCorte(), response);
-		    create.createPdf();
-		    this.addActionMessage(getText("pdf.correcto"));
-		} catch (DocumentException e) {
-		    addActionError(getText("error"));
-		    log.error(e.getClass() + " " + e.getMessage());
-		} catch (IOException e) {
+		    Project project = projectService.getProject(r.getIdP());
+		    try {
+			CreatePDF create = new CreatePDF(r, u, project, title,
+				info.getVersion(), info.getImpacto(),
+				info.getProbabilidad(), info.getCorte(),
+				response);
+			create.createPdf();
+			this.addActionMessage(getText("pdf.correcto"));
+		    } catch (DocumentException e) {
+			addActionError(getText("error"));
+			log.error(e.getClass() + " " + e.getMessage());
+		    } catch (IOException e) {
+			addActionError(getText("error"));
+			log.error(e.getClass() + " " + e.getMessage());
+		    }
+
+		} catch (Exception e) {
 		    addActionError(getText("error"));
 		    log.error(e.getClass() + " " + e.getMessage());
 		}
-
-	    } catch (Exception e) {
-		addActionError(getText("error"));
-		log.error(e.getClass() + " " + e.getMessage());
+		break;
+	    default:
+		break;
 	    }
-	    break;
-	default:
-	    break;
+	} catch (Exception e) {
+	    addActionError(getText("error"));
+	    log.error(e.getClass() + " " + e.getMessage());
 	}
 	request.getSession().setAttribute("play", 4);
 	request.getSession().setAttribute("usuario", u);
