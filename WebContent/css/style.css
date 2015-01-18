@@ -90,7 +90,7 @@ a:visited {
 }
 
 /*----- Estilos visual de errores --------*/
-div.mensajeInfo{
+div.mensajeInfo {
 	color: #39C53F;
 	font-weight: bold;
 	margin: 8em 0em 0em 28.5em;
@@ -100,10 +100,30 @@ div.mensajeInfo{
 	position: absolute;
 }
 
-div.mensajeNoInfo{
+div.mensajeNoInfo {
 	color: #e91b2b;
 	font-weight: bold;
 	margin: 8em 0em 0em 28.5em;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 116%;
+	border-radius: 10px;
+	position: absolute;
+}
+
+div.mensajeUpdateUser {
+	color: #39C53F;
+	font-weight: bold;
+	margin: -3.5em 0em 0em 3em;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-size: 116%;
+	border-radius: 10px;
+	position: absolute;
+}
+
+div.mensajeNoUpdateUser {
+	color: #e91b2b;
+	font-weight: bold;
+	margin: -3.5em 0em 0em 3em;
 	font-family: Georgia, Times, "Times New Roman", serif;
 	font-size: 116%;
 	border-radius: 10px;
@@ -721,8 +741,8 @@ input#submitRegister:hover, #submitLogin:hover, #submitForgotten:hover,
 	#navigation ul li.noselected:hover, input#submitUpdate:hover, input#submitOptions:hover,
 	input#submitPlan:hover, input#submitPlanRisk:hover, input#buttonDelete:hover,
 	input#buttonAdd:hover, input#submitCorte:hover, input#submitIden:hover,
-	input#buttonDeleteResp:hover, input#submitRespi:hover, input#submitPDF:hover, input#buttonDelete2:hover
-	{
+	input#buttonDeleteResp:hover, input#submitRespi:hover, input#submitPDF:hover,
+	input#buttonDelete2:hover {
 	background: #3373bb;
 }
 

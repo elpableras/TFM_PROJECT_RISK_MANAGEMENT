@@ -514,7 +514,7 @@
 				<s:if test='%{#option == "10"}'>
 
 					<s:set var="probabilidad">${sessionScope.plan.getProbabilidad().size()}</s:set>
-					<s:set var="rangoSize">${sessionScope.rango.size()}</s:set>
+					<s:set var="rangoSize">${application.rango.size()}</s:set>
 					<h2 id="matriz">
 						<s:text name="plan.10" />
 					</h2>
@@ -541,19 +541,19 @@
 											<td id="verde"><input onchange="cambiaValorMatriz()"
 												type="number" id="matrixNumberGreen" step="0.01" min="0"
 												max="1" maxlength="1" size="1" name="rango"
-												value="%{#application.rango[0]}" required tabindex="5" /></td>
+												value="${application.rango[0]}" required tabindex="5" /></td>
 										</tr>
 										<tr class="amarillo">
 											<td id="amarillo"><s:text name="matriz.color.yellow" /></td>
-											<td id="amarillo">${sessionScope.rango[0]}</td>
-											<td id="amarillo">${sessionScope.rango[1]}</td>
+											<td id="amarillo">${application.rango[0]}</td>
+											<td id="amarillo">${application.rango[1]}</td>
 										</tr>
 										<tr class="rojo">
 											<td id="rojo"><s:text name="matriz.color.red" /></td>
 											<td id="rojo"><input onchange="cambiaValorMatriz()"
 												type="number" id="matrixNumberRed" step="0.01" min="0"
 												max="1" maxlength="1" size="1" name="rango"
-												value="%{#application.rango[1]}" required tabindex="6" /></td>
+												value="${application.rango[1]}" required tabindex="6" /></td>
 											<td id="rojo">1</td>
 										</tr>
 									</s:if>

@@ -106,7 +106,7 @@
 								<tr>
 									<s:set var="tab">${tab+1}</s:set>
 									<td id="idenRisk"><s:text name="resp.probabilidad2" /><br>
-									<s:text name="resp.fecha" />: <input type="date"
+										<s:text name="resp.fecha" />: <input type="date"
 										name="fechaRevision" min="2000-01-02"
 										value="${application.respuesta.getFechaRevisada()}"
 										tabindex="${tab}"></td>
@@ -286,7 +286,7 @@
 								<tr>
 									<s:set var="tab">${tab+1}</s:set>
 									<td id="idenRisk"><s:text name="resp.probabilidad2" /><br>
-									<s:text name="resp.fecha" />: <input type="date"
+										<s:text name="resp.fecha" />: <input type="date"
 										name="fechaRevision" min="2000-01-02" tabindex="${tab}"></td>
 									<s:iterator id="proba" value="%{#application.impactolist}">
 										<td id="idenRisk"><s:property value="objetivo" /></td>

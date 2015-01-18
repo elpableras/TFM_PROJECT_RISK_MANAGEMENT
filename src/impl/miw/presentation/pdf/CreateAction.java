@@ -165,36 +165,38 @@ public class CreateAction extends ActionSupport implements ApplicationAware,
 	log.debug("Procesando el execute de Create");
 
 	User u = (User) request.getSession().getAttribute("usuario");
-	Info info = (Info) application.get("info");
-
+	Double version = (Double) application.get("version");
+	Info info = new Info();
 	switch (option) {
 	case 1:
-	    if (info == null) {
-		try {
-		    Vector<Double> version = infoService.getVersion(u.getId(),
-			    u.getIdProyecto());
-		    info = infoService.getInfo(u.getId(), u.getIdProyecto(),
-			    version.get(0));
-		} catch (Exception e) {
-		    addActionError(getText("error"));
-		    log.error(e.getClass() + " " + e.getMessage());
-		}
-	    }
 	    try {
-		Project project = projectService.getProject(info.getIdP());
-		try {
-		    CreatePDF create = new CreatePDF(info, u, project, title,
-			    response);
-		    create.createPdf();
-		    this.addActionMessage(getText("pdf.correcto"));
-		} catch (DocumentException e) {
-		    addActionError(getText("error"));
-		    log.error(e.getClass() + " " + e.getMessage());
-		} catch (IOException e) {
-		    addActionError(getText("error"));
-		    log.error(e.getClass() + " " + e.getMessage());
+		if (version != null
+			&& infoService.getVersion(u.getId(), u.getIdProyecto())
+				.size() > 1) {
+		    try {
+			info = infoService.getInfo(u.getId(),
+				u.getIdProyecto(), version);
+			if (info != null) {
+			    Project project = projectService.getProject(info
+				    .getIdP());
+			    try {
+				CreatePDF create = new CreatePDF(info, u,
+					project, title, response);
+				create.createPdf();
+				this.addActionMessage(getText("pdf.correcto"));
+			    } catch (DocumentException e) {
+				addActionError(getText("error"));
+				log.error(e.getClass() + " " + e.getMessage());
+			    } catch (IOException e) {
+				addActionError(getText("error"));
+				log.error(e.getClass() + " " + e.getMessage());
+			    }
+			}
+		    } catch (Exception e) {
+			addActionError(getText("error"));
+			log.error(e.getClass() + " " + e.getMessage());
+		    }
 		}
-
 	    } catch (Exception e) {
 		addActionError(getText("error"));
 		log.error(e.getClass() + " " + e.getMessage());

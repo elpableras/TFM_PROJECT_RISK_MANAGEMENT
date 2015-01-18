@@ -74,6 +74,12 @@ public class UnLoginAction extends ActionSupport implements ServletRequestAware 
 	    request.getSession().removeAttribute("usuario");
 	    request.getSession().removeAttribute("play");
 	    request.getSession().removeAttribute("saveplan");
+	    request.getSession().removeAttribute("iden");
+	    request.getSession().removeAttribute("info");
+	    request.getSession().removeAttribute("version");
+	    request.getSession().removeAttribute("versiones");
+	    request.getSession().removeAttribute("corte");
+	    request.getSession().removeAttribute("study");
 	    return SUCCESS;
 	} else {
 	    return ERROR;

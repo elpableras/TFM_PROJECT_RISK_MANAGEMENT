@@ -41,7 +41,19 @@
 					<s:submit id="submitUpdate" key="user.update.submit"
 						name="submitUpdate" tabindex="9" />
 				</s:form>
-			</div>			
+			</div>
+			
+			<s:if test="hasActionMessages()">
+				<div class="mensajeUpdateUser">
+					<s:actionmessage />
+				</div>
+			</s:if>
+			<s:if test="hasActionErrors()">
+				<div class="mensajeNoUpdateUser">
+					<s:actionerror />
+				</div>
+			</s:if>
+			
 		</article>
 
 	</section>

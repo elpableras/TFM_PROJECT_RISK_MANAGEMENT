@@ -1068,25 +1068,27 @@ public class CreatePDF extends HttpServlet {
 		Double total = porcentajeP * porcentajeI;
 
 		String rango = info.getRango();
-		String[] rangos = rango.split(",");
+		if (rango != null) {
+		    String[] rangos = rango.split(",");
 
-		parrafo.add(String.valueOf(String.valueOf((double) Math
-			.round(total * 100) / 100)));
-		celda = new PdfPCell(new Phrase(parrafo));
-		celda.setHorizontalAlignment(parrafo.ALIGN_CENTER);
-		celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
-		if (total < Double.valueOf(rangos[0])) {
-		    // Verde
-		    celda.setBackgroundColor(BaseColor.GREEN);
-		} else if (total >= Double.valueOf(rangos[0])
-			&& total <= Double.valueOf(rangos[1])) {
-		    // Amarillo
-		    celda.setBackgroundColor(BaseColor.YELLOW);
-		} else if (total > Double.valueOf(rangos[1])) {
-		    // Rojo
-		    celda.setBackgroundColor(BaseColor.RED);
+		    parrafo.add(String.valueOf(String.valueOf((double) Math
+			    .round(total * 100) / 100)));
+		    celda = new PdfPCell(new Phrase(parrafo));
+		    celda.setHorizontalAlignment(parrafo.ALIGN_CENTER);
+		    celda.setVerticalAlignment(parrafo.ALIGN_MIDDLE);
+		    if (total < Double.valueOf(rangos[0])) {
+			// Verde
+			celda.setBackgroundColor(BaseColor.GREEN);
+		    } else if (total >= Double.valueOf(rangos[0])
+			    && total <= Double.valueOf(rangos[1])) {
+			// Amarillo
+			celda.setBackgroundColor(BaseColor.YELLOW);
+		    } else if (total > Double.valueOf(rangos[1])) {
+			// Rojo
+			celda.setBackgroundColor(BaseColor.RED);
+		    }
+		    tabla.addCell(celda);
 		}
-		tabla.addCell(celda);
 	    }
 	}
 	tabla.addCell("");

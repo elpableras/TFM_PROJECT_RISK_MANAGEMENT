@@ -71,8 +71,7 @@
 									</tr>
 									<tr>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="1"></td>
+											class="eliminarFila" tabindex="1"></td>
 										<td><input id="idenRiskId" name="id" value="1" readonly
 											required /></td>
 										<td><s:textarea id="idenRisk"
@@ -111,8 +110,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="2" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -154,8 +152,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="3" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -197,8 +194,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="4" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -240,8 +236,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="5" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -283,8 +278,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="6" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -325,8 +319,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="7" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -368,8 +361,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="8" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -411,8 +403,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="9" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -454,8 +445,7 @@
 									<tr>
 										<s:set var="tab">${tab+1}</s:set>
 										<td><input type="button" id="buttonDelete2"
-											 class="eliminarFila"
-											tabindex="${tab}"></td>
+											class="eliminarFila" tabindex="${tab}"></td>
 										<td><input id="idenRiskId" name="id" value="10" readonly
 											required /></td>
 										<s:set var="tab">${tab+1}</s:set>
@@ -548,9 +538,8 @@
 										<tr>
 											<s:set var="tab">${tab+1}</s:set>
 											<td><input type="button" id="buttonDeleteIden" value=" "
-												class="eliminarFila" tabindex="${tab}"></td>
-											<s:set var="num">${num+1}</s:set>
-											<td><input id="idenRiskId" name="id" value="${num}"
+												class="eliminarFila" tabindex="${tab}"></td>											
+											<td><input id="idenRiskId" name="id" value="${iden.id}"
 												readonly required /></td>
 											<s:set var="tab">${tab+1}</s:set>
 											<td><s:textarea id="idenRisk" value="%{#iden.nombre}"
