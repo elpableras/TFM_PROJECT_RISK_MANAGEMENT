@@ -1,4 +1,4 @@
-# TFM_PROJECT_RISK_MANAGEMENT
+# MTW_Project Risk Management
 Web Engineer Master Thesis Work
 
 The project implements a solution for the management of project risks, a web application for the identification, analysis and control of risks that can occur in a project. The objectives are to increase the probability and impact of positive events and decrease the probability and impact of negative events for the project.
